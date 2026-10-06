@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formulir Pemasangan Lowongan Kerja Baru di AYOKERJA! Daftarkan perusahaan Anda dan pasang lowongan untuk menjaring kandidat terbaik.">
+  <meta name="author" content="Luthfi - Tugas Web Programming">
+  <title>Pasang Lowongan Baru - AYOKERJA!</title>
+</head>
+<body>
+
+  <!-- HEADER HALAMAN -->
+  <header>
+    <div>
+      <a href="index.html">
+        <img src="assets/logo-ayokerja.svg" alt="Logo resmi portal rekrutmen AYOKERJA! dengan ikon centang toska dan teks biru gelap" width="220" height="55">
+      </a>
+      <p><em>Formulir Resmi Pemasangan Lowongan Kerja &amp; Rekrutmen Mitra Perusahaan</em></p>
+    </div>
+
+    <!-- NAVIGASI UTAMA -->
+    <nav aria-label="Navigasi Menu Utama">
+      <ul>
+        <li><a href="index.html">Beranda &amp; Cari Lowongan</a></li>
+        <li><a href="tambah-lowongan.html"><strong>Pasang Lowongan Baru (Halaman Aktif)</strong></a></li>
+        <li><a href="detail-lowongan.html">Contoh Detail Lowongan</a></li>
+        <li><a href="index.html#tabel-data-lowongan">Rekap Kebutuhan Tenaga Kerja</a></li>
+        <li><a href="index.html#kontak-bantuan">Kontak Bantuan</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr>
+
+  <!-- KONTEN UTAMA HALAMAN -->
+  <main>
+
+    <!-- SECTION: PENGANTAR FORM -->
+    <section>
+      <h1>Formulir Pasang Lowongan Pekerjaan Baru</h1>
+      <p>Silakan isi seluruh formulir berikut dengan data yang valid dan lengkap. Lowongan yang diunggah akan melalui proses verifikasi oleh tim kurator <strong>AYOKERJA!</strong> sebelum dipublikasikan ke publik dalam waktu maksimal 1x24 jam kerja.</p>
+      <p><em>Keterangan: Tanda bintang (<span aria-hidden="true">*</span>) menunjukkan kolom wajib diisi sesuai skema database aplikasi.</em></p>
+    </section>
+
+    <hr>
+
+    <!-- SECTION: FORMULIR INPUT DATA -->
+    <article>
+      <h2>Data Pemasangan Lowongan Kerja</h2>
+      
+      <form action="index.html" method="POST" enctype="multipart/form-data">
+
+        <!-- FIELDSET 1: INFORMASI PERUSAHAAN (PerusahaanUser Schema) -->
+        <fieldset>
+          <legend><strong>1. Informasi Perusahaan / Mitra Perekrut</strong></legend>
+
+          <p>
+            <label for="namaPerusahaan">Nama Resmi Perusahaan: <span aria-hidden="true">*</span></label><br>
+            <input type="text" id="namaPerusahaan" name="namaPerusahaan" required placeholder="Contoh: PT Teknologi Nusantara Jaya" size="50">
+          </p>
+
+          <p>
+            <label for="email">Email Resmi HRD / Perekrut: <span aria-hidden="true">*</span></label><br>
+            <input type="email" id="email" name="email" required placeholder="hrd@teknus.co.id" size="50">
+          </p>
+
+          <p>
+            <label for="telepon">Nomor Telepon / Hotline Kantor: <span aria-hidden="true">*</span></label><br>
+            <input type="tel" id="telepon" name="telepon" required placeholder="021-5551234">
+          </p>
+
+          <p>
+            <label for="npwp">Nomor Pokok Wajib Pajak (NPWP Perusahaan):</label><br>
+            <input type="text" id="npwp" name="npwp" placeholder="01.234.567.8-012.000" size="30">
+          </p>
+
+          <p>
+            <label for="sektorIndustri">Sektor Industri Perusahaan: <span aria-hidden="true">*</span></label><br>
+            <select id="sektorIndustri" name="sektorIndustri" required>
+              <option value="">-- Pilih Sektor Industri --</option>
+              <option value="Teknologi Informasi & Software" selected>Teknologi Informasi &amp; Software</option>
+              <option value="Fintech & Perbankan">Fintech &amp; Perbankan</option>
+              <option value="Desain Grafis & Digital Marketing">Desain Grafis &amp; Digital Marketing</option>
+              <option value="E-Commerce & Retail">E-Commerce &amp; Retail</option>
+              <option value="Telekomunikasi">Telekomunikasi &amp; Jaringan</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="website">Alamat Website Resmi Perusahaan:</label><br>
+            <input type="url" id="website" name="website" placeholder="https://www.teknus.co.id" size="50">
+          </p>
+
+          <p>
+            <label for="fotoProfil">Unggah Logo / Foto Profil Perusahaan:</label><br>
+            <input type="file" id="fotoProfil" name="fotoProfil" accept="image/png, image/jpeg, image/svg+xml">
+            <br><small>Format yang didukung: PNG, JPG, SVG (Maksimal 2 MB).</small>
+          </p>
+
+          <p>
+            <label for="sertifikat">Unggah Berkas Legalitas / Sertifikat (PDF):</label><br>
+            <input type="file" id="sertifikat" name="sertifikat" accept=".pdf">
+            <br><small>Dokumen legalitas NIB/SIUP untuk proses verifikasi status akun.</small>
+          </p>
+        </fieldset>
+
+        <br>
+
+        <!-- FIELDSET 2: DETAIL LOWONGAN (Lowongan Schema) -->
+        <fieldset>
+          <legend><strong>2. Detail Posisi &amp; Ketentuan Pekerjaan</strong></legend>
+
+          <p>
+            <label for="posisiPekerjaan">Posisi / Judul Pekerjaan: <span aria-hidden="true">*</span></label><br>
+            <input type="text" id="posisiPekerjaan" name="posisiPekerjaan" required placeholder="Contoh: Fullstack Node.js & React Developer" size="50">
+          </p>
+
+          <p>
+            <label for="kategoriPekerjaan">Kategori Bidang Pekerjaan: <span aria-hidden="true">*</span></label><br>
+            <select id="kategoriPekerjaan" name="kategoriPekerjaan" required>
+              <option value="">-- Silakan Pilih Kategori --</option>
+              <optgroup label="Teknologi &amp; Rekayasa Perangkat Lunak">
+                <option value="Software Engineering" selected>Software Engineering</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Data Science & AI">Data Science &amp; AI</option>
+                <option value="Cyber Security">Cyber Security</option>
+              </optgroup>
+              <optgroup label="Bisnis, Manajemen &amp; Kreatif">
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Fintech & Perbankan">Fintech &amp; Perbankan</option>
+              </optgroup>
+            </select>
+          </p>
+
+          <fieldset>
+            <legend>Jenis / Tipe Pekerjaan (jenisPekerjaan): <span aria-hidden="true">*</span></legend>
+            <p>
+              <input type="radio" id="jenis-fulltime" name="jenisPekerjaan" value="Full-time" checked>
+              <label for="jenis-fulltime">Full-time (Purna Waktu)</label>
+              <br>
+              <input type="radio" id="jenis-parttime" name="jenisPekerjaan" value="Part-time">
+              <label for="jenis-parttime">Part-time (Paruh Waktu)</label>
+              <br>
+              <input type="radio" id="jenis-remote" name="jenisPekerjaan" value="Remote">
+              <label for="jenis-remote">Remote (Kerja Jarak Jauh / WFH)</label>
+              <br>
+              <input type="radio" id="jenis-freelance" name="jenisPekerjaan" value="Freelance">
+              <label for="jenis-freelance">Freelance (Lepas / Proyek)</label>
+            </p>
+          </fieldset>
+
+          <p>
+            <label for="gaji">Rentang Gaji (Format Teks/Nominal): <span aria-hidden="true">*</span></label><br>
+            <input type="text" id="gaji" name="gaji" required placeholder="Contoh: 12.000.000 - 18.000.000" size="40">
+          </p>
+
+          <p>
+            <label for="provinsi">Provinsi Penempatan: <span aria-hidden="true">*</span></label><br>
+            <select id="provinsi" name="provinsi" required>
+              <option value="">-- Pilih Provinsi --</option>
+              <option value="DKI Jakarta" selected>DKI Jakarta</option>
+              <option value="Jawa Barat">Jawa Barat</option>
+              <option value="Jawa Timur">Jawa Timur</option>
+              <option value="DI Yogyakarta">DI Yogyakarta</option>
+              <option value="Banten">Banten</option>
+              <option value="Luar Jawa">Luar Pulau Jawa</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="kabupaten">Kabupaten / Kota: <span aria-hidden="true">*</span></label><br>
+            <input type="text" id="kabupaten" name="kabupaten" required placeholder="Contoh: Jakarta Selatan">
+          </p>
+
+          <p>
+            <label for="kecamatan">Kecamatan:</label><br>
+            <input type="text" id="kecamatan" name="kecamatan" placeholder="Contoh: Kebayoran Baru">
+          </p>
+
+          <p>
+            <label for="alamatLengkap">Alamat Lengkap Lokasi Kantor:</label><br>
+            <textarea id="alamatLengkap" name="alamatLengkap" rows="3" cols="50" placeholder="Gedung Menara Cyber Lt. 14, Jl. Sudirman No. 45"></textarea>
+          </p>
+
+          <p>
+            <label for="tanggalMulai">Tanggal Mulai Tayang Lowongan: <span aria-hidden="true">*</span></label><br>
+            <input type="date" id="tanggalMulai" name="tanggalMulai" required>
+          </p>
+
+          <p>
+            <label for="tanggalBerakhir">Tanggal Berakhir (Batas Akhir Lamaran): <span aria-hidden="true">*</span></label><br>
+            <input type="date" id="tanggalBerakhir" name="tanggalBerakhir" required>
+          </p>
+        </fieldset>
+
+        <br>
+
+        <!-- FIELDSET 3: DESKRIPSI, SYARAT & KUALIFIKASI -->
+        <fieldset>
+          <legend><strong>3. Uraian Tugas, Persyaratan &amp; Kualifikasi</strong></legend>
+
+          <p>
+            <label for="deskripsiSingkat">Deskripsi Singkat (Ringkasan Cuplikan Kartu): <span aria-hidden="true">*</span></label><br>
+            <textarea id="deskripsiSingkat" name="deskripsiSingkat" rows="3" cols="60" required placeholder="Tuliskan 1-2 kalimat ringkas untuk tampilan kartu lowongan..."></textarea>
+          </p>
+
+          <p>
+            <label for="deskripsiPekerjaan">Deskripsi Lengkap Tanggung Jawab Pekerjaan: <span aria-hidden="true">*</span></label><br>
+            <textarea id="deskripsiPekerjaan" name="deskripsiPekerjaan" rows="6" cols="60" required placeholder="Rincikan tanggung jawab utama, tugas harian, dan ruang lingkup pekerjaan..."></textarea>
+          </p>
+
+          <p>
+            <label for="syarat">Persyaratan Teknis &amp; Pengalaman (Syarat): <span aria-hidden="true">*</span></label><br>
+            <textarea id="syarat" name="syarat" rows="5" cols="60" required placeholder="Contoh: Pengalaman 2+ tahun dengan React/Node.js, memahami RESTful API, PostgreSQL, dan Git workflow..."></textarea>
+          </p>
+
+          <p>
+            <label for="kualifikasi">Kualifikasi Pendidikan &amp; Latar Belakang: <span aria-hidden="true">*</span></label><br>
+            <textarea id="kualifikasi" name="kualifikasi" rows="4" cols="60" required placeholder="Contoh: S1 Teknik Informatika / Sistem Informasi atau bidang terkait..."></textarea>
+          </p>
+
+          <fieldset>
+            <legend>Fasilitas &amp; Tunjangan (Benefit):</legend>
+            <p>
+              <input type="checkbox" id="benefit-bpjs" name="fasilitas[]" value="BPJS Ketenagakerjaan &amp; Kesehatan">
+              <label for="benefit-bpjs">BPJS Ketenagakerjaan &amp; Kesehatan</label>
+              <br>
+              <input type="checkbox" id="benefit-asuransi" name="fasilitas[]" value="Asuransi Rawat Inap Swasta">
+              <label for="benefit-asuransi">Asuransi Kesehatan Swasta Tambahan</label>
+              <br>
+              <input type="checkbox" id="benefit-thr" name="fasilitas[]" value="THR &amp; Bonus Kinerja" checked>
+              <label for="benefit-thr">Tunjangan Hari Raya (THR) &amp; Bonus Kinerja Tahunan</label>
+              <br>
+              <input type="checkbox" id="benefit-laptop" name="fasilitas[]" value="Laptop Kerja">
+              <label for="benefit-laptop">Laptop &amp; Fasilitas Kerja Lengkap</label>
+              <br>
+              <input type="checkbox" id="benefit-pelatihan" name="fasilitas[]" value="Budget Sertifikasi">
+              <label for="benefit-pelatihan">Budget Pelatihan &amp; Sertifikasi IT</label>
+            </p>
+          </fieldset>
+        </fieldset>
+
+        <br>
+
+        <!-- FIELDSET 4: PERNYATAAN & AKSI -->
+        <fieldset>
+          <legend><strong>4. Pernyataan Keabsahan &amp; Publikasi</strong></legend>
+
+          <p>
+            <input type="checkbox" id="persetujuan-syarat" name="persetujuan_syarat" required>
+            <label for="persetujuan-syarat">
+              <strong>Saya menyatakan bahwa data lowongan ini valid, sesuai ketentuan hukum ketenagakerjaan, serta TIDAK memungut biaya apapun dari calon pelamar.</strong> <span aria-hidden="true">*</span>
+            </label>
+          </p>
+
+          <p>
+            <button type="submit"><strong>Kirim &amp; Publikasikan Lowongan</strong></button>
+            <button type="reset">Bersihkan Formulir</button>
+            <a href="index.html">Batal dan Kembali ke Beranda</a>
+          </p>
+        </fieldset>
+
+      </form>
+    </article>
+
+  </main>
+
+  <hr>
+
+  <!-- FOOTER -->
+  <footer>
+    <section>
+      <h3>Panduan Mitra Perekrut AYOKERJA!</h3>
+      <p>Butuh bantuan teknis terkait pemasangan lowongan atau integrasi API ATS perusahaan? Hubungi tim rekrutmen kami di <a href="mailto:corporate@ayokerja.id">corporate@ayokerja.id</a> atau telepon <a href="tel:+62215551234">(021) 555-1234 ext. 204</a>.</p>
+    </section>
+
+    <nav aria-label="Navigasi Footer">
+      <ul>
+        <li><a href="index.html">Halaman Utama</a></li>
+        <li><a href="tambah-lowongan.html">Pasang Lowongan</a></li>
+        <li><a href="detail-lowongan.html">Contoh Detail Lowongan</a></li>
+      </ul>
+    </nav>
+
+    <p><small>&copy; 2026 <strong>AYOKERJA! Platform</strong>. Proyek Tugas Praktikum Pemrograman Web (BAB 2 - HTML Murni).</small></p>
+  </footer>
+
+</body>
+</html>

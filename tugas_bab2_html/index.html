@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AYOKERJA! - Portal Lowongan Kerja dan Rekrutmen Terpercaya di Indonesia. Temukan lowongan karir impian Anda dari ribuan perusahaan terverifikasi.">
+  <meta name="author" content="Luthfi - Tugas Web Programming">
+  <title>AYOKERJA! - Portal Lowongan Kerja & Rekrutmen</title>
+</head>
+<body>
+
+  <!-- HEADER UTAMA -->
+  <header>
+    <!-- Logo & Identitas Aplikasi -->
+    <div>
+      <a href="index.html">
+        <img src="assets/logo-ayokerja.svg" alt="Logo resmi portal rekrutmen AYOKERJA! dengan ikon centang toska dan teks biru gelap" width="220" height="55">
+      </a>
+      <p><em>Solusi Cerdas Menemukan Karir Impian dan Rekrutmen Profesional di Indonesia</em></p>
+    </div>
+
+    <!-- NAVIGASI UTAMA -->
+    <nav aria-label="Navigasi Menu Utama">
+      <ul>
+        <li><a href="index.html"><strong>Beranda &amp; Cari Lowongan</strong></a></li>
+        <li><a href="tambah-lowongan.html">Pasang Lowongan Baru (Perusahaan)</a></li>
+        <li><a href="detail-lowongan.html">Contoh Detail Lowongan</a></li>
+        <li><a href="#tabel-data-lowongan">Rekap Kebutuhan Tenaga Kerja</a></li>
+        <li><a href="#tips-karir">Tips &amp; Panduan Karir</a></li>
+        <li><a href="#kontak-bantuan">Kontak &amp; Bantuan</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr>
+
+  <!-- KONTEN UTAMA APLIKASI -->
+  <main>
+
+    <!-- SECTION 1: HERO & PENGANTAR -->
+    <section id="hero-banner">
+      <h1>Portal Lowongan Kerja Terpercaya di Indonesia</h1>
+      <p>Selamat datang di <strong>AYOKERJA!</strong> Platform yang mempertemukan talenta terbaik di seluruh Indonesia dengan perusahaan-perusahaan teknologi, kreatif, dan korporat terpercaya secara transparan dan efisien.</p>
+      
+      <figure>
+        <img src="assets/banner-hero.svg" alt="Banner ilustrasi pencarian kerja di platform AYOKERJA! yang menampilkan koneksi antara pelamar dan perusahaan" width="700" height="210">
+        <figcaption>Ilustrasi: Ekosistem rekrutmen kerja digital terintegrasi di AYOKERJA!.</figcaption>
+      </figure>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 2: STATISTIK EKOSISTEM -->
+    <section id="statistik-platform">
+      <h2>Statistik Ekosistem AYOKERJA! (Pekan Ini)</h2>
+      <p>Data aktivitas rekrutmen yang tercatat secara real-time pada sistem:</p>
+      <dl>
+        <dt><strong>Total Lowongan Aktif:</strong></dt>
+        <dd>1.420 posisi pekerjaan terbuka siap dilamar.</dd>
+        
+        <dt><strong>Perusahaan Terverifikasi:</strong></dt>
+        <dd>580 perusahaan BUMN, multinasional, dan startup terpercaya.</dd>
+        
+        <dt><strong>Pelamar Berhasil Diterima:</strong></dt>
+        <dd>12.850 kandidat telah tersalurkan kerja sejak awal tahun.</dd>
+      </dl>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 3: FORMULIR FILTER DAN PENCARIAN LOWONGAN -->
+    <section id="filter-pencarian">
+      <h2>Cari Lowongan Pekerjaan</h2>
+      <p>Gunakan filter di bawah ini untuk mempersempit pencarian berdasarkan kata kunci, kategori, dan lokasi penempatan:</p>
+      
+      <form action="index.html" method="GET">
+        <fieldset>
+          <legend>Filter Pencarian Data</legend>
+          
+          <p>
+            <label for="kata-kunci">Kata Kunci Posisi / Nama Perusahaan:</label><br>
+            <input type="text" id="kata-kunci" name="q" placeholder="Contoh: Fullstack Developer, UI/UX Designer...">
+          </p>
+
+          <p>
+            <label for="kategori-pekerjaan">Kategori Bidang Pekerjaan:</label><br>
+            <select id="kategori-pekerjaan" name="kategori">
+              <option value="">-- Semua Kategori --</option>
+              <optgroup label="Teknologi &amp; Rekayasa Perangkat Lunak">
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Data Science &amp; AI">Data Science &amp; AI</option>
+                <option value="Cyber Security">Cyber Security</option>
+              </optgroup>
+              <optgroup label="Bisnis &amp; Kreatif">
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Fintech &amp; Banking">Fintech &amp; Banking</option>
+              </optgroup>
+            </select>
+          </p>
+
+          <p>
+            <label for="lokasi-penempatan">Wilayah Penempatan:</label><br>
+            <select id="lokasi-penempatan" name="provinsi">
+              <option value="">-- Semua Wilayah --</option>
+              <option value="DKI Jakarta">DKI Jakarta</option>
+              <option value="Jawa Barat">Jawa Barat</option>
+              <option value="Jawa Timur">Jawa Timur</option>
+              <option value="DI Yogyakarta">DI Yogyakarta</option>
+              <option value="Remote">Remote (Seluruh Indonesia)</option>
+            </select>
+          </p>
+
+          <p>
+            <button type="submit">Cari Lowongan</button>
+            <button type="reset">Atur Ulang Filter</button>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 4: DAFTAR KATALOG LOWONGAN PEKERJAAN (ARTICLES) -->
+    <section id="daftar-lowongan">
+      <h2>Daftar Lowongan Pekerjaan Unggulan</h2>
+      <p>Berikut adalah beberapa lowongan terverifikasi terbaru yang sedang membutuhkan kandidat potensial:</p>
+
+      <!-- Lowongan 1 -->
+      <article>
+        <header>
+          <img src="assets/company-tech.svg" alt="Logo resmi PT Teknologi Nusantara Jaya berwarna biru dengan lambang teknologi modular" width="60" height="60">
+          <h3><a href="detail-lowongan.html">Fullstack Node.js &amp; React Developer</a></h3>
+          <p><strong>Perusahaan:</strong> PT Teknologi Nusantara Jaya</p>
+        </header>
+
+        <ul>
+          <li><strong>Kategori:</strong> Software Engineering</li>
+          <li><strong>Lokasi:</strong> Jakarta Selatan, DKI Jakarta (Gedung Menara Cyber Lt. 14)</li>
+          <li><strong>Tipe Pekerjaan:</strong> Full-time</li>
+          <li><strong>Rentang Gaji:</strong> Rp 12.000.000 - Rp 18.000.000 / bulan</li>
+          <li><strong>Periode Lowongan:</strong> 01 September 2026 s.d. 15 Oktober 2026</li>
+        </ul>
+
+        <p><strong>Ringkasan Deskripsi:</strong> Mengembangkan sistem web enterprise berbasis NestJS REST API, Prisma ORM, dan React Frontend yang efisien dan modular.</p>
+
+        <p><a href="detail-lowongan.html"><strong>Lihat Detail Lengkap &amp; Lamar Pekerjaan &raquo;</strong></a></p>
+      </article>
+
+      <hr>
+
+      <!-- Lowongan 2 -->
+      <article>
+        <header>
+          <img src="assets/company-data.svg" alt="Logo resmi PT Bintang Financial Tech berwarna hijau dengan lambang grafik finansial" width="60" height="60">
+          <h3><a href="detail-lowongan.html">Senior UI/UX Designer</a></h3>
+          <p><strong>Perusahaan:</strong> PT Bintang Financial Tech</p>
+        </header>
+
+        <ul>
+          <li><strong>Kategori:</strong> UI/UX Design</li>
+          <li><strong>Lokasi:</strong> Jakarta Selatan, DKI Jakarta (Remote / WFH)</li>
+          <li><strong>Tipe Pekerjaan:</strong> Remote</li>
+          <li><strong>Rentang Gaji:</strong> Rp 10.000.000 - Rp 15.000.000 / bulan</li>
+          <li><strong>Periode Lowongan:</strong> 10 September 2026 s.d. 30 Oktober 2026</li>
+        </ul>
+
+        <p><strong>Ringkasan Deskripsi:</strong> Merancang wireframe, prototype interaktif, user research, dan design system aplikasi mobile fintech modern.</p>
+
+        <p><a href="detail-lowongan.html"><strong>Lihat Detail Lengkap &amp; Lamar Pekerjaan &raquo;</strong></a></p>
+      </article>
+
+      <hr>
+
+      <!-- Lowongan 3 -->
+      <article>
+        <header>
+          <img src="assets/company-tech.svg" alt="Logo resmi PT Teknologi Nusantara Jaya berwarna biru dengan lambang teknologi modular" width="60" height="60">
+          <h3><a href="detail-lowongan.html">Backend &amp; Data Engineer</a></h3>
+          <p><strong>Perusahaan:</strong> PT Teknologi Nusantara Jaya</p>
+        </header>
+
+        <ul>
+          <li><strong>Kategori:</strong> Data Science &amp; AI</li>
+          <li><strong>Lokasi:</strong> Jakarta Selatan, DKI Jakarta (On-site)</li>
+          <li><strong>Tipe Pekerjaan:</strong> Full-time</li>
+          <li><strong>Rentang Gaji:</strong> Rp 15.000.000 - Rp 22.000.000 / bulan</li>
+          <li><strong>Periode Lowongan:</strong> 15 September 2026 s.d. 15 November 2026</li>
+        </ul>
+
+        <p><strong>Ringkasan Deskripsi:</strong> Membangun pipeline data berskala besar, optimasi query database SQL/Prisma, dan integrasi model Machine Learning ke backend NestJS.</p>
+
+        <p><a href="detail-lowongan.html"><strong>Lihat Detail Lengkap &amp; Lamar Pekerjaan &raquo;</strong></a></p>
+      </article>
+
+      <hr>
+
+      <!-- Lowongan 4 -->
+      <article>
+        <header>
+          <img src="assets/company-creative.svg" alt="Logo resmi CV Karya Utama Mandiri berwarna ungu dengan lambang lingkaran kreatif" width="60" height="60">
+          <h3><a href="detail-lowongan.html">Digital Marketing &amp; SEO Specialist</a></h3>
+          <p><strong>Perusahaan:</strong> CV Karya Utama Mandiri</p>
+        </header>
+
+        <ul>
+          <li><strong>Kategori:</strong> Digital Marketing</li>
+          <li><strong>Lokasi:</strong> Surabaya, Jawa Timur (Jl. Pemuda No. 12)</li>
+          <li><strong>Tipe Pekerjaan:</strong> Full-time</li>
+          <li><strong>Rentang Gaji:</strong> Rp 7.000.000 - Rp 10.000.000 / bulan</li>
+          <li><strong>Periode Lowongan:</strong> 01 Oktober 2026 s.d. 30 November 2026</li>
+        </ul>
+
+        <p><strong>Ringkasan Deskripsi:</strong> Mengelola kampanye iklan digital berbayar (Meta Ads, Google Ads), optimasi mesin pencari (SEO), dan manajemen konten media sosial.</p>
+
+        <p><a href="detail-lowongan.html"><strong>Lihat Detail Lengkap &amp; Lamar Pekerjaan &raquo;</strong></a></p>
+      </article>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 5: DATA TABULAR (TABEL REKAPITULASI) -->
+    <section id="tabel-data-lowongan">
+      <h2>Tabel Rekapitulasi Lowongan &amp; Kebutuhan Tenaga Kerja</h2>
+      <p>Data tabular berikut merangkum status pemenuhan kuota rekrutmen untuk periode berjalan:</p>
+
+      <table border="1" cellpadding="8" cellspacing="0">
+        <caption><em>Tabel 1.1: Rekapitulasi Kuota Rekrutmen dan Status Lowongan Terbuka</em></caption>
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Posisi Pekerjaan</th>
+            <th scope="col">Nama Perusahaan</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Lokasi Penempatan</th>
+            <th scope="col">Tipe Kerja</th>
+            <th scope="col">Estimasi Gaji (Rp)</th>
+            <th scope="col">Status</th>
+            <th scope="col">Batas Akhir</th>
+            <th scope="col">Tautan Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Fullstack Node.js &amp; React Developer</td>
+            <td>PT Teknologi Nusantara Jaya</td>
+            <td>Software Engineering</td>
+            <td>Jakarta Selatan</td>
+            <td>Full-time</td>
+            <td>12.000.000 - 18.000.000</td>
+            <td><strong>OPEN</strong></td>
+            <td>15 Okt 2026</td>
+            <td><a href="detail-lowongan.html">Buka Detail</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Senior UI/UX Designer</td>
+            <td>PT Bintang Financial Tech</td>
+            <td>UI/UX Design</td>
+            <td>Jakarta Selatan (Remote)</td>
+            <td>Remote</td>
+            <td>10.000.000 - 15.000.000</td>
+            <td><strong>OPEN</strong></td>
+            <td>30 Okt 2026</td>
+            <td><a href="detail-lowongan.html">Buka Detail</a></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Backend &amp; Data Engineer</td>
+            <td>PT Teknologi Nusantara Jaya</td>
+            <td>Data Science &amp; AI</td>
+            <td>Jakarta Selatan</td>
+            <td>Full-time</td>
+            <td>15.000.000 - 22.000.000</td>
+            <td><strong>OPEN</strong></td>
+            <td>15 Nov 2026</td>
+            <td><a href="detail-lowongan.html">Buka Detail</a></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Digital Marketing &amp; SEO Specialist</td>
+            <td>CV Karya Utama Mandiri</td>
+            <td>Digital Marketing</td>
+            <td>Surabaya, Jawa Timur</td>
+            <td>Full-time</td>
+            <td>7.000.000 - 10.000.000</td>
+            <td><strong>OPEN</strong></td>
+            <td>30 Nov 2026</td>
+            <td><a href="detail-lowongan.html">Buka Detail</a></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="6">Total Lowongan Aktif Ditampilkan:</th>
+            <td colspan="4"><strong>4 Posisi (dari 3 Perusahaan Terverifikasi)</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 6: ASIDE INFORMASI TAMBAHAN / SIDEBAR -->
+    <aside id="tips-karir" aria-label="Tips Karir dan Informasi Penunjang">
+      <h2>Tips Karir &amp; Panduan Rekrutmen</h2>
+      
+      <article>
+        <h3>5 Kunci Sukses Lolos Seleksi Berkas (Curriculum Vitae)</h3>
+        <ol>
+          <li>Gunakan format CV ramah <em>Applicant Tracking System (ATS)</em> yang bersih dan mudah dipindai mesin.</li>
+          <li>Cantumkan pencapaian berbasis angka kuantitatif pada pengalaman kerja terdahulu.</li>
+          <li>Sertakan tautan portofolio proyek riil atau repositori kode GitHub yang masih aktif.</li>
+          <li>Sesuaikan kata kunci keahlian teknis dengan kualifikasi yang dicantumkan pada deskripsi pekerjaan.</li>
+          <li>Periksa kembali penulisan tata bahasa untuk menghindari kesalahan ketik (<em>typo</em>).</li>
+        </ol>
+      </article>
+
+      <div>
+        <h3>Tautan Eksternal &amp; Referensi Resmi Ketenagakerjaan:</h3>
+        <ul>
+          <li><a href="https://kemnaker.go.id" target="_blank" rel="noopener noreferrer">Kementerian Ketenagakerjaan Republik Indonesia (Kemnaker RI)</a></li>
+          <li><a href="https://bnsp.go.id" target="_blank" rel="noopener noreferrer">Badan Nasional Sertifikasi Profesi (BNSP)</a></li>
+          <li><a href="https://www.bps.go.id" target="_blank" rel="noopener noreferrer">Badan Pusat Statistik (BPS) - Data Ketenagakerjaan Nasional</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </main>
+
+  <hr>
+
+  <!-- FOOTER UTAMA -->
+  <footer id="kontak-bantuan">
+    <!-- Informasi Kontak & Operasional -->
+    <section>
+      <h3>Pusat Bantuan &amp; Kontak Resmi AYOKERJA!</h3>
+      <address>
+        <p><strong>Alamat Kantor Pusat:</strong><br>
+        Gedung Cyber Mandiri Lt. 8, Jl. Gatot Subroto Kav. 45, Jakarta Selatan 12930, Indonesia.</p>
+        
+        <p>
+          <strong>Email Layanan:</strong> <a href="mailto:support@ayokerja.id">support@ayokerja.id</a><br>
+          <strong>Telepon Hotline:</strong> <a href="tel:+62215551234">(021) 555-1234</a><br>
+          <strong>WhatsApp Layanan Pengguna:</strong> <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">+62 812-3456-7890</a>
+        </p>
+        
+        <p><strong>Jam Operasional Customer Support:</strong> Senin - Jumat (08:30 - 17:30 WIB)</p>
+      </address>
+    </section>
+
+    <!-- Navigasi Footer -->
+    <nav aria-label="Navigasi Footer dan Kebijakan">
+      <h4>Tautan Cepat:</h4>
+      <ul>
+        <li><a href="index.html">Halaman Utama (Beranda)</a></li>
+        <li><a href="tambah-lowongan.html">Form Tambah Lowongan Kerja</a></li>
+        <li><a href="detail-lowongan.html">Halaman Detail Lowongan</a></li>
+        <li><a href="#hero-banner">Kembali ke Atas Halaman</a></li>
+      </ul>
+    </nav>
+
+    <p><small>&copy; 2026 <strong>AYOKERJA! Platform</strong>. Proyek Tugas Praktikum Pemrograman Web (BAB 2 - HTML Murni). Seluruh hak cipta dilindungi undang-undang.</small></p>
+  </footer>
+
+</body>
+</html>

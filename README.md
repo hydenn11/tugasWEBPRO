@@ -1,5 +1,4 @@
 # Repositori Tugas Pemrograman Web (Web Programming)
-**Mahasiswa:** Luthfi Rezkiansyah Ramadhani  
 **Repositori:** tugasWEBPRO  
 **Studi Kasus Proyek Fullstack:** **AYOKERJA!** (Portal Rekrutmen & Lowongan Kerja Terpadu)
 
@@ -12,10 +11,8 @@
 | **Bab 2** | **HTML Murni (Semantic HTML5 & Aksesibilitas)** | ✅ **Selesai** | [`tugas_bab2_html/`](./tugas_bab2_html/) |
 | **Bab 3** | Penerapan CSS Murni (Styling & Responsive Layout) | ⏳ *Mendatang* | `tugas_bab3_css/` |
 | **Bab 4** | Penerapan Framework CSS (Tailwind CSS / Bootstrap) | ⏳ *Mendatang* | `tugas_bab4_css_framework/` |
-| **Bab 5 - 14** | JavaScript Dinamis, REST API, Database & Fullstack App | ⏳ *Mendatang* | `tugas_bab5_dst/` |
 
 ---
-
 ## 📖 Ringkasan Tugas Bab 2 (HTML Murni)
 Dokumentasi lengkap, struktur semantic, dan tangkapan layar tampilan 3 halaman tugas Bab 2 dapat dilihat langsung pada:  
 👉 **[README Tugas Bab 2 (tugas_bab2_html)](./tugas_bab2_html/README.md)**

@@ -4,15 +4,14 @@
 
 ---
 
-## 📚 Daftar Tugas Perkuliahan Per Bab
+## Daftar Tugas Perkuliahan Per Bab
 
 | Pekan / Bab | Topik Tugas | Status | Direktori Tugas |
 | :--- | :--- | :--- | :--- |
 | **Bab 2** | **HTML Murni (Semantic HTML5 & Aksesibilitas)** | ✅ **Selesai** | [`tugas_bab2_html/`](./tugas_bab2_html/) |
-| **Bab 3** | Penerapan CSS Murni (Styling & Responsive Layout) | ⏳ *Mendatang* | `tugas_bab3_css/` |
-| **Bab 4** | Penerapan Framework CSS (Tailwind CSS / Bootstrap) | ⏳ *Mendatang* | `tugas_bab4_css_framework/` |
-
+| **Bab 3** | **CSS Murni (Styling & Responsive Layout @media)** | ✅ **Selesai** | [`tugas_bab3_css/`](./tugas_bab3_css/) |
 ---
-## 📖 Ringkasan Tugas Bab 2 (HTML Murni)
-Dokumentasi lengkap, struktur semantic, dan tangkapan layar tampilan 3 halaman tugas Bab 2 dapat dilihat langsung pada:  
-👉 **[README Tugas Bab 2 (tugas_bab2_html)](./tugas_bab2_html/README.md)**
+## 📖 Dokumentasi Tugas Perkuliahan
+**Bab 2 (HTML Murni):** -> **[README Tugas Bab 2 (tugas_bab2_html)](./tugas_bab2_html/README.md)**
+**Bab 3 (CSS Murni & Responsive):** -> **[README Tugas Bab 3 (tugas_bab3_css)](./tugas_bab3_css/README.md)**
+

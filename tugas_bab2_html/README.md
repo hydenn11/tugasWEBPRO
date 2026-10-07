@@ -1,93 +1,86 @@
-## 1. Studi Kasus Aplikasi: **AYOKERJA!**
-**AYOKERJA!** adalah platform portal lowongan kerja dan rekrutmen digital terpadu di Indonesia yang menghubungkan pencari kerja (*job seekers*) dengan perusahaan (*employers*) secara transparan, efisien, dan terverifikasi.
+# Dokumentasi Tugas Praktikum Pemrograman Web
+## BAB 2 - Penerapan Struktur Semantic HTML5 & Aksesibilitas
 
-Studi kasus ini dipilih karena memiliki kompleksitas data yang ideal untuk pengembangan bertahap hingga pekan ke-14 (meliputi katalog data, filtering, form multi-input, relasi pelamar-perusahaan, autentikasi, serta dashboard manajemen).
+**Nama Mahasiswa / Repositori:** tugasWEBPRO  
+**Studi Kasus Proyek Fullstack:** **AYOKERJA!** (Portal Rekrutmen & Penyaluran Kerja Terpadu Indonesia)  
+**Tautan Repositori GitHub:** [https://github.com/hydenn11/tugasWEBPRO](https://github.com/hydenn11/tugasWEBPRO)
 
 ---
 
-## 2. Struktur Direktori Proyek
+## 1. Studi Kasus Aplikasi: **AYOKERJA!**
+**AYOKERJA!** adalah platform portal lowongan kerja dan rekrutmen digital terpadu di Indonesia yang menghubungkan pencari kerja (*job seekers*) dengan perusahaan (*employers*) secara transparan, efisien, dan terverifikasi.
+
+Studi kasus ini dipilih karena memiliki kompleksitas data yang ideal untuk pengembangan bertahap hingga pekan ke-14 (meliputi katalog data lowongan terverifikasi, pencarian & filtering data, statistik ekosistem, accordion FAQ, serta profil visi misi perusahaan).
+
+---
+
+## 2. Struktur Direktori Proyek (BAB 2 - HTML)
 
 ```text
-tugas-bab2-html/
-├── assets/                          # Aset gambar vektor & logo lokal
-│   ├── banner-hero.svg              # Ilustrasi banner pengantar utama
-│   ├── company-creative.svg         # Logo contoh perusahaan kreatif
-│   ├── company-data.svg             # Logo contoh perusahaan data
-│   ├── company-tech.svg             # Logo contoh perusahaan teknologi
-│   └── logo-ayokerja.svg            # Logo identitas platform AYOKERJA!
+tugas_bab2_html/
+├── assets/                               # Aset logo dan gambar perusahaan
+│   ├── company-google.png                # Logo PT Google Indonesia
+│   ├── company-amazon.png                # Logo PT Amazon Web Services / Services Indonesia
+│   ├── company-adobe.png                 # Logo PT Adobe Systems Indonesia
+│   ├── company-burgerking.png            # Logo PT Sari Burger Indonesia
+│   ├── company-spacex.png                # Logo PT Starlink Services Indonesia / SpaceX
+│   └── logo.png                          # Logo resmi platform AYOKERJA!
 ├── docs/
-│   └── screenshots/                 # Tangkapan layar tampilan setiap halaman
-│       ├── 01-halaman-utama.png
-│       ├── 02-form-tambah-lowongan.png
-│       └── 03-detail-lowongan.png
-├── detail-lowongan.html             # Halaman 3: Detail Lowongan & Form Lamar Cepat
-├── index.html                       # Halaman 1: Halaman Utama & Katalog Lowongan
-├── tambah-lowongan.html             # Halaman 2: Form Tambah / Pasang Lowongan Baru
-└── README.md                        # Dokumentasi lengkap tugas
+│   └── screenshots/                      # Direktori Dokumentasi Tangkapan Layar
+├── about.html                            # Halaman 2: Tentang Kami (Profil & Visi Misi)
+├── index.html                            # Halaman 1: Beranda & Katalog Lowongan
+├── support.html                          # Halaman 3: Pusat Bantuan (FAQ Accordion & Kontak)
+└── README.md                             # Dokumentasi lengkap tugas Bab 2
 ```
 
 ---
 
 ## 3. Rincian Halaman & Komponen HTML yang Diterapkan
 
-Proyek ini terdiri dari **3 halaman HTML murni** yang saling terhubung melalui navigasi hyperlink (`<a href="...">`):
+Proyek ini terdiri dari **3 halaman HTML murni** (tanpa CSS eksternal) yang saling terhubung melalui navigasi hyperlink (`<a href="...">`):
 
 ### A. Halaman Utama / Beranda (`index.html`)
-* **Fungsi:** Menampilkan identitas platform, navigasi utama, banner pengantar, statistik ekosistem, formulir pencarian/filter data, katalog artikel lowongan pekerjaan unggulan, tabel rekapitulasi kebutuhan tenaga kerja, tips karir pada sidebar (`<aside>`), dan footer kontak.
+* **Fungsi:** Menampilkan identitas platform AYOKERJA!, navigasi menu utama, banner hero search bar, 4 metrik statistik ekosistem, navigasi filter kategori cepat, 6 katalog artikel lowongan pekerjaan unggulan dari perusahaan terverifikasi (Google, AWS, Adobe, Burger King, SpaceX, Amazon), serta footer informasi kontak.
 * **Elemen HTML Utama:**
-  * **Semantic HTML5:** `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<figure>`, `<figcaption>`, `<aside>`, `<footer>`, `<address>`.
-  * **Headings:** `<h1>` (tunggal untuk judul utama), `<h2>`, `<h3>`.
-  * **Data Tabular:** `<table>` dengan `<caption>`, `<thead>`, `<tbody>`, `<tfoot>`, `<tr>`, `<th scope="col/row">`, `<td>`.
-  * **Media & List:** `<img>` dengan `alt` deskriptif, `<dl>` (description list data statistik), `<ul>`, `<ol>`.
+  * **Semantic HTML5:** `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<figure>`, `<footer>`, `<address>`.
+  * **Headings:** `<h1>` (tunggal untuk judul utama halaman), `<h2>`, `<h3>`, `<h4>`.
+  * **Description List & Data Statistik:** `<dl>`, `<dt>`, `<dd>` untuk statistik ekosistem.
+  * **Formulir & Kontrol Pencarian:** `<form>`, `<label for="...">`, `<input type="text">`, `<select>`, `<option>`, `<button type="submit">`.
+  * **Media & Gambar:** `<img>` dengan atribut `alt`, `width`, dan `height` yang proporsional.
 
-### B. Formulir Tambah Lowongan (`tambah-lowongan.html`)
-* **Fungsi:** Formulir bagi mitra perusahaan untuk memasang lowongan kerja baru.
+### B. Halaman Tentang Kami (`about.html`)
+* **Fungsi:** Menyajikan informasi komprehensif terkait profil platform AYOKERJA!, 3 metrik pencapaian (mitra industri terverifikasi, kandidat diterima, indeks kepuasan), serta kartu visi dan misi dengan daftar komitmen keunggulan layanan.
 * **Elemen HTML Utama:**
-  * **Form & Fieldset:** `<form>`, `<fieldset>`, `<legend>` untuk membagi kelompok data (Informasi Perusahaan, Detail Posisi, Kualifikasi & Fasilitas, Pernyataan Keabsahan).
-  * **Ragam Tipe Input:** `text`, `email`, `tel`, `url`, `file`, `number`, `date`, `radio`, `checkbox`, `textarea`, `<select>`, `<optgroup>`, `<option>`.
-  * **Aksesibilitas:** Seluruh input memiliki pasangan `<label for="id">` yang valid secara semantik.
-  * **Tombol Aksi:** `<button type="submit">`, `<button type="reset">`, serta tautan pembatalan.
+  * **Semantic Structure:** `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, `<address>`.
+  * **Hierarki Heading:** `<h1>` judul halaman, `<h2>` sub-topik capaian & visi misi, `<h3>` judul komitmen layanan.
+  * **Data List:** `<dl>`, `<dt>`, `<dd>` untuk statistik capaian platform dan `<ul>`, `<li>` untuk poin-poin visi misi.
 
-### C. Halaman Detail Lowongan & Lamar Cepat (`detail-lowongan.html`)
-* **Fungsi:** Menampilkan informasi komprehensif terkait suatu lowongan (deskripsi, tanggung jawab, kualifikasi, benefit, tabel jadwal tahapan seleksi), profil perusahaan mitra, rekomendasi lowongan serupa, dan formulir pendaftaran lamaran online.
+### C. Halaman Pusat Bantuan (`support.html`)
+* **Fungsi:** Menyediakan pusat bantuan interaktif berisi daftar pertanyaan umum (FAQ) seputar mekanisme lamaran kerja, proses verifikasi dokumen legalitas perusahaan, biaya registrasi, dan konfirmasi jadwal wawancara, serta banner tautan kontak customer service resmi.
 * **Elemen HTML Utama:**
-  * **Navigasi Breadcrumb:** `<nav aria-label="Breadcrumb">` untuk navigasi hirarki halaman.
-  * **Tabel Jadwal Seleksi:** Tabel tahapan seleksi rekrutmen lengkap dengan estimasi durasi dan metode tes.
-  * **Formulir Lamar Cepat:** Form pengisian data pribadi, upload CV (PDF), tautan portofolio/LinkedIn, surat motivasi, dan persetujuan data.
+  * **Interaktif Native HTML5:** `<details>` dan `<summary>` untuk membuat komponen accordion FAQ murni tanpa JavaScript/CSS.
+  * **Atribut Default Open:** Penggunaan atribut `open` pada `<details open>` untuk menampilkan item FAQ pertama dalam keadaan terbuka.
+  * **Tautan Komunikasi:** `<a href="mailto:support@ayokerja.id">` untuk interaksi email langsung.
 
 ---
 
 ## 4. Penerapan Semantic HTML5 & Praktik Aksesibilitas
 
 1. **Semantic HTML5:**
-   * Tidak menggunakan `<div>` bertumpuk tanpa makna struktural.
-   * Struktur dokumen jelas: `<header>` untuk kepala dokumen/bagian, `<nav>` untuk navigasi, `<main>` untuk konten utama, `<section>` untuk pemisahan topik, `<article>` untuk entitas mandiri (lowongan/tips), `<aside>` untuk konten sampingan pendukung, dan `<footer>` untuk informasi penutup/hak cipta.
+   * Dokumen tidak menggunakan `<div>` bertumpuk tanpa makna struktural; setiap bagian dibungkus dengan tag semantik yang tepat (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
+   * Struktur dokumen jelas dan mematuhi kaidah HTML5 standar W3C.
 2. **Aksesibilitas (a11y):**
-   * **Deskripsi Gambar:** Semua tag `<img>` memiliki atribut `alt` yang mendeskripsikan konten visual secara jelas bagi pengguna pembaca layar (*screen reader*).
-   * **Relasi Label & Input:** Setiap elemen input form terhubung langsung dengan `<label>` melalui atribut `for` yang sama persis dengan `id` pada input.
-   * **Validasi Native:** Menggunakan atribut HTML5 seperti `required`, `pattern`, `min`, `max`, `step`, `accept`, dan `placeholder`.
+   * **Deskripsi Gambar:** Semua tag `<img>` memiliki atribut `alt` deskriptif bagi pembaca layar (*screen reader*).
+   * **Relasi Label & Input:** Setiap elemen input form terhubung langsung dengan `<label>` melalui atribut `for` dan `id` yang presisi.
+   * **Landmark Navigasi:** Menggunakan atribut `aria-label="Navigasi Menu Utama"` pada elemen `<nav>`.
 
 ---
 
-## 5. Tangkapan Layar Tampilan Halaman (HTML Murni)
+## 5. Petunjuk Menjalankan Proyek
 
-Berikut adalah dokumentasi tampilan struktur halaman HTML murni sebelum diberikan styling CSS:
-
-### 1. Tampilan Halaman Utama (`index.html`)
-![Tampilan Halaman Utama](docs/screenshots/01-halaman-utama.png)
-
-### 2. Tampilan Form Tambah Lowongan (`tambah-lowongan.html`)
-![Tampilan Form Tambah Lowongan](docs/screenshots/02-form-tambah-lowongan.png)
-
-### 3. Tampilan Halaman Detail & Form Lamar (`detail-lowongan.html`)
-![Tampilan Detail Lowongan](docs/screenshots/03-detail-lowongan.png)
+1. Proyek ini dibangun menggunakan **HTML5 standar murni**, sehingga tidak memerlukan server lokal atau dependensi tambahan.
+2. Buka file `index.html` pada folder `tugas_bab2_html/` secara langsung di web browser (Google Chrome, Microsoft Edge, Mozilla Firefox, dll).
+3. Semua tautan navigasi (`<a>`) antar 3 halaman (**Beranda**, **Tentang Kami**, **Pusat Bantuan**) telah terhubung secara relatif dan dapat diakses dengan lancar.
 
 ---
 
-## 6. Petunjuk Menjalankan / Membuka Proyek
-
-1. Proyek ini dibangun menggunakan **HTML5 standar murni**, sehingga tidak memerlukan instalasi dependensi tambahan untuk dibuka.
-2. Cukup klik ganda file `index.html` pada File Explorer untuk membukanya di browser apa pun (Google Chrome, Microsoft Edge, Mozilla Firefox, dll), atau gunakan ekstensi *Live Server* pada VS Code / Antigravity IDE.
-3. Semua tautan navigasi (`<a>`) antar halaman telah terhubung secara relatif dan dapat diuji secara langsung.
-
----

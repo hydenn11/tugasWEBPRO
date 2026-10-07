@@ -1,10 +1,3 @@
-# Tugas Perkuliahan: BAB 2 - HTML Murni (Semantic HTML5 & Aksesibilitas)
-**Mata Kuliah:** Pemrograman Web (Web Programming)  
-**Cicilan Proyek:** Tahap 1 (Struktur Dasar HTML Murni - Pekan 2)  
-**Proyek Lanjutan:** Aplikasi Fullstack (Bertahap s.d. Pekan ke-14)
-
----
-
 ## 1. Studi Kasus Aplikasi: **AYOKERJA!**
 **AYOKERJA!** adalah platform portal lowongan kerja dan rekrutmen digital terpadu di Indonesia yang menghubungkan pencari kerja (*job seekers*) dengan perusahaan (*employers*) secara transparan, efisien, dan terverifikasi.
 
@@ -102,4 +95,3 @@ Berikut adalah dokumentasi tampilan struktur halaman HTML murni sebelum diberika
 ## 7. Rencana Pengembangan Selanjutnya (Pekan 3 s.d. Pekan 14)
 * **Minggu 3:** Penerapan CSS Murni (Color palette, Flexbox, CSS Grid, Typography, Responsive Layout).
 * **Minggu 4:** Penerapan Framework CSS (Tailwind CSS / Bootstrap).
-* **Tahap Lanjutan:** Integrasi JavaScript interaktif, React/Vite, REST API Backend, Database, serta Autentikasi Pengguna sampai Pekan 14.

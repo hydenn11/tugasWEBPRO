@@ -91,7 +91,3 @@ Berikut adalah dokumentasi tampilan struktur halaman HTML murni sebelum diberika
 3. Semua tautan navigasi (`<a>`) antar halaman telah terhubung secara relatif dan dapat diuji secara langsung.
 
 ---
-
-## 7. Rencana Pengembangan Selanjutnya (Pekan 3 s.d. Pekan 14)
-* **Minggu 3:** Penerapan CSS Murni (Color palette, Flexbox, CSS Grid, Typography, Responsive Layout).
-* **Minggu 4:** Penerapan Framework CSS (Tailwind CSS / Bootstrap).

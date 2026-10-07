@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="AYOKERJA! - Platform Rekrutmen & Penyaluran Kerja Terpercaya di Indonesia. Temukan lowongan karir impian Anda.">
+  <meta name="author" content="Luthfi - Tugas Web Programming">
+  <title>AYOKERJA! - Portal Lowongan Kerja &amp; Rekrutmen Terpercaya</title>
+
+  <!-- HUBUNGKAN KE EXTERNAL STYLESHEET (CSS MURNI) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR UTAMA (SESUAI D:\WEBPRO\frontend\src\components\Navbar.tsx) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-link">
+        <img src="assets/logo.png" alt="AYOKERJA! Logo" width="160" height="38">
+        <span class="brand-title">AYOKERJA!</span>
+      </a>
+
+      <!-- Menu Navigasi Utama (3 Halaman: Beranda, Tentang Kami, Pusat Bantuan) -->
+      <nav class="main-nav" aria-label="Navigasi Menu Utama">
+        <ul>
+          <li><a href="index.html" class="active">Beranda</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="support.html">Pusat Bantuan</a></li>
+        </ul>
+      </nav>
+
+      <!-- Tombol Aksi Autentikasi -->
+      <div class="nav-auth-actions">
+        <a href="support.html" class="btn-nav-pelamar">Masuk Pelamar</a>
+        <a href="support.html" class="btn-nav-perusahaan">Masuk Perusahaan</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION HERO SEARCH BAR (SESUAI D:\WEBPRO\frontend\src\pages\LandingPage.tsx) -->
+  <section class="hero-search-section">
+    <div class="hero-search-inner">
+      <h1>Temukan Karir Impianmu di <span>AYOKERJA!</span></h1>
+      <p class="hero-desc">Platform job recruitment online resmi untuk menghubungkan pencari kerja dengan perusahaan
+        terverifikasi di seluruh Indonesia.</p>
+
+      <!-- Clean Pill Search Box Sesuai Screenshot -->
+      <form action="index.html" method="GET" class="search-pill-box">
+        <div class="search-pill-input-wrap">
+          <svg class="svg-icon" style="color: #94A3B8; width: 1.15rem; height: 1.15rem;" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" name="q" placeholder="Cari posisi pekerjaan atau nama perusahaan...">
+        </div>
+
+        <div class="search-pill-select-wrap">
+          <!-- Ikon Pin Lokasi -->
+          <svg class="svg-icon" style="color: #94A3B8; width: 1.1rem; height: 1.1rem;" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <select name="kategori">
+            <option value="">Semua</option>
+            <option value="Software Engineering">Software Engineering</option>
+            <option value="UI/UX Design">UI/UX Design</option>
+            <option value="Data Science &amp; AI">Data Science &amp; AI</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-pill-search">Cari Lowongan</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- KONTEN UTAMA APLIKASI -->
+  <main class="container">
+
+    <!-- SECTION 1: STATISTIK EKOSISTEM (4 KARTU BERSIH DENGAN IKON SESUAI PERMINTAAN USER) -->
+    <section id="statistik-platform" class="stats-section-wrap">
+      <dl class="stats-grid-4">
+
+        <!-- 1. Ikon Gedung (Perusahaan Terverifikasi) -->
+        <div class="stat-card-clean">
+          <div class="stat-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+              <path d="M9 22v-4h6v4"></path>
+              <path d="M8 6h.01"></path>
+              <path d="M16 6h.01"></path>
+              <path d="M8 10h.01"></path>
+              <path d="M16 10h.01"></path>
+              <path d="M8 14h.01"></path>
+              <path d="M16 14h.01"></path>
+            </svg>
+          </div>
+          <div>
+            <dd>500+</dd>
+            <dt>Perusahaan Terverifikasi</dt>
+          </div>
+        </div>
+
+        <!-- 2. Ikon Orang (Pelamar Terdaftar) -->
+        <div class="stat-card-clean">
+          <div class="stat-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div>
+            <dd>10.000+</dd>
+            <dt>Pelamar Terdaftar</dt>
+          </div>
+        </div>
+
+        <!-- 3. Ikon Tas Kerja (Lowongan Aktif) -->
+        <div class="stat-card-clean">
+          <div class="stat-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <div>
+            <dd>1.200+</dd>
+            <dt>Lowongan Aktif</dt>
+          </div>
+        </div>
+
+        <!-- 4. Ikon Centang Bulat (Tingkat Kelulusan) -->
+        <div class="stat-card-clean">
+          <div class="stat-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div>
+            <dd>94%</dd>
+            <dt>Tingkat Kelulusan</dt>
+          </div>
+        </div>
+
+      </dl>
+    </section>
+
+    <!-- SECTION 2: HEADER KATALOG & FILTER PILLS -->
+    <div class="jobs-header-row">
+      <div>
+        <h2>Rekomendasi Pekerjaan Unggulan</h2>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-pills-row">
+        <a href="index.html" class="pill-filter-item active">Semua</a>
+        <a href="index.html" class="pill-filter-item">AI &amp; Software</a>
+        <a href="index.html" class="pill-filter-item">Cloud &amp; Infra</a>
+        <a href="index.html" class="pill-filter-item">UI/UX Design</a>
+        <a href="index.html" class="pill-filter-item">Operations &amp; F&amp;B</a>
+        <a href="index.html" class="pill-filter-item">Telecommunication</a>
+      </div>
+    </div>
+
+    <!-- SECTION 3: KATALOG LOWONGAN PEKERJAAN (GRID 3 KOLOM) -->
+    <section id="daftar-lowongan" class="jobs-grid-3">
+
+      <!-- Job Card 1: GOOGLE -->
+      <article class="job-card-styled">
+        <div>
+          <div class="job-card-top">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div class="company-avatar-wrap">
+                <img src="assets/company-google.png" alt="PT Google Indonesia">
+              </div>
+              <div class="job-main-info">
+                <h3><a href="support.html">Senior AI &amp; Cloud Engineer</a></h3>
+                <p class="company-verified-name">
+                  PT Google Indonesia <span class="verified-dot" title="Terverifikasi"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-tags-row">
+            <span class="tag-badge tag-teal">AI &amp; Machine Learning</span>
+            <span class="tag-badge tag-blue">Full-time</span>
+            <span class="tag-badge tag-slate">Rp 28 - 45 Juta</span>
+          </div>
+
+          <p class="job-summary-text">
+            Mengembangkan implementasi model AI Gemini, arsitektur microservices Google Cloud, dan optimasi query data
+            berskala global.
+          </p>
+        </div>
+
+        <div class="job-card-bottom">
+          <span>
+            <svg style="width: 13px; height: 13px; vertical-align: -2px; stroke: #16B3A3;" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Jakarta Pusat (Hybrid)
+          </span>
+          <a href="support.html" class="btn-apply-teal">Lamar &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Job Card 2: AMAZON (AWS) -->
+      <article class="job-card-styled">
+        <div>
+          <div class="job-card-top">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div class="company-avatar-wrap">
+                <img src="assets/company-amazon.png" alt="PT Amazon Web Services Indonesia">
+              </div>
+              <div class="job-main-info">
+                <h3><a href="support.html">Cloud Solutions Architect</a></h3>
+                <p class="company-verified-name">
+                  PT Amazon Web Services Indonesia <span class="verified-dot" title="Terverifikasi"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-tags-row">
+            <span class="tag-badge tag-teal">Cloud Infrastructure</span>
+            <span class="tag-badge tag-blue">Full-time</span>
+            <span class="tag-badge tag-slate">Rp 25 - 40 Juta</span>
+          </div>
+
+          <p class="job-summary-text">
+            Merancang arsitektur AWS cloud multi-region yang berkinerja tinggi, aman, resilient, dan mengoptimalkan
+            efisiensi sistem klien enterprise.
+          </p>
+        </div>
+
+        <div class="job-card-bottom">
+          <span>
+            <svg style="width: 13px; height: 13px; vertical-align: -2px; stroke: #16B3A3;" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Jakarta Selatan
+          </span>
+          <a href="support.html" class="btn-apply-teal">Lamar &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Job Card 3: ADOBE -->
+      <article class="job-card-styled">
+        <div>
+          <div class="job-card-top">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div class="company-avatar-wrap">
+                <img src="assets/company-adobe.png" alt="PT Adobe Systems Indonesia">
+              </div>
+              <div class="job-main-info">
+                <h3><a href="support.html">Senior UI/UX &amp; Visual Designer</a></h3>
+                <p class="company-verified-name">
+                  PT Adobe Systems Indonesia <span class="verified-dot" title="Terverifikasi"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-tags-row">
+            <span class="tag-badge tag-teal">UI/UX Design</span>
+            <span class="tag-badge tag-blue">Remote</span>
+            <span class="tag-badge tag-slate">Rp 18 - 26 Juta</span>
+          </div>
+
+          <p class="job-summary-text">
+            Merancang antarmuka interaktif, prototyping pengalaman pengguna, dan standardisasi sistem desain produk
+            berbasis ekosistem Adobe Creative Cloud.
+          </p>
+        </div>
+
+        <div class="job-card-bottom">
+          <span>
+            <svg style="width: 13px; height: 13px; vertical-align: -2px; stroke: #16B3A3;" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Jakarta &amp; Remote
+          </span>
+          <a href="support.html" class="btn-apply-teal">Lamar &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Job Card 4: BURGER KING -->
+      <article class="job-card-styled">
+        <div>
+          <div class="job-card-top">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div class="company-avatar-wrap">
+                <img src="assets/company-burgerking.png" alt="PT Sari Burger Indonesia">
+              </div>
+              <div class="job-main-info">
+                <h3><a href="support.html">Restaurant Operations &amp; QA Lead</a></h3>
+                <p class="company-verified-name">
+                  PT Sari Burger Indonesia <span class="verified-dot" title="Terverifikasi"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-tags-row">
+            <span class="tag-badge tag-teal">Operations &amp; F&amp;B</span>
+            <span class="tag-badge tag-blue">Full-time</span>
+            <span class="tag-badge tag-slate">Rp 12 - 18 Juta</span>
+          </div>
+
+          <p class="job-summary-text">
+            Mengawasi manajemen jaringan operasional gerai restoran, standardisasi mutu F&amp;B, efisiensi rantai pasok
+            kuliner, dan audit kepuasan pelanggan.
+          </p>
+        </div>
+
+        <div class="job-card-bottom">
+          <span>
+            <svg style="width: 13px; height: 13px; vertical-align: -2px; stroke: #16B3A3;" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Surabaya &amp; Sekitarnya
+          </span>
+          <a href="support.html" class="btn-apply-teal">Lamar &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Job Card 5: SPACEX / STARLINK -->
+      <article class="job-card-styled">
+        <div>
+          <div class="job-card-top">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div class="company-avatar-wrap">
+                <img src="assets/company-spacex.png" alt="PT Starlink Services Indonesia">
+              </div>
+              <div class="job-main-info">
+                <h3><a href="support.html">Satellite &amp; Network Engineer</a></h3>
+                <p class="company-verified-name">
+                  PT Starlink Services Indonesia <span class="verified-dot" title="Terverifikasi"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-tags-row">
+            <span class="tag-badge tag-teal">Telecommunication</span>
+            <span class="tag-badge tag-blue">Full-time</span>
+            <span class="tag-badge tag-slate">Rp 30 - 50 Juta</span>
+          </div>
+
+          <p class="job-summary-text">
+            Mengelola infrastruktur gateway stasiun bumi, pemeliharaan konstelasi satelit orbit rendah (LEO), dan
+            optimalisasi performa konektivitas broadband.
+          </p>
+        </div>
+
+        <div class="job-card-bottom">
+          <span>
+            <svg style="width: 13px; height: 13px; vertical-align: -2px; stroke: #16B3A3;" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Jakarta &amp; Nasional
+          </span>
+          <a href="support.html" class="btn-apply-teal">Lamar &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Job Card 6: AMAZON (RETAIL / E-COMMERCE) -->
+      <article class="job-card-styled">
+        <div>
+          <div class="job-card-top">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div class="company-avatar-wrap">
+                <img src="assets/company-amazon.png" alt="PT Amazon Services Indonesia">
+              </div>
+              <div class="job-main-info">
+                <h3><a href="support.html">E-Commerce Growth &amp; Ads Lead</a></h3>
+                <p class="company-verified-name">
+                  PT Amazon Services Indonesia <span class="verified-dot" title="Terverifikasi"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-tags-row">
+            <span class="tag-badge tag-teal">Digital Marketing</span>
+            <span class="tag-badge tag-blue">Full-time</span>
+            <span class="tag-badge tag-slate">Rp 15 - 22 Juta</span>
+          </div>
+
+          <p class="job-summary-text">
+            Memimpin strategi kemitraan merchant marketplace, optimasi performa campaign iklan digital, analitik
+            konversi data penjualan ritel e-commerce.
+          </p>
+        </div>
+
+        <div class="job-card-bottom">
+          <span>
+            <svg style="width: 13px; height: 13px; vertical-align: -2px; stroke: #16B3A3;" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Jakarta Selatan
+          </span>
+          <a href="support.html" class="btn-apply-teal">Lamar &rarr;</a>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER (SESUAI D:\WEBPRO\frontend\src\components\Footer.tsx) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Kolom 1: Brand Info -->
+        <div>
+          <a href="index.html" class="brand-link" style="margin-bottom: 0.75rem;">
+            <img src="assets/logo.png" alt="AYOKERJA! Logo" width="140" height="35">
+            <span class="brand-title">AYOKERJA!</span>
+          </a>
+          <p style="font-size: 0.75rem; color: #CBD5E1; line-height: 1.6;">
+            Platform rekrutmen &amp; penyaluran kerja terpercaya. Menghubungkan talenta berkualitas dengan perusahaan
+            impian di seluruh Indonesia.
+          </p>
+        </div>
+
+        <!-- Kolom 2: Navigasi Utama -->
+        <div>
+          <h4>Navigasi Utama</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="support.html">Pusat Bantuan</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Untuk Perusahaan -->
+        <div>
+          <h4>Untuk Perusahaan</h4>
+          <ul>
+            <li><a href="support.html">Pasang Lowongan</a></li>
+            <li><a href="support.html">Pendaftaran Recruiter</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 4: Kontak & Bantuan -->
+        <div>
+          <h4>Kontak &amp; Bantuan</h4>
+          <address>
+            <p>Email: <a href="mailto:support@ayokerja.id">support@ayokerja.id</a></p>
+            <p>Telepon: (021) 555-1234</p>
+            <p>Jakarta &amp; Surabaya, Indonesia</p>
+          </address>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

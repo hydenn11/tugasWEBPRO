@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Pusat Bantuan AYOKERJA! - Temukan jawaban atas pertanyaan umum terkait penggunaan platform rekrutmen.">
+  <meta name="author" content="Luthfi - Tugas Web Programming">
+  <title>Pusat Bantuan - AYOKERJA! Platform</title>
+
+  <!-- HUBUNGKAN KE EXTERNAL STYLESHEET (CSS MURNI) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR UTAMA -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <img src="assets/logo.png" alt="AYOKERJA! Logo" width="160" height="38">
+        <span class="brand-title">AYOKERJA!</span>
+      </a>
+
+      <!-- Menu Navigasi Utama (3 Halaman: Tanpa garis bawah) -->
+      <nav class="main-nav" aria-label="Navigasi Menu Utama">
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="support.html" class="active">Pusat Bantuan</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-auth-actions">
+        <a href="support.html" class="btn-nav-pelamar">Masuk Pelamar</a>
+        <a href="support.html" class="btn-nav-perusahaan">Masuk Perusahaan</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- KONTEN UTAMA HALAMAN PUSAT BANTUAN (SESUAI SCREENSHOT USER) -->
+  <main class="container">
+    <div class="support-center-wrapper">
+
+      <h1 class="support-title">Pusat Bantuan AYOKERJA!</h1>
+      <p class="support-subtitle">Temukan jawaban atas pertanyaan umum terkait penggunaan platform.</p>
+
+      <!-- DAFTAR ACCORDION FAQ (NATIVE HTML5 & CSS) -->
+      <div class="faq-accordion-list">
+
+        <!-- FAQ Item 1 (Terbuka Secara Default Sesuai Screenshot) -->
+        <details class="faq-accordion-item" open>
+          <summary class="faq-summary">
+            <span>Bagaimana cara melamar pekerjaan di AYOKERJA!?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="faq-body">
+            <p>Anda perlu mendaftar sebagai Pelamar, melengkapi profil CV &amp; Portofolio, lalu memilih lowongan yang
+              sesuai dan menekan tombol "Lamar Pekerjaan".</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 2 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-summary">
+            <span>Berapa lama proses verifikasi perusahaan oleh Admin?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="faq-body">
+            <p>Proses verifikasi dokumen legalitas perusahaan (NPWP &amp; NIB) membutuhkan waktu maksimal 1x24 jam kerja
+              oleh tim verifikator kami.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 3 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-summary">
+            <span>Apakah pelamar dikenakan biaya pendaftaran?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="faq-body">
+            <p>Tidak, seluruh proses pendaftaran akun dan pengiriman lamaran di AYOKERJA! adalah 100% gratis tanpa
+              dipungut biaya apapun.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 4 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-summary">
+            <span>Bagaimana cara mengetahui jika saya dipanggil wawancara?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="faq-body">
+            <p>Anda akan menerima notifikasi email resmi dan status lamaran di dasbor Anda akan diperbarui saat
+              recruiter menjadwalkan sesi interview.</p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- BANNER KONTAK DUKUNGAN ("Masih butuh bantuan?") -->
+      <div class="support-contact-banner">
+        <div class="support-contact-left">
+          <div class="support-mail-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </div>
+          <div>
+            <h4>Masih butuh bantuan?</h4>
+            <p>Tim dukungan kami siap membantu Anda 24/7.</p>
+          </div>
+        </div>
+
+        <a href="mailto:support@ayokerja.id" class="btn-support-contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          Hubungi Support
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-link" style="margin-bottom: 0.75rem;">
+            <img src="assets/logo.png" alt="AYOKERJA! Logo" width="140" height="35">
+            <span class="brand-title">AYOKERJA!</span>
+          </a>
+          <p style="font-size: 0.75rem; color: #CBD5E1; line-height: 1.6;">
+            Platform rekrutmen &amp; penyaluran kerja terpercaya. Menghubungkan talenta berkualitas dengan perusahaan
+            impian di seluruh Indonesia.
+          </p>
+        </div>
+
+        <div>
+          <h4>Navigasi Utama</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="support.html">Pusat Bantuan</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Untuk Perusahaan</h4>
+          <ul>
+            <li><a href="support.html">Pasang Lowongan</a></li>
+            <li><a href="support.html">Pendaftaran Recruiter</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Kontak &amp; Bantuan</h4>
+          <address>
+            <p>Email: <a href="mailto:support@ayokerja.id">support@ayokerja.id</a></p>
+            <p>Telepon: (021) 555-1234</p>
+            <p>Jakarta &amp; Surabaya, Indonesia</p>
+          </address>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

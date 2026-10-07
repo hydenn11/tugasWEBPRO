@@ -27,6 +27,9 @@ tugas_bab2_html/
 │   └── logo.png                          # Logo resmi platform AYOKERJA!
 ├── docs/
 │   └── screenshots/                      # Direktori Dokumentasi Tangkapan Layar
+│       ├── 01-beranda-html.png           # Screenshot halaman Beranda (HTML Murni)
+│       ├── 02-tentang-kami-html.png      # Screenshot halaman Tentang Kami (HTML Murni)
+│       └── 03-pusat-bantuan-html.png     # Screenshot halaman Pusat Bantuan (HTML Murni)
 ├── about.html                            # Halaman 2: Tentang Kami (Profil & Visi Misi)
 ├── index.html                            # Halaman 1: Beranda & Katalog Lowongan
 ├── support.html                          # Halaman 3: Pusat Bantuan (FAQ Accordion & Kontak)
@@ -76,7 +79,20 @@ Proyek ini terdiri dari **3 halaman HTML murni** (tanpa CSS eksternal) yang sali
 
 ---
 
-## 5. Petunjuk Menjalankan Proyek
+## 5. Tangkapan Layar Tampilan Halaman (HTML Murni)
+
+### 1. Tampilan Halaman Beranda (`index.html`)
+![Tampilan Halaman Beranda HTML](docs/screenshots/01-beranda-html.png)
+
+### 2. Tampilan Halaman Tentang Kami (`about.html`)
+![Tampilan Halaman Tentang Kami HTML](docs/screenshots/02-tentang-kami-html.png)
+
+### 3. Tampilan Halaman Pusat Bantuan (`support.html`)
+![Tampilan Halaman Pusat Bantuan HTML](docs/screenshots/03-pusat-bantuan-html.png)
+
+---
+
+## 6. Petunjuk Menjalankan Proyek
 
 1. Proyek ini dibangun menggunakan **HTML5 standar murni**, sehingga tidak memerlukan server lokal atau dependensi tambahan.
 2. Buka file `index.html` pada folder `tugas_bab2_html/` secara langsung di web browser (Google Chrome, Microsoft Edge, Mozilla Firefox, dll).

@@ -71,8 +71,3 @@ tugas_bab3_css/
 
 ---
 
-## 4. Cara Menjalankan
-Buka file `index.html` pada browser apa pun (Google Chrome, Microsoft Edge, Mozilla Firefox, dll).
-
----
-

@@ -17,20 +17,7 @@
 
 ---
 
-## 2. Fitur & Halaman yang Dibangun
-
-| No | Halaman | Berkas | Peran & Fitur Antarmuka |
-| :---: | :--- | :--- | :--- |
-| 1 | **Beranda Utama** | [`index.html`](./index.html) | • Navbar gradien navy-teal persis Bab 3 dengan tombol *Masuk Pelamar* & *Masuk Perusahaan*.<br>• Hero Banner dengan Clean Pill Search Bar kapsul.<br>• 4 Kartu Statistik Ekosistem.<br>• Grid 6 Rekomendasi Lowongan Kerja Unggulan dengan badge kategori, gaji, dan tombol lamar. |
-| 2 | **Lowongan Kerja** | [`jobs.html`](./jobs.html) | • Tabel data lowongan kerja responsif (*horizontal scroll* pada mobile).<br>• Filter bar pencarian posisi dan kategori industri.<br>• Kolom identitas posisi, logo perusahaan, rentang kompensasi, peminat/pelamar, batas waktu, dan aksi pelamar. |
-| 3 | **Daftar Perusahaan** | [`daftar-perusahaan.html`](./daftar-perusahaan.html) | • **Fitur Pencarian Perusahaan (*Live Search Input*)** dan filter dropdown bidang industri.<br>• Grid profil mitra perusahaan terverifikasi (Google, Amazon, Adobe, SpaceX, Burger King).<br>• Informasi kuota lowongan aktif dan rating perusahaan. |
-| 4 | **Profil Pelamar** | [`profile-pelamar.html`](./profile-pelamar.html) | • Foto profil avatar dengan fitur unggah/ganti foto langsung.<br>• Nama pelamar yang **bisa diedit** secara instan dengan modal interaktif.<br>• Informasi email, telepon, domisili, dan tautan jejaring LinkedIn.<br>• **Ringkasan Pribadi** profesional untuk memperkenalkan diri (dapat diedit).<br>• **Riwayat Karier** & pengalaman kerja terdahulu agar menonjol di mata perusahaan.<br>• Riwayat Pendidikan & IPK.<br>• Lisensi & Sertifikasi resmi.<br>• Badge Keahlian & Keterampilan teknis.<br>• Penguasaan Bahasa & tingkat kefasihan.<br>• Berkas Resume / CV untuk kemudahan akses lamaran (unduh & unggah berkas baru). |
-| 5 | **Masuk & Daftar Pelamar** | [`login-pelamar.html`](./login-pelamar.html) | • Formulir autentikasi pencari kerja dengan tab *Masuk* & *Daftar Akun Baru*.<br>• Saat berhasil masuk/daftar, tombol *Masuk Pelamar* otomatis berganti menjadi **Dropdown Profil Pelamar** (`daniramadh47`) yang memuat akses cepat ke: Buka Profil Saya, Lowongan Tersimpan (status terkunci), Riwayat Lamaran Kerja (status terkunci), **Pengaturan Akun (Edit/Ubah Email & Hapus Akun)**, dan Keluar. |
-| 6 | **Masuk Perusahaan** | [`login-perusahaan.html`](./login-perusahaan.html) | • Portal khusus recruiter: Tab ganti *Masuk Perusahaan* & *Daftar Perusahaan Baru* terverifikasi. |
-
----
-
-## 3. Tangkapan Layar Halaman (Screenshots)
+## 2. Tangkapan Layar Halaman (Screenshots)
 
 ### A. Tampilan Desktop
 

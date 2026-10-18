@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Perusahaan &amp; Pasang Lowongan - AYOKERJA!</title>
+  <meta name="description" content="Dashboard khusus perusahaan mitra AYOKERJA! untuk mempublikasikan lowongan baru dan mengelola kandidat pelamar kerja.">
+
+  <!-- Google Fonts: Inter & Segoe UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#00193F',
+              'navy-light': '#0A2558',
+              'navy-dark': '#00122E',
+              teal: '#16B3A3',
+              'teal-hover': '#109485',
+              'teal-pale': '#CCFBF1',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- ================= NAVBAR KHUSUS PERUSAHAAN ================= -->
+  <header class="w-full bg-[#00193F] border-b border-white/10 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo + Badge Portal Perusahaan -->
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="flex items-center gap-2.5">
+            <img src="assets/logo.png" alt="AYOKERJA! Logo" class="h-9 w-auto object-contain">
+            <span class="text-2xl font-extrabold text-white tracking-wide">AYOKERJA!</span>
+          </a>
+          <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#16B3A3] text-white">
+            Portal Perusahaan
+          </span>
+        </div>
+
+        <!-- Menu Navigasi Perusahaan -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="#kelola-lowongan" class="text-white font-bold text-sm">Lowongan Saya</a>
+          <a href="#form-pasang" class="text-white/80 hover:text-white text-sm font-medium transition-colors">Pasang Lowongan Baru</a>
+          <a href="daftar-perusahaan.html" class="text-white/80 hover:text-white text-sm font-medium transition-colors">Daftar Mitra</a>
+        </nav>
+
+        <!-- Profile Perusahaan & Tombol Logout -->
+        <div class="flex items-center gap-4">
+          <div class="hidden sm:flex items-center gap-2.5 text-right">
+            <img src="assets/company-google.png" alt="Google" class="w-8 h-8 rounded-full bg-white p-1 object-contain">
+            <div>
+              <div class="text-xs font-bold text-white leading-none">PT Google Indonesia</div>
+              <span class="text-[10px] text-emerald-400 font-medium">● Akun Terverifikasi</span>
+            </div>
+          </div>
+          <a href="index.html" class="px-4 py-1.5 rounded-full text-xs font-semibold text-white bg-red-500/20 hover:bg-red-500/40 border border-red-400/40 transition-colors">
+            <i class="fa-solid fa-arrow-right-from-bracket mr-1"></i> Keluar
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= BANNER PERUSAHAAN ================= -->
+  <section class="bg-gradient-to-r from-[#00193F] to-[#16B3A3] py-10 px-4 text-white shadow-md">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#99F6E4] text-xs font-semibold mb-2">
+          <i class="fa-solid fa-building-circle-check"></i> Halaman Khusus Mitra Perusahaan
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+          Selamat Datang, Tim Rekrutmen PT Google Indonesia
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-200 mt-1 max-w-xl">
+          Kelola seluruh kebutuhan talenta, seleksi berkas pelamar masuk, dan publikasikan lowongan baru dalam satu antarmuka terpadu.
+        </p>
+      </div>
+
+      <a href="#form-pasang" class="px-6 py-3 rounded-full bg-white text-[#00193F] hover:bg-slate-100 font-bold text-xs sm:text-sm shadow-lg transition-all flex items-center justify-center gap-2 shrink-0">
+        <i class="fa-solid fa-plus text-[#16B3A3]"></i> Pasang Lowongan Baru
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full space-y-10">
+
+    <!-- 3 Stat Cards Perusahaan -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-[#CCFBF1] text-[#16B3A3] flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-briefcase"></i>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-[#00193F]">3</div>
+          <div class="text-xs text-slate-500 font-medium">Lowongan Aktif Tayang</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-[#00193F]">240</div>
+          <div class="text-xs text-slate-500 font-medium">Total Berkas Pelamar Masuk</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-calendar-check"></i>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-[#00193F]">14</div>
+          <div class="text-xs text-slate-500 font-medium">Jadwal Wawancara Kandidat</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bagian 1: Tabel Lowongan Perusahaan Saya -->
+    <section id="kelola-lowongan" class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100 mb-6">
+        <div>
+          <h2 class="text-lg font-bold text-[#00193F]">Daftar Lowongan Kerja Perusahaan Saya</h2>
+          <p class="text-xs text-slate-500">Status publikasi dan jumlah pelamar yang melamar pada lowongan PT Google Indonesia</p>
+        </div>
+        <a href="#form-pasang" class="inline-flex items-center gap-2 text-xs font-bold text-[#16B3A3] hover:underline">
+          <i class="fa-solid fa-circle-plus"></i> Tambah Lowongan Baru
+        </a>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase">
+              <th class="py-3 px-4">Posisi Lowongan</th>
+              <th class="py-3 px-4">Tipe &amp; Kebijakan</th>
+              <th class="py-3 px-4">Gaji Ditawarkan</th>
+              <th class="py-3 px-4">Pelamar Masuk</th>
+              <th class="py-3 px-4">Status</th>
+              <th class="py-3 px-4 text-right">Aksi</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="py-3.5 px-4 font-bold text-[#00193F]">Senior AI &amp; Cloud Engineer</td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[10px] bg-[#CCFBF1] text-[#16B3A3] font-bold">Full-time / Hybrid</span></td>
+              <td class="py-3.5 px-4 font-semibold text-slate-700">Rp 28 - 45 Juta</td>
+              <td class="py-3.5 px-4 font-bold text-[#16B3A3]">142 Pelamar</td>
+              <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700">Aktif</span></td>
+              <td class="py-3.5 px-4 text-right">
+                <button type="button" class="text-slate-500 hover:text-[#16B3A3] p-1.5"><i class="fa-solid fa-eye"></i></button>
+                <button type="button" class="text-slate-500 hover:text-amber-500 p-1.5"><i class="fa-solid fa-pen"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-bold text-[#00193F]">Data Infrastructure Architect</td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[10px] bg-[#CCFBF1] text-[#16B3A3] font-bold">Full-time / Remote</span></td>
+              <td class="py-3.5 px-4 font-semibold text-slate-700">Rp 30 - 42 Juta</td>
+              <td class="py-3.5 px-4 font-bold text-[#16B3A3]">74 Pelamar</td>
+              <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700">Aktif</span></td>
+              <td class="py-3.5 px-4 text-right">
+                <button type="button" class="text-slate-500 hover:text-[#16B3A3] p-1.5"><i class="fa-solid fa-eye"></i></button>
+                <button type="button" class="text-slate-500 hover:text-amber-500 p-1.5"><i class="fa-solid fa-pen"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-bold text-[#00193F]">Associate Product Specialist</td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full text-[10px] bg-slate-100 text-slate-700 font-bold">Internship</span></td>
+              <td class="py-3.5 px-4 font-semibold text-slate-700">Rp 8 - 12 Juta</td>
+              <td class="py-3.5 px-4 font-bold text-[#16B3A3]">24 Pelamar</td>
+              <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700">Seleksi</span></td>
+              <td class="py-3.5 px-4 text-right">
+                <button type="button" class="text-slate-500 hover:text-[#16B3A3] p-1.5"><i class="fa-solid fa-eye"></i></button>
+                <button type="button" class="text-slate-500 hover:text-amber-500 p-1.5"><i class="fa-solid fa-pen"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Bagian 2: Formulir Pasang Lowongan Baru Perusahaan -->
+    <section id="form-pasang" class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 sm:p-8">
+      <div class="flex items-center gap-3 pb-5 border-b border-slate-100 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-[#CCFBF1] text-[#16B3A3] flex items-center justify-center text-lg font-bold">
+          <i class="fa-solid fa-file-circle-plus"></i>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-[#00193F]">Formulir Publikasi Lowongan Baru</h2>
+          <p class="text-xs text-slate-500">Lengkapi parameter posisi lowongan yang akan dibuka untuk umum</p>
+        </div>
+      </div>
+
+      <div id="companySuccessAlert" class="hidden mb-6 p-4 rounded-xl bg-[#CCFBF1] border border-[#16B3A3] text-[#00193F] text-xs font-semibold">
+        <i class="fa-solid fa-circle-check text-[#16B3A3] mr-1"></i> Lowongan pekerjaan baru berhasil ditambahkan dan ditayangkan ke portal pelamar!
+      </div>
+
+      <form onsubmit="event.preventDefault(); document.getElementById('companySuccessAlert').classList.remove('hidden');" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Judul Posisi Lowongan *</label>
+            <input type="text" required placeholder="Contoh: Senior Frontend React Engineer" 
+              class="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3]">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Bidang / Divisi *</label>
+            <select required class="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] bg-white text-slate-700">
+              <option value="AI">AI &amp; Machine Learning</option>
+              <option value="Cloud">Cloud &amp; Infrastructure</option>
+              <option value="Design">UI/UX Design</option>
+              <option value="Marketing">Marketing &amp; Growth</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Tipe Pekerjaan *</label>
+            <select required class="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] bg-white text-slate-700">
+              <option value="Full-time">Full-time</option>
+              <option value="Part-time">Part-time</option>
+              <option value="Contract">Kontrak</option>
+              <option value="Internship">Magang</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Lokasi Kerja &amp; Kehadiran *</label>
+            <input type="text" required placeholder="Jakarta Selatan (Hybrid)" 
+              class="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3]">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Rentang Gaji Ditawarkan *</label>
+            <input type="text" required placeholder="Rp 25 - 35 Juta" 
+              class="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3]">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Deskripsi Singkat &amp; Syarat Kualifikasi *</label>
+            <textarea rows="3" required placeholder="Jelaskan peran kerja serta kualifikasi yang dicari..." 
+              class="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3]"></textarea>
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-2">
+          <button type="submit" class="px-8 py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-md transition-all">
+            Publikasikan Lowongan Sekarang &rarr;
+          </button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#00193F] text-slate-400 py-6 border-t border-white/10 mt-auto text-center text-xs">
+    &copy; 2026 AYOKERJA!. Portal Manajemen Rekrutmen Perusahaan Mitra Indonesia.
+  </footer>
+
+</body>
+</html>

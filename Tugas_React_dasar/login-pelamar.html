@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk Akun Pelamar - AYOKERJA!</title>
+  <meta name="description" content="Masuk ke akun pelamar AYOKERJA! untuk melamar lowongan kerja impian dan memantau status lamaran.">
+
+  <!-- Google Fonts: Inter & Segoe UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#00193F',
+              'navy-light': '#0A2558',
+              'navy-dark': '#00122E',
+              teal: '#16B3A3',
+              'teal-hover': '#109485',
+              'teal-pale': '#CCFBF1',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- Header Ringkas -->
+  <header class="w-full bg-gradient-to-r from-[#00193F] to-[#16B3A3] py-4 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="assets/logo.png" alt="AYOKERJA! Logo" class="h-8 w-auto object-contain">
+        <span class="text-xl font-extrabold text-white tracking-wide">AYOKERJA!</span>
+      </a>
+      <a href="index.html" class="text-xs font-semibold text-white/90 hover:text-white flex items-center gap-1.5 transition-colors">
+        <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Container Auth -->
+  <main class="flex-grow flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xl">
+      
+      <!-- Logo Badge & Judul -->
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 rounded-2xl bg-[#CCFBF1] text-[#16B3A3] flex items-center justify-center text-2xl mx-auto mb-3 shadow-inner">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <h1 id="authTitle" class="text-2xl font-extrabold text-[#00193F]">Masuk Akun Pelamar</h1>
+        <p id="authSubtitle" class="text-xs text-slate-500 mt-1">Akses jutaan lowongan kerja terverifikasi dan kelola resume Anda</p>
+      </div>
+
+      <!-- Tab Switcher: Masuk Pelamar vs Daftar Akun Baru -->
+      <div class="flex p-1 bg-slate-100 rounded-2xl mb-6">
+        <button id="tabLoginBtn" type="button" onclick="switchPelamarTab('login')" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-[#00193F] shadow-sm transition-all">
+          Masuk
+        </button>
+        <button id="tabRegisterBtn" type="button" onclick="switchPelamarTab('register')" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-800 transition-all">
+          Daftar Akun Baru
+        </button>
+      </div>
+
+      <!-- TAB 1: FORM LOGIN PELAMAR -->
+      <form id="formLoginPelamar" onsubmit="handlePelamarLogin(event)" class="space-y-4">
+        
+        <!-- Input Email / Username -->
+        <div>
+          <label for="loginEmail" class="block text-xs font-bold text-slate-700 mb-1.5">Alamat Email atau Username</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-regular fa-envelope text-xs"></i>
+            </div>
+            <input type="text" id="loginEmail" required value="daniramadh47" placeholder="nama@email.com atau username" 
+              class="w-full pl-9 pr-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all placeholder:text-slate-400">
+          </div>
+        </div>
+
+        <!-- Input Password -->
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="loginPassword" class="block text-xs font-bold text-slate-700">Kata Sandi</label>
+            <a href="#" class="text-[11px] font-semibold text-[#16B3A3] hover:underline">Lupa Sandi?</a>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-solid fa-lock text-xs"></i>
+            </div>
+            <input type="password" id="loginPassword" required value="••••••••" placeholder="••••••••" 
+              class="w-full pl-9 pr-10 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+            <button type="button" onclick="const p=document.getElementById('loginPassword'); p.type=p.type==='password'?'text':'password';" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600">
+              <i class="fa-regular fa-eye text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ingat Saya -->
+        <div class="flex items-center justify-between text-xs pt-1">
+          <label class="flex items-center gap-2 cursor-pointer text-slate-600">
+            <input type="checkbox" checked class="w-4 h-4 rounded text-[#16B3A3] focus:ring-[#16B3A3] border-slate-300">
+            <span>Ingat saya di perangkat ini</span>
+          </label>
+        </div>
+
+        <!-- Tombol Masuk -->
+        <button type="submit" class="w-full py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md mt-2">
+          Masuk Sekarang Sebagai Pelamar
+        </button>
+
+      </form>
+
+      <!-- TAB 2: FORM DAFTAR AKUN PELAMAR BARU -->
+      <form id="formRegisterPelamar" onsubmit="handlePelamarRegister(event)" class="hidden space-y-3.5">
+        
+        <!-- Input Username Unik -->
+        <div>
+          <label for="regUsername" class="block text-xs font-bold text-slate-700 mb-1.5">Username Pelamar *</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-solid fa-at text-xs"></i>
+            </div>
+            <input type="text" id="regUsername" required placeholder="contoh: daniramadh47" 
+              class="w-full pl-9 pr-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+          </div>
+        </div>
+
+        <!-- Input Nama Lengkap -->
+        <div>
+          <label for="regFullName" class="block text-xs font-bold text-slate-700 mb-1.5">Nama Lengkap Sesuai KTP *</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-regular fa-user text-xs"></i>
+            </div>
+            <input type="text" id="regFullName" required placeholder="Luthfi Ramadhan" 
+              class="w-full pl-9 pr-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+          </div>
+        </div>
+
+        <!-- Input Email -->
+        <div>
+          <label for="regEmail" class="block text-xs font-bold text-slate-700 mb-1.5">Alamat Email Aktif *</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-regular fa-envelope text-xs"></i>
+            </div>
+            <input type="email" id="regEmail" required placeholder="nama@email.com" 
+              class="w-full pl-9 pr-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+          </div>
+        </div>
+
+        <!-- Input Kata Sandi -->
+        <div>
+          <label for="regPassword" class="block text-xs font-bold text-slate-700 mb-1.5">Kata Sandi Baru *</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-solid fa-lock text-xs"></i>
+            </div>
+            <input type="password" id="regPassword" required placeholder="Min. 8 karakter" 
+              class="w-full pl-9 pr-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+          </div>
+        </div>
+
+        <!-- Syarat & Ketentuan -->
+        <div class="text-[11px] text-slate-500 pt-1 leading-relaxed">
+          Dengan mendaftar, Anda menyetujui <a href="#" class="text-[#16B3A3] underline">Syarat &amp; Ketentuan</a> serta Kebijakan Privasi platform AYOKERJA!.
+        </div>
+
+        <!-- Tombol Daftar -->
+        <button type="submit" class="w-full py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md mt-2">
+          Daftar Akun Pelamar Sekarang
+        </button>
+
+      </form>
+
+      <!-- Divider -->
+      <div class="relative my-6 text-center">
+        <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+        <span class="relative px-3 bg-white text-[11px] text-slate-400 font-medium">atau masuk dengan</span>
+      </div>
+
+      <!-- Google Button -->
+      <button type="button" onclick="handleGoogleLoginDemo()" class="w-full py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold flex items-center justify-center gap-2.5 transition-colors">
+        <img src="assets/company-google.png" alt="Google" class="w-4 h-4 object-contain">
+        Lanjutkan dengan Google
+      </button>
+
+      <!-- Switch ke Login Perusahaan -->
+      <div class="mt-6 pt-5 border-t border-slate-100 text-center space-y-2">
+        <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100">
+          <p class="text-[11px] text-slate-600">
+            Apakah Anda perwakilan perusahaan / Recruiter?
+          </p>
+          <a href="login-perusahaan.html" onclick="event.preventDefault(); return false;" class="inline-flex items-center gap-1 text-xs font-bold text-[#00193F] hover:text-[#16B3A3] mt-1 transition-colors">
+            Masuk di Portal Perusahaan <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Client Script Autentikasi Pelamar -->
+  <script>
+    function switchPelamarTab(tab) {
+      const loginBtn = document.getElementById('tabLoginBtn');
+      const regBtn = document.getElementById('tabRegisterBtn');
+      const formLogin = document.getElementById('formLoginPelamar');
+      const formRegister = document.getElementById('formRegisterPelamar');
+      const title = document.getElementById('authTitle');
+      const subtitle = document.getElementById('authSubtitle');
+
+      if (tab === 'login') {
+        loginBtn.className = 'flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-[#00193F] shadow-sm transition-all';
+        regBtn.className = 'flex-1 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-800 transition-all';
+        formLogin.classList.remove('hidden');
+        formRegister.classList.add('hidden');
+        title.textContent = 'Masuk Akun Pelamar';
+        subtitle.textContent = 'Akses jutaan lowongan kerja terverifikasi dan kelola resume Anda';
+      } else {
+        regBtn.className = 'flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-[#00193F] shadow-sm transition-all';
+        loginBtn.className = 'flex-1 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-800 transition-all';
+        formRegister.classList.remove('hidden');
+        formLogin.classList.add('hidden');
+        title.textContent = 'Daftar Akun Pelamar';
+        subtitle.textContent = 'Lengkapi identitas Anda dan mulai perjalanan karir impian bersama AYOKERJA!';
+      }
+    }
+
+    function handlePelamarLogin(e) {
+      e.preventDefault();
+      const identifier = document.getElementById('loginEmail').value.trim();
+      const username = identifier.includes('@') ? identifier.split('@')[0] : identifier;
+
+      const user = {
+        username: username || 'daniramadh47',
+        name: username === 'daniramadh47' ? 'Luthfi Ramadhan' : username,
+        email: identifier.includes('@') ? identifier : `${username}@ayokerja.id`,
+        isLoggedIn: true
+      };
+
+      localStorage.setItem('ayokerja_pelamar_user', JSON.stringify(user));
+      alert(`Login Berhasil! Selamat datang kembali, @${user.username}.`);
+      window.location.href = 'profile-pelamar.html';
+    }
+
+    function handlePelamarRegister(e) {
+      e.preventDefault();
+      const username = document.getElementById('regUsername').value.trim();
+      const fullName = document.getElementById('regFullName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+
+      const user = {
+        username: username || 'daniramadh47',
+        name: fullName || 'Luthfi Ramadhan',
+        email: email || 'daniramadh47@ayokerja.id',
+        isLoggedIn: true
+      };
+
+      localStorage.setItem('ayokerja_pelamar_user', JSON.stringify(user));
+      alert(`Pendaftaran Berhasil! Akun @${user.username} aktif. Mengarahkan ke profil Anda...`);
+      window.location.href = 'profile-pelamar.html';
+    }
+
+    function handleGoogleLoginDemo() {
+      const user = {
+        username: 'daniramadh47',
+        name: 'Luthfi Ramadhan',
+        email: 'daniramadh47@gmail.com',
+        isLoggedIn: true
+      };
+      localStorage.setItem('ayokerja_pelamar_user', JSON.stringify(user));
+      alert('Autentikasi Google Berhasil! Masuk sebagai @daniramadh47.');
+      window.location.href = 'profile-pelamar.html';
+    }
+  </script>
+
+</body>
+</html>

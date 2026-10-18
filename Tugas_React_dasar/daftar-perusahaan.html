@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYOKERJA! - Daftar Mitra Perusahaan Terverifikasi</title>
+  <meta name="description"
+    content="Temukan dan jelajahi profil perusahaan impian Anda di AYOKERJA! Lengkap dengan fitur pencarian dan filter industri.">
+
+  <!-- Google Fonts: Inter & Segoe UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#00193F',
+              'navy-light': '#0A2558',
+              'navy-dark': '#00122E',
+              teal: '#16B3A3',
+              'teal-hover': '#109485',
+              'teal-pale': '#CCFBF1',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- ================= NAVBAR UTAMA (PERSIS BAB 3 DENGAN PEMISAHAN PELAMAR & PERUSAHAAN) ================= -->
+  <header class="w-full bg-gradient-to-r from-[#00193F] to-[#16B3A3] sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="assets/logo.png" alt="AYOKERJA! Logo"
+            class="h-9 w-auto object-contain transition-transform group-hover:scale-105">
+          <span class="text-2xl font-extrabold text-white tracking-wide">AYOKERJA!</span>
+        </a>
+
+        <!-- Menu Navigasi Utama -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-white/90 hover:text-white text-sm font-medium transition-colors">Beranda</a>
+          <a href="jobs.html" class="text-white/90 hover:text-white text-sm font-medium transition-colors">Lowongan
+            Kerja</a>
+          <a href="daftar-perusahaan.html" class="text-white font-bold text-sm border-b-2 border-white pb-1">Daftar
+            Perusahaan</a>
+        </nav>
+
+        <!-- Tombol Autentikasi Kanan Atas: Masuk Pelamar & Masuk Perusahaan -->
+        <div class="hidden md:flex items-center gap-3">
+          <a href="login-pelamar.html"
+            class="px-5 py-2 rounded-full text-xs font-medium text-white bg-white/20 border border-white/40 hover:bg-white/30 transition-all">
+            Masuk Pelamar
+          </a>
+          <a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+            class="px-5 py-2 rounded-full text-xs font-bold text-[#00193F] bg-white hover:bg-slate-100 shadow-sm transition-all hover:-translate-y-0.5">
+            Masuk Perusahaan
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex md:hidden items-center">
+          <button id="mobileMenuBtn" type="button"
+            class="p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none" aria-label="Toggle navigation">
+            <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu"
+      class="hidden md:hidden bg-[#00193F] border-t border-white/15 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+      <a href="index.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10">
+        <i class="fa-solid fa-house mr-2 text-[#16B3A3]"></i> Beranda
+      </a>
+      <a href="jobs.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10">
+        <i class="fa-solid fa-briefcase mr-2 text-[#16B3A3]"></i> Lowongan Kerja
+      </a>
+      <a href="daftar-perusahaan.html" class="block px-3 py-2.5 rounded-lg text-sm font-bold text-white bg-white/10">
+        <i class="fa-solid fa-city mr-2 text-[#16B3A3]"></i> Daftar Perusahaan
+      </a>
+      <div class="pt-3 border-t border-white/10 flex gap-2">
+        <a href="login-pelamar.html"
+          class="flex-1 py-2 text-center text-xs text-white bg-white/20 rounded-full font-medium">Masuk Pelamar</a>
+        <a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+          class="flex-1 py-2 text-center text-xs text-[#00193F] bg-white rounded-full font-bold">Masuk Perusahaan</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SEARCH PERUSAHAAN (SESUAI STYLE HERO BAB 3) ================= -->
+  <section
+    class="w-full bg-gradient-to-r from-[#00193F] to-[#16B3A3] pt-12 pb-16 px-4 text-center text-white shadow-md mb-8">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-3">
+        Daftar Mitra <span class="text-[#99F6E4]">Perusahaan</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Jelajahi profil 500+ perusahaan mitra resmi yang telah lolos verifikasi legalitas tim AYOKERJA! dan siap
+        merekrut talenta terbaik.
+      </p>
+
+      <!-- Search Pill Box Khusus Perusahaan -->
+      <div
+        class="bg-white p-2 rounded-full shadow-2xl flex flex-col sm:flex-row items-center gap-2 max-w-3xl mx-auto border border-white/30">
+        <div class="flex-1 flex items-center gap-3 pl-4 w-full">
+          <i class="fa-solid fa-magnifying-glass text-slate-400 text-sm"></i>
+          <input type="text" id="companySearchInput" onkeyup="filterCompanies()"
+            placeholder="Cari nama perusahaan (contoh: Google, Amazon, Adobe)..."
+            class="w-full text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none bg-transparent">
+        </div>
+
+        <div class="hidden sm:flex items-center gap-2 px-3 border-l border-slate-200 text-slate-600 text-xs sm:text-sm">
+          <i class="fa-solid fa-industry text-slate-400 text-xs"></i>
+          <select id="industryFilter" onchange="filterCompanies()"
+            class="bg-transparent focus:outline-none cursor-pointer text-slate-700 text-xs sm:text-sm pr-2">
+            <option value="">Semua Industri</option>
+            <option value="Teknologi">Teknologi & Software</option>
+            <option value="Cloud">Cloud & Infra</option>
+            <option value="Desain">Desain & Kreatif</option>
+            <option value="F&B">F&B / Kuliner</option>
+            <option value="Telekomunikasi">Telekomunikasi & Satelit</option>
+          </select>
+        </div>
+
+        <button type="button" onclick="filterCompanies()"
+          class="w-full sm:w-auto px-7 py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md">
+          Cari Perusahaan
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full">
+
+    <!-- Header Toolbar / Counter -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+      <div>
+        <h2 class="text-xl font-bold text-[#00193F]">Perusahaan Rekanan Terverifikasi</h2>
+        <p class="text-xs text-slate-500 mt-0.5">Menampilkan mitra aktif yang sedang membuka lowongan karir</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span id="companyCountBadge" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#CCFBF1] text-[#16B3A3]">
+          6 Perusahaan Terdaftar
+        </span>
+      </div>
+    </div>
+
+    <!-- Grid Kartu Perusahaan (3 Kolom Responsif) -->
+    <div id="companyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1: Google -->
+      <article
+        class="company-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#16B3A3]/50 transition-all flex flex-col justify-between"
+        data-name="Google Indonesia" data-industry="Teknologi">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <img src="assets/company-google.png" alt="Google Indonesia"
+                class="w-12 h-12 object-contain p-1 rounded-xl bg-slate-50 border border-slate-100">
+              <div>
+                <h3 class="text-base font-bold text-[#00193F] leading-snug">PT Google Indonesia</h3>
+                <span
+                  class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full mt-1">
+                  <i class="fa-solid fa-shield-check text-xs"></i> Terverifikasi Resmi
+                </span>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-amber-500 flex items-center gap-1">
+              <i class="fa-solid fa-star"></i> 4.9
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Perusahaan teknologi multinasional terkemuka penyedia ekosistem mesin pencari, komputasi awan Google Cloud,
+            dan kecerdasan buatan Gemini.
+          </p>
+
+          <div class="space-y-1.5 text-xs text-slate-500 mb-4">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-industry w-4 text-slate-400"></i>
+              <span>Industri: <strong>Teknologi & Software</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-location-dot w-4 text-slate-400"></i>
+              <span>Kantor: SCBD, Jakarta Selatan</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-briefcase w-4 text-slate-400"></i>
+              <span class="font-semibold">12 Lowongan Terbuka</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-[11px] text-slate-400">Mitra sejak 2024</span>
+          <a href="jobs.html"
+            class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white text-xs font-semibold transition-colors">
+            Lihat Lowongan &rarr;
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2: Amazon AWS -->
+      <article
+        class="company-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#16B3A3]/50 transition-all flex flex-col justify-between"
+        data-name="Amazon Web Services" data-industry="Cloud">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <img src="assets/company-amazon.png" alt="Amazon AWS"
+                class="w-12 h-12 object-contain p-1 rounded-xl bg-slate-50 border border-slate-100">
+              <div>
+                <h3 class="text-base font-bold text-[#00193F] leading-snug">PT Amazon Web Services</h3>
+                <span
+                  class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full mt-1">
+                  <i class="fa-solid fa-shield-check text-xs"></i> Terverifikasi Resmi
+                </span>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-amber-500 flex items-center gap-1">
+              <i class="fa-solid fa-star"></i> 4.8
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Penyedia platform komputasi awan global terlengkap, infrastruktur server enterprise, dan pusat analitik data
+            di kawasan Asia Pasifik.
+          </p>
+
+          <div class="space-y-1.5 text-xs text-slate-500 mb-4">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-industry w-4 text-slate-400"></i>
+              <span>Industri: <strong>Cloud & Infra</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-location-dot w-4 text-slate-400"></i>
+              <span>Kantor: SCBD Senayan, Jakarta</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-briefcase w-4 text-slate-400"></i>
+              <span class="font-semibold">8 Lowongan Terbuka</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-[11px] text-slate-400">Mitra sejak 2024</span>
+          <a href="jobs.html"
+            class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white text-xs font-semibold transition-colors">
+            Lihat Lowongan &rarr;
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3: Adobe -->
+      <article
+        class="company-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#16B3A3]/50 transition-all flex flex-col justify-between"
+        data-name="Adobe Systems" data-industry="Desain">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <img src="assets/company-adobe.png" alt="Adobe Systems"
+                class="w-12 h-12 object-contain p-1 rounded-xl bg-slate-50 border border-slate-100">
+              <div>
+                <h3 class="text-base font-bold text-[#00193F] leading-snug">PT Adobe Systems</h3>
+                <span
+                  class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full mt-1">
+                  <i class="fa-solid fa-shield-check text-xs"></i> Terverifikasi Resmi
+                </span>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-amber-500 flex items-center gap-1">
+              <i class="fa-solid fa-star"></i> 4.9
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Pelopor perangkat lunak kreatif digital terkemuka dunia di bidang desain grafis, ilustrasi, UI/UX, video
+            editing, dan publikasi media.
+          </p>
+
+          <div class="space-y-1.5 text-xs text-slate-500 mb-4">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-industry w-4 text-slate-400"></i>
+              <span>Industri: <strong>Desain & Kreatif</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-location-dot w-4 text-slate-400"></i>
+              <span>Kantor: BSD City, Tangerang</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-briefcase w-4 text-slate-400"></i>
+              <span class="font-semibold">6 Lowongan Terbuka</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-[11px] text-slate-400">Mitra sejak 2025</span>
+          <a href="jobs.html"
+            class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white text-xs font-semibold transition-colors">
+            Lihat Lowongan &rarr;
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 4: Burger King -->
+      <article
+        class="company-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#16B3A3]/50 transition-all flex flex-col justify-between"
+        data-name="Burger King Sari Burger" data-industry="F&B">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <img src="assets/company-burgerking.png" alt="Burger King"
+                class="w-12 h-12 object-contain p-1 rounded-xl bg-slate-50 border border-slate-100">
+              <div>
+                <h3 class="text-base font-bold text-[#00193F] leading-snug">PT Sari Burger Indonesia</h3>
+                <span
+                  class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full mt-1">
+                  <i class="fa-solid fa-shield-check text-xs"></i> Terverifikasi Resmi
+                </span>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-amber-500 flex items-center gap-1">
+              <i class="fa-solid fa-star"></i> 4.7
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Jaringan waralaba restoran cepat saji internasional dengan ratusan cabang di kota-kota besar Indonesia,
+            berfokus pada manajemen F&B dan rantai pasok.
+          </p>
+
+          <div class="space-y-1.5 text-xs text-slate-500 mb-4">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-industry w-4 text-slate-400"></i>
+              <span>Industri: <strong>F&B / Kuliner</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-location-dot w-4 text-slate-400"></i>
+              <span>Kantor: Surabaya & Nasional</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-briefcase w-4 text-slate-400"></i>
+              <span class="font-semibold">15 Lowongan Terbuka</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-[11px] text-slate-400">Mitra sejak 2024</span>
+          <a href="jobs.html"
+            class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white text-xs font-semibold transition-colors">
+            Lihat Lowongan &rarr;
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 5: SpaceX -->
+      <article
+        class="company-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#16B3A3]/50 transition-all flex flex-col justify-between"
+        data-name="SpaceX Starlink Services" data-industry="Telekomunikasi">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <img src="assets/company-spacex.png" alt="SpaceX"
+                class="w-12 h-12 object-contain p-1 rounded-xl bg-slate-50 border border-slate-100">
+              <div>
+                <h3 class="text-base font-bold text-[#00193F] leading-snug">PT Starlink Services</h3>
+                <span
+                  class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full mt-1">
+                  <i class="fa-solid fa-shield-check text-xs"></i> Terverifikasi Resmi
+                </span>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-amber-500 flex items-center gap-1">
+              <i class="fa-solid fa-star"></i> 4.9
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Penyedia jaringan telekomunikasi internet satelit orbit rendah berkecepatan tinggi yang menjangkau seluruh
+            pelosok kepulauan Indonesia.
+          </p>
+
+          <div class="space-y-1.5 text-xs text-slate-500 mb-4">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-industry w-4 text-slate-400"></i>
+              <span>Industri: <strong>Telekomunikasi & Satelit</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-location-dot w-4 text-slate-400"></i>
+              <span>Kantor: Jakarta Pusat</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-briefcase w-4 text-slate-400"></i>
+              <span class="font-semibold">5 Lowongan Terbuka</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-[11px] text-slate-400">Mitra sejak 2025</span>
+          <a href="jobs.html"
+            class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white text-xs font-semibold transition-colors">
+            Lihat Lowongan &rarr;
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 6: Amazon Services -->
+      <article
+        class="company-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#16B3A3]/50 transition-all flex flex-col justify-between"
+        data-name="Amazon Services Indonesia E-Commerce" data-industry="Teknologi">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="flex items-center gap-3">
+              <img src="assets/company-amazon.png" alt="Amazon Services"
+                class="w-12 h-12 object-contain p-1 rounded-xl bg-slate-50 border border-slate-100">
+              <div>
+                <h3 class="text-base font-bold text-[#00193F] leading-snug">PT Amazon Services</h3>
+                <span
+                  class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full mt-1">
+                  <i class="fa-solid fa-shield-check text-xs"></i> Terverifikasi Resmi
+                </span>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-amber-500 flex items-center gap-1">
+              <i class="fa-solid fa-star"></i> 4.8
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Divisi operasional bisnis retail, pemasaran produk digital, kemitraan logistik e-commerce, dan layanan
+            merchant terintegrasi se-Asia Tenggara.
+          </p>
+
+          <div class="space-y-1.5 text-xs text-slate-500 mb-4">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-industry w-4 text-slate-400"></i>
+              <span>Industri: <strong>Teknologi & E-Commerce</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-location-dot w-4 text-slate-400"></i>
+              <span>Kantor: Jakarta Selatan</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-briefcase w-4 text-slate-400"></i>
+              <span class="font-semibold">9 Lowongan Terbuka</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-[11px] text-slate-400">Mitra sejak 2024</span>
+          <a href="jobs.html"
+            class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white text-xs font-semibold transition-colors">
+            Lihat Lowongan &rarr;
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER (PERSIS BAB 3) ================= -->
+  <footer class="bg-[#00193F] text-slate-400 pt-14 pb-8 border-t border-white/10 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+
+        <!-- Kolom 1: Brand Info -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2.5 mb-3">
+            <img src="assets/logo.png" alt="AYOKERJA! Logo" class="h-8 w-auto object-contain">
+            <span class="text-xl font-black text-white tracking-wide">AYOKERJA!</span>
+          </a>
+          <p class="text-xs text-[#CBD5E1] leading-relaxed">
+            Platform rekrutmen &amp; penyaluran kerja terpercaya. Menghubungkan talenta berkualitas dengan perusahaan
+            impian di seluruh Indonesia.
+          </p>
+        </div>
+
+        <!-- Kolom 2: Navigasi Utama -->
+        <div>
+          <h4 class="text-white text-sm font-bold mb-3">Navigasi Utama</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Beranda</a></li>
+            <li><a href="jobs.html" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Lowongan Kerja</a>
+            </li>
+            <li><a href="daftar-perusahaan.html" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Daftar
+                Perusahaan</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Untuk Perusahaan -->
+        <div>
+          <h4 class="text-white text-sm font-bold mb-3">Untuk Perusahaan</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="login-perusahaan.html" onclick="event.preventDefault(); return false;" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Pasang
+                Lowongan</a></li>
+            <li><a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+                class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Pendaftaran Recruiter</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 4: Kontak & Bantuan -->
+        <div>
+          <h4 class="text-white text-sm font-bold mb-3">Kontak &amp; Bantuan</h4>
+          <address class="not-italic text-xs text-[#CBD5E1] space-y-2 leading-relaxed">
+            <p>Email: <a href="mailto:support@ayokerja.id"
+                class="hover:text-[#5EEAD4] transition-colors">support@ayokerja.id</a></p>
+            <p>Telepon: (021) 555-1234</p>
+            <p>Jakarta &amp; Surabaya, Indonesia</p>
+          </address>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-white/10 text-center text-xs text-slate-500">
+        &copy; 2026 AYOKERJA!. Seluruh hak cipta dilindungi undang-undang. Diimplementasikan dengan Tailwind CSS.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search & Filter Script -->
+  <script>
+    function filterCompanies() {
+      const searchInput = document.getElementById('companySearchInput').value.toLowerCase();
+      const industryFilter = document.getElementById('industryFilter').value.toLowerCase();
+      const cards = document.querySelectorAll('.company-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const name = (card.getAttribute('data-name') || '').toLowerCase();
+        const industry = (card.getAttribute('data-industry') || '').toLowerCase();
+
+        const matchesSearch = name.includes(searchInput);
+        const matchesIndustry = !industryFilter || industry.includes(industryFilter);
+
+        if (matchesSearch && matchesIndustry) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('companyCountBadge').textContent = `${visibleCount} Perusahaan Terdaftar`;
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-xmark');
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      }
+    });
+  </script>
+
+  <!-- Script Manajemen Sesi & Dropdown Pelamar -->
+  <script src="assets/pelamar-auth.js"></script>
+
+</body>
+
+</html>

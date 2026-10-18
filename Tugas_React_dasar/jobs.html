@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYOKERJA! - Daftar Lowongan Kerja Terbaru</title>
+  <meta name="description"
+    content="Eksplorasi dan lamar lowongan pekerjaan impian Anda di AYOKERJA! Lengkap dengan filter kategori, rentang gaji, dan perusahaan terpercaya.">
+
+  <!-- Google Fonts: Inter & Segoe UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#00193F',
+              'navy-light': '#0A2558',
+              'navy-dark': '#00122E',
+              teal: '#16B3A3',
+              'teal-hover': '#109485',
+              'teal-pale': '#CCFBF1',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- ================= NAVBAR UTAMA (PERSIS BAB 3 - SISI PELAMAR) ================= -->
+  <header class="w-full bg-gradient-to-r from-[#00193F] to-[#16B3A3] sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="assets/logo.png" alt="AYOKERJA! Logo"
+            class="h-9 w-auto object-contain transition-transform group-hover:scale-105">
+          <span class="text-2xl font-extrabold text-white tracking-wide">AYOKERJA!</span>
+        </a>
+
+        <!-- Menu Navigasi Utama -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-white/90 hover:text-white text-sm font-medium transition-colors">Beranda</a>
+          <a href="jobs.html" class="text-white font-bold text-sm border-b-2 border-white pb-1">Lowongan Kerja</a>
+          <a href="daftar-perusahaan.html"
+            class="text-white/90 hover:text-white text-sm font-medium transition-colors">Daftar
+            Perusahaan</a>
+        </nav>
+
+        <!-- Tombol Aksi Kanan: Masuk Pelamar & Masuk Perusahaan -->
+        <div class="hidden md:flex items-center gap-3">
+          <a href="login-pelamar.html"
+            class="px-5 py-2 rounded-full text-xs font-medium text-white bg-white/20 border border-white/40 hover:bg-white/30 transition-all">
+            Masuk Pelamar
+          </a>
+          <a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+            class="px-5 py-2 rounded-full text-xs font-bold text-[#00193F] bg-white hover:bg-slate-100 shadow-sm transition-all hover:-translate-y-0.5">
+            Masuk Perusahaan
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex md:hidden items-center">
+          <button id="mobileMenuBtn" type="button"
+            class="p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none" aria-label="Toggle navigation">
+            <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu"
+      class="hidden md:hidden bg-[#00193F] border-t border-white/15 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+      <a href="index.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10">
+        <i class="fa-solid fa-house mr-2 text-[#16B3A3]"></i> Beranda
+      </a>
+      <a href="jobs.html" class="block px-3 py-2.5 rounded-lg text-sm font-bold text-white bg-white/10">
+        <i class="fa-solid fa-briefcase mr-2 text-[#16B3A3]"></i> Lowongan Kerja
+      </a>
+      <a href="daftar-perusahaan.html"
+        class="block px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10">
+        <i class="fa-solid fa-city mr-2 text-[#16B3A3]"></i> Daftar Perusahaan
+      </a>
+      <div class="pt-3 border-t border-white/10 flex gap-2">
+        <a href="login-pelamar.html"
+          class="flex-1 py-2 text-center text-xs text-white bg-white/20 rounded-full font-medium">Masuk Pelamar</a>
+        <a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+          class="flex-1 py-2 text-center text-xs text-[#00193F] bg-white rounded-full font-bold">Masuk Perusahaan</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HEADER SECTION KHUSUS PELAMAR ================= -->
+  <section class="bg-white border-b border-slate-200 py-6 mb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <nav class="flex items-center gap-2 text-xs text-slate-400 mb-1.5">
+            <a href="index.html" class="hover:text-[#16B3A3] transition-colors">Beranda</a>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <span class="text-slate-600 font-semibold">Katalog Lowongan</span>
+          </nav>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-[#00193F] tracking-tight">
+            Daftar Lowongan Kerja Terbaru
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Temukan karir impian Anda, bandingkan rentang gaji kompetitif, dan lamar posisi favorit secara langsung.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
+
+    <!-- Filter & Search Toolbar (Flexbox/Grid Responsif Sisi Pelamar) -->
+    <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-sm mb-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+
+        <!-- Search Input -->
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+          </div>
+          <input type="text" id="searchInput" placeholder="Cari posisi atau perusahaan..."
+            class="w-full pl-9 pr-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all placeholder:text-slate-400">
+        </div>
+
+        <!-- Filter Kategori -->
+        <div>
+          <select id="categoryFilter"
+            class="w-full px-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all text-slate-700 bg-white">
+            <option value="">Semua Kategori Bidang</option>
+            <option value="IT">Software Engineering &amp; AI</option>
+            <option value="Cloud">Cloud &amp; Infrastructure</option>
+            <option value="Design">UI/UX &amp; Design</option>
+            <option value="Operations">Operations &amp; F&B</option>
+            <option value="Telecom">Telecommunication</option>
+          </select>
+        </div>
+
+        <!-- Filter Tipe Kerja -->
+        <div>
+          <select id="typeFilter"
+            class="w-full px-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all text-slate-700 bg-white">
+            <option value="">Semua Tipe Kerja</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+
+        <!-- Reset Button & Total Counter -->
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="window.location.reload()"
+            class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors">
+            <i class="fa-solid fa-arrow-rotate-left"></i> Reset Filter
+          </button>
+          <div
+            class="hidden lg:flex items-center justify-center px-3.5 py-2 bg-[#CCFBF1] text-[#16B3A3] font-bold text-xs rounded-xl whitespace-nowrap">
+            5 Lowongan
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Responsive Table Card Container -->
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+
+      <!-- Table View (Horizontal Scrollable on Mobile) -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr
+              class="bg-slate-50/90 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+              <th scope="col" class="py-4 px-4 sm:px-6">Posisi &amp; Perusahaan</th>
+              <th scope="col" class="py-4 px-4">Kategori &amp; Tipe</th>
+              <th scope="col" class="py-4 px-4">Rentang Gaji</th>
+              <th scope="col" class="py-4 px-4">Peminat</th>
+              <th scope="col" class="py-4 px-4 text-center">Batas Waktu</th>
+              <th scope="col" class="py-4 px-4 sm:px-6 text-right">Aksi Pelamar</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+
+            <!-- Row 1: Google -->
+            <tr class="hover:bg-slate-50/80 transition-colors group">
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center gap-3">
+                  <img src="assets/company-google.png" alt="Google"
+                    class="w-10 h-10 rounded-xl object-contain p-1.5 bg-slate-50 border border-slate-200 shrink-0">
+                  <div>
+                    <div class="font-bold text-[#00193F] group-hover:text-[#16B3A3] transition-colors">Senior AI &amp;
+                      Cloud Engineer</div>
+                    <div class="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
+                      <span>PT Google Indonesia</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex flex-col gap-1 items-start">
+                  <span class="font-semibold text-slate-700">AI &amp; Machine Learning</span>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8]">Full-time</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-semibold text-[#00193F]">
+                Rp 28 - 45 Juta
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex items-center gap-1.5 font-bold text-slate-700">
+                  <i class="fa-solid fa-users text-slate-400 text-xs"></i> 142 Pelamar
+                </div>
+              </td>
+              <td class="py-4 px-4 text-center text-xs text-slate-500 font-medium">
+                15 Nov 2026
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-right">
+                <div class="flex items-center justify-end gap-2">
+                  <button type="button" onclick="alert('Lowongan berhasil disimpan ke daftar favorit Anda!');"
+                    class="p-2 text-slate-400 hover:text-amber-500 hover:bg-slate-100 rounded-lg transition-colors"
+                    title="Simpan ke Favorit">
+                    <i class="fa-regular fa-bookmark"></i>
+                  </button>
+                  <a href="#"
+                    onclick="alert('Lamaran untuk posisi Senior AI & Cloud Engineer di Google berhasil dikirim!');"
+                    class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs transition-colors whitespace-nowrap shadow-sm">
+                    Lamar Sekarang &rarr;
+                  </a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 2: Amazon AWS -->
+            <tr class="hover:bg-slate-50/80 transition-colors group">
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center gap-3">
+                  <img src="assets/company-amazon.png" alt="Amazon"
+                    class="w-10 h-10 rounded-xl object-contain p-1.5 bg-slate-50 border border-slate-200 shrink-0">
+                  <div>
+                    <div class="font-bold text-[#00193F] group-hover:text-[#16B3A3] transition-colors">Cloud Solutions
+                      Architect</div>
+                    <div class="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
+                      <span>PT Amazon Web Services Indonesia</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex flex-col gap-1 items-start">
+                  <span class="font-semibold text-slate-700">Cloud Infrastructure</span>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8]">Full-time</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-semibold text-[#00193F]">
+                Rp 25 - 40 Juta
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex items-center gap-1.5 font-bold text-slate-700">
+                  <i class="fa-solid fa-users text-slate-400 text-xs"></i> 98 Pelamar
+                </div>
+              </td>
+              <td class="py-4 px-4 text-center text-xs text-slate-500 font-medium">
+                20 Nov 2026
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-right">
+                <div class="flex items-center justify-end gap-2">
+                  <button type="button" onclick="alert('Lowongan berhasil disimpan ke daftar favorit Anda!');"
+                    class="p-2 text-slate-400 hover:text-amber-500 hover:bg-slate-100 rounded-lg transition-colors"
+                    title="Simpan ke Favorit">
+                    <i class="fa-regular fa-bookmark"></i>
+                  </button>
+                  <a href="#"
+                    onclick="alert('Lamaran untuk posisi Cloud Solutions Architect di AWS berhasil dikirim!');"
+                    class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs transition-colors whitespace-nowrap shadow-sm">
+                    Lamar Sekarang &rarr;
+                  </a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 3: Adobe -->
+            <tr class="hover:bg-slate-50/80 transition-colors group">
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center gap-3">
+                  <img src="assets/company-adobe.png" alt="Adobe"
+                    class="w-10 h-10 rounded-xl object-contain p-1.5 bg-slate-50 border border-slate-200 shrink-0">
+                  <div>
+                    <div class="font-bold text-[#00193F] group-hover:text-[#16B3A3] transition-colors">Senior UI/UX
+                      &amp; Visual Designer</div>
+                    <div class="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
+                      <span>PT Adobe Systems Indonesia</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex flex-col gap-1 items-start">
+                  <span class="font-semibold text-slate-700">UI/UX Design</span>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8]">Remote</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-semibold text-[#00193F]">
+                Rp 18 - 26 Juta
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex items-center gap-1.5 font-bold text-slate-700">
+                  <i class="fa-solid fa-users text-slate-400 text-xs"></i> 215 Pelamar
+                </div>
+              </td>
+              <td class="py-4 px-4 text-center text-xs text-slate-500 font-medium">
+                10 Nov 2026
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-right">
+                <div class="flex items-center justify-end gap-2">
+                  <button type="button" onclick="alert('Lowongan berhasil disimpan ke daftar favorit Anda!');"
+                    class="p-2 text-slate-400 hover:text-amber-500 hover:bg-slate-100 rounded-lg transition-colors"
+                    title="Simpan ke Favorit">
+                    <i class="fa-regular fa-bookmark"></i>
+                  </button>
+                  <a href="#" onclick="alert('Lamaran untuk posisi Senior UI/UX di Adobe berhasil dikirim!');"
+                    class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs transition-colors whitespace-nowrap shadow-sm">
+                    Lamar Sekarang &rarr;
+                  </a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 4: Burger King -->
+            <tr class="hover:bg-slate-50/80 transition-colors group">
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center gap-3">
+                  <img src="assets/company-burgerking.png" alt="Burger King"
+                    class="w-10 h-10 rounded-xl object-contain p-1.5 bg-slate-50 border border-slate-200 shrink-0">
+                  <div>
+                    <div class="font-bold text-[#00193F] group-hover:text-[#16B3A3] transition-colors">Restaurant
+                      Operations &amp; QA Lead</div>
+                    <div class="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
+                      <span>PT Sari Burger Indonesia</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex flex-col gap-1 items-start">
+                  <span class="font-semibold text-slate-700">Operations &amp; F&B</span>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8]">Full-time</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-semibold text-[#00193F]">
+                Rp 12 - 18 Juta
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex items-center gap-1.5 font-bold text-slate-700">
+                  <i class="fa-solid fa-users text-slate-400 text-xs"></i> 320 Pelamar
+                </div>
+              </td>
+              <td class="py-4 px-4 text-center text-xs text-slate-500 font-medium">
+                01 Okt 2026
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-right">
+                <div class="flex items-center justify-end gap-2">
+                  <button type="button" class="p-2 text-slate-300 cursor-not-allowed rounded-lg"
+                    title="Lowongan sudah ditutup">
+                    <i class="fa-regular fa-bookmark"></i>
+                  </button>
+                  <span
+                    class="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-400 font-semibold text-xs whitespace-nowrap cursor-not-allowed">
+                    Sudah Ditutup
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 5: SpaceX -->
+            <tr class="hover:bg-slate-50/80 transition-colors group">
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center gap-3">
+                  <img src="assets/company-spacex.png" alt="SpaceX"
+                    class="w-10 h-10 rounded-xl object-contain p-1.5 bg-slate-50 border border-slate-200 shrink-0">
+                  <div>
+                    <div class="font-bold text-[#00193F] group-hover:text-[#16B3A3] transition-colors">Satellite &amp;
+                      Network Engineer</div>
+                    <div class="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
+                      <span>PT Starlink Services Indonesia</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex flex-col gap-1 items-start">
+                  <span class="font-semibold text-slate-700">Telecommunication</span>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8]">Full-time</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-semibold text-[#00193F]">
+                Rp 30 - 50 Juta
+              </td>
+              <td class="py-4 px-4">
+                <div class="flex items-center gap-1.5 font-bold text-slate-700">
+                  <i class="fa-solid fa-users text-slate-400 text-xs"></i> 74 Pelamar
+                </div>
+              </td>
+              <td class="py-4 px-4 text-center text-xs text-slate-500 font-medium">
+                30 Nov 2026
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-right">
+                <div class="flex items-center justify-end gap-2">
+                  <button type="button" onclick="alert('Lowongan berhasil disimpan ke daftar favorit Anda!');"
+                    class="p-2 text-slate-400 hover:text-amber-500 hover:bg-slate-100 rounded-lg transition-colors"
+                    title="Simpan ke Favorit">
+                    <i class="fa-regular fa-bookmark"></i>
+                  </button>
+                  <a href="#"
+                    onclick="alert('Lamaran untuk posisi Satellite & Network Engineer di SpaceX berhasil dikirim!');"
+                    class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs transition-colors whitespace-nowrap shadow-sm">
+                    Lamar Sekarang &rarr;
+                  </a>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Footer -->
+      <div
+        class="px-4 sm:px-6 py-4 bg-slate-50/70 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-500">
+        <div>
+          Menampilkan <span class="font-bold text-[#00193F]">1</span> sampai <span
+            class="font-bold text-[#00193F]">5</span> dari <span class="font-bold text-[#00193F]">24</span> entri
+          lowongan tersedia
+        </div>
+
+        <div class="flex items-center gap-1">
+          <button type="button" disabled
+            class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-400 bg-white cursor-not-allowed">
+            <i class="fa-solid fa-chevron-left text-xs mr-1"></i> Prev
+          </button>
+          <button type="button" class="px-3 py-1.5 rounded-lg bg-[#16B3A3] text-white font-bold">1</button>
+          <button type="button"
+            class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 bg-white hover:bg-slate-100">2</button>
+          <button type="button"
+            class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 bg-white hover:bg-slate-100">3</button>
+          <button type="button"
+            class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 bg-white hover:bg-slate-100">
+            Next <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER (PERSIS BAB 3) ================= -->
+  <footer class="bg-[#00193F] text-slate-400 pt-14 pb-8 border-t border-white/10 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+
+        <!-- Kolom 1: Brand Info -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2.5 mb-3">
+            <img src="assets/logo.png" alt="AYOKERJA! Logo" class="h-8 w-auto object-contain">
+            <span class="text-xl font-black text-white tracking-wide">AYOKERJA!</span>
+          </a>
+          <p class="text-xs text-[#CBD5E1] leading-relaxed">
+            Platform rekrutmen &amp; penyaluran kerja terpercaya. Menghubungkan talenta berkualitas dengan perusahaan
+            impian di seluruh Indonesia.
+          </p>
+        </div>
+
+        <!-- Kolom 2: Navigasi Utama -->
+        <div>
+          <h4 class="text-white text-sm font-bold mb-3">Navigasi Utama</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Beranda</a></li>
+            <li><a href="jobs.html" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Lowongan Kerja</a>
+            </li>
+            <li><a href="daftar-perusahaan.html" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Daftar
+                Perusahaan</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Untuk Perusahaan -->
+        <div>
+          <h4 class="text-white text-sm font-bold mb-3">Untuk Perusahaan</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="login-perusahaan.html" onclick="event.preventDefault(); return false;" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Pasang
+                Lowongan</a></li>
+            <li><a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+                class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Pendaftaran Recruiter</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 4: Kontak & Bantuan -->
+        <div>
+          <h4 class="text-white text-sm font-bold mb-3">Kontak &amp; Bantuan</h4>
+          <address class="not-italic text-xs text-[#CBD5E1] space-y-2 leading-relaxed">
+            <p>Email: <a href="mailto:support@ayokerja.id"
+                class="hover:text-[#5EEAD4] transition-colors">support@ayokerja.id</a></p>
+            <p>Telepon: (021) 555-1234</p>
+            <p>Jakarta &amp; Surabaya, Indonesia</p>
+          </address>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-white/10 text-center text-xs text-slate-500">
+        &copy; 2026 AYOKERJA!. Seluruh hak cipta dilindungi undang-undang. Diimplementasikan dengan Tailwind CSS.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-xmark');
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      }
+    });
+  </script>
+
+  <!-- Script Manajemen Sesi & Dropdown Pelamar -->
+  <script src="assets/pelamar-auth.js"></script>
+
+</body>
+
+</html>

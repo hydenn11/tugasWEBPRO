@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Pelamar - AYOKERJA!</title>
+  <meta name="description"
+    content="Halaman profil lengkap pencari kerja AYOKERJA! mencakup ringkasan karir, riwayat pengalaman, pendidikan, keahlian, sertifikasi, dan resume.">
+
+  <!-- Guard Autentikasi: Halaman Profil Hanya Bisa Dibuka Setelah Daftar & Login -->
+  <script>
+    (function () {
+      try {
+        const session = localStorage.getItem('ayokerja_pelamar_user');
+        const user = (session && session !== 'logged_out') ? JSON.parse(session) : null;
+        if (!user || !user.isLoggedIn) {
+          // Cegah flash of unauthenticated content
+          document.documentElement.style.display = 'none';
+          alert('Akses Terbatas: Halaman Profil Pelamar hanya dapat dibuka setelah Anda daftar dan login sebagai pelamar.');
+          window.location.replace('login-pelamar.html');
+        }
+      } catch (e) {
+        document.documentElement.style.display = 'none';
+        window.location.replace('login-pelamar.html');
+      }
+    })();
+  </script>
+
+  <!-- Google Fonts: Inter & Segoe UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#00193F',
+              'navy-light': '#0A2558',
+              'navy-dark': '#00122E',
+              teal: '#16B3A3',
+              'teal-hover': '#109485',
+              'teal-pale': '#CCFBF1',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- ================= NAVBAR UTAMA (PERSIS BAB 3) ================= -->
+  <header class="w-full bg-gradient-to-r from-[#00193F] to-[#16B3A3] sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="assets/logo.png" alt="AYOKERJA! Logo"
+            class="h-9 w-auto object-contain transition-transform group-hover:scale-105">
+          <span class="text-2xl font-extrabold text-white tracking-wide">AYOKERJA!</span>
+        </a>
+
+        <!-- Menu Navigasi Utama -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-white/90 hover:text-white text-sm font-medium transition-colors">Beranda</a>
+          <a href="jobs.html" class="text-white/90 hover:text-white text-sm font-medium transition-colors">Lowongan
+            Kerja</a>
+          <a href="daftar-perusahaan.html"
+            class="text-white/90 hover:text-white text-sm font-medium transition-colors">Daftar
+            Perusahaan</a>
+        </nav>
+
+        <!-- Tombol Autentikasi Kanan Atas: Masuk Pelamar & Masuk Perusahaan -->
+        <div class="hidden md:flex items-center gap-3">
+          <a href="login-pelamar.html"
+            class="px-5 py-2 rounded-full text-xs font-medium text-white bg-white/20 border border-white/40 hover:bg-white/30 transition-all">
+            Masuk Pelamar
+          </a>
+          <a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+            class="px-5 py-2 rounded-full text-xs font-bold text-[#00193F] bg-white hover:bg-slate-100 shadow-sm transition-all hover:-translate-y-0.5">
+            Masuk Perusahaan
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex md:hidden items-center">
+          <button id="mobileMenuBtn" type="button"
+            class="p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none" aria-label="Toggle navigation">
+            <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu"
+      class="hidden md:hidden bg-[#00193F] border-t border-white/15 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+      <a href="index.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10">
+        <i class="fa-solid fa-house mr-2 text-[#16B3A3]"></i> Beranda
+      </a>
+      <a href="jobs.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10">
+        <i class="fa-solid fa-briefcase mr-2 text-[#16B3A3]"></i> Lowongan Kerja
+      </a>
+      <a href="daftar-perusahaan.html"
+        class="block px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10">
+        <i class="fa-solid fa-city mr-2 text-[#16B3A3]"></i> Daftar Perusahaan
+      </a>
+      <div class="pt-3 border-t border-white/10 flex gap-2">
+        <a href="login-pelamar.html"
+          class="flex-1 py-2 text-center text-xs text-white bg-white/20 rounded-full font-medium">Masuk Pelamar</a>
+        <a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+          class="flex-1 py-2 text-center text-xs text-[#00193F] bg-white rounded-full font-bold">Masuk Perusahaan</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HEADER SECTION PROFIL PELAMAR ================= -->
+  <section class="bg-white border-b border-slate-200 py-6 mb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <nav class="flex items-center gap-2 text-xs text-slate-400 mb-1.5">
+            <a href="index.html" class="hover:text-[#16B3A3] transition-colors">Beranda</a>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <span class="text-slate-600 font-semibold">Profil Saya</span>
+          </nav>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-[#00193F] tracking-tight">
+            Profil &amp; Portofolio Pelamar
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Kelola data diri, ringkasan pengalaman, riwayat karir, sertifikasi, keahlian, dan berkas resume Anda.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KONTEN UTAMA PROFIL PELAMAR ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+
+    <!-- Toast Notification (Berhasil Simpan Perubahan) -->
+    <div id="profileAlert"
+      class="hidden mb-6 p-4 rounded-2xl bg-[#CCFBF1] border border-[#16B3A3] text-[#00193F] flex items-center justify-between shadow-lg transition-all">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#16B3A3] text-white flex items-center justify-center text-sm font-bold">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <span id="alertMessage" class="text-xs sm:text-sm font-semibold">Perubahan data profil pelamar berhasil
+          disimpan!</span>
+      </div>
+      <button type="button" onclick="document.getElementById('profileAlert').classList.add('hidden')"
+        class="text-slate-400 hover:text-slate-600 text-sm">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Grid Layout: Kolom Kiri (Profil Ringkas & Kontak) & Kolom Kanan (Riwayat & Detail Lengkap) -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- ================= KOLOM KIRI: KARTU FOTO, NAMA, KONTAK, DAN RESUME ================= -->
+      <div class="space-y-6">
+
+        <!-- Kartu 1: Foto & Identitas Utama Pelamar -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-md text-center relative">
+
+          <!-- Tombol Edit Nama & Identitas -->
+          <button type="button" onclick="toggleEditNameModal()"
+            class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-[#16B3A3] hover:bg-slate-50 transition-colors"
+            title="Edit Identitas Profil">
+            <i class="fa-solid fa-pen-to-square text-base"></i>
+          </button>
+
+          <!-- Foto Profil Pelamar (Avatar Bulat dengan Tombol Ganti Foto) -->
+          <div class="relative w-28 h-28 mx-auto mb-4">
+            <div id="avatarContainer"
+              class="w-full h-full rounded-full ring-4 ring-[#CCFBF1] bg-gradient-to-tr from-[#00193F] to-[#16B3A3] flex items-center justify-center text-white text-3xl font-extrabold shadow-lg overflow-hidden">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <!-- Tombol Ganti Foto -->
+            <label for="uploadPhotoInput"
+              class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white flex items-center justify-center shadow-md cursor-pointer transition-transform hover:scale-110"
+              title="Ganti Foto Profil">
+              <i class="fa-solid fa-camera text-xs"></i>
+              <input type="file" id="uploadPhotoInput" accept="image/*" class="hidden"
+                onchange="handlePhotoUpload(event)">
+            </label>
+          </div>
+
+          <!-- Nama Pelamar (Bisa Di-edit Langsung atau via Modal) -->
+          <h1 id="profileNameDisplay" class="text-xl sm:text-2xl font-black text-[#00193F] tracking-tight">
+            Luthfi Ramadhan
+          </h1>
+          <p id="profileHeadlineDisplay" class="text-xs sm:text-sm font-semibold text-[#16B3A3] mt-1">
+            Senior Frontend Engineer &amp; React Specialist
+          </p>
+
+          <!-- Info Kontak & Lokasi -->
+          <div class="mt-6 pt-5 border-t border-slate-100 text-left space-y-3 text-xs">
+            <div class="flex items-center gap-3 text-slate-600">
+              <div class="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 shrink-0">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <span id="profileEmailDisplay"
+                class="truncate font-medium text-slate-700">luthfi.ramadhan@ayokerja.id</span>
+            </div>
+
+            <div class="flex items-center gap-3 text-slate-600">
+              <div class="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 shrink-0">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <span class="font-medium text-slate-700">+62 812-3456-7890</span>
+            </div>
+
+            <div class="flex items-center gap-3 text-slate-600">
+              <div class="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <span class="font-medium text-slate-700">Jakarta Selatan, DKI Jakarta</span>
+            </div>
+
+            <div class="flex items-center gap-3 text-slate-600">
+              <div class="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 shrink-0">
+                <i class="fa-brands fa-linkedin"></i>
+              </div>
+              <a href="#" class="font-medium text-[#16B3A3] hover:underline truncate">linkedin.com/in/luthfiramadhan</a>
+            </div>
+          </div>
+
+          <!-- Tombol Quick Edit Identitas -->
+          <button type="button" onclick="toggleEditNameModal()"
+            class="w-full mt-6 py-2.5 rounded-full border border-[#16B3A3] text-[#16B3A3] hover:bg-[#CCFBF1]/30 font-bold text-xs transition-colors">
+            <i class="fa-solid fa-user-pen mr-1.5"></i> Edit Informasi Pribadi
+          </button>
+        </div>
+
+        <!-- Kartu 2: Dokumen Resume / CV (Untuk Lamaran & Akses Cepat) -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-md">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+            <h3 class="text-sm font-bold text-[#00193F] flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-500"></i> Berkas Resume / CV
+            </h3>
+            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Tersimpan</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 overflow-hidden">
+              <div
+                class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-lg shrink-0">
+                <i class="fa-solid fa-file-lines"></i>
+              </div>
+              <div class="truncate">
+                <p id="resumeFileName" class="text-xs font-bold text-slate-800 truncate">Resume_Luthfi_Frontend.pdf</p>
+                <span class="text-[10px] text-slate-400">Diperbarui 2 pekan lalu • 480 KB</span>
+              </div>
+            </div>
+
+            <a href="#" onclick="alert('Mengunduh berkas resume: Resume_Luthfi_Frontend.pdf');"
+              class="p-2 rounded-lg text-slate-500 hover:text-[#16B3A3] hover:bg-white transition-colors shrink-0"
+              title="Unduh Berkas Resume">
+              <i class="fa-solid fa-download"></i>
+            </a>
+          </div>
+
+          <!-- Upload Resume Baru -->
+          <label for="uploadResumeInput"
+            class="mt-4 w-full py-2.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-all">
+            <i class="fa-solid fa-cloud-arrow-up"></i> Unggah / Ganti Resume
+            <input type="file" id="uploadResumeInput" accept=".pdf,.doc,.docx" class="hidden"
+              onchange="handleResumeUpload(event)">
+          </label>
+          <p class="text-[10px] text-slate-400 text-center mt-2">Mendukung format PDF atau DOCX (Maks. 5 MB)</p>
+        </div>
+
+        <!-- Kartu 3: Bahasa yang Dikuasai -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-md">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+            <h3 class="text-sm font-bold text-[#00193F] flex items-center gap-2">
+              <i class="fa-solid fa-language text-[#16B3A3]"></i> Bahasa
+            </h3>
+            <button type="button" onclick="alert('Fitur tambah bahasa dapat disesuaikan pada modal profil.');"
+              class="text-xs text-[#16B3A3] font-bold hover:underline">
+              + Tambah
+            </button>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-bold text-slate-800">Bahasa Indonesia</p>
+                <span class="text-[11px] text-slate-400">Penutur Asli / Fasih (Native)</span>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold">Aktif</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-slate-50">
+              <div>
+                <p class="font-bold text-slate-800">Bahasa Inggris (English)</p>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-grey-70 text-grey-700">TOEFL 585</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= KOLOM KANAN: DETAIL RINGKASAN, PENGALAMAN, PENDIDIKAN, DAN KEAHLIAN ================= -->
+      <div class="lg:col-span-2 space-y-6">
+
+        <!-- Bagian 1: Ringkasan Pribadi (Professional Summary) -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+            <h2 class="text-base sm:text-lg font-bold text-[#00193F] flex items-center gap-2.5">
+              <i class="fa-solid fa-address-card text-[#16B3A3]"></i> Ringkasan Pribadi
+            </h2>
+            <button type="button" onclick="toggleEditSummaryModal()"
+              class="text-xs font-bold text-[#16B3A3] hover:underline flex items-center gap-1">
+              <i class="fa-solid fa-pen-to-square"></i> Edit Ringkasan
+            </button>
+          </div>
+
+          <p id="summaryTextDisplay" class="text-xs sm:text-sm text-slate-600 leading-relaxed text-justify">
+            Seorang Software &amp; Frontend Engineer yang berfokus pada pengembangan antarmuka web modern, responsif,
+            dan berkinerja tinggi menggunakan React.js, Tailwind CSS, dan ekosistem TypeScript. Berpengalaman lebih dari
+            3 tahun dalam merancang dan mengimplementasikan arsitektur frontend berskala enterprise, integrasi RESTful
+            API, serta standardisasi sistem desain (Design System). Memiliki komitmen tinggi pada kebersihan kode (clean
+            code), optimasi SEO, dan pengalaman pengguna (UX) yang intuitif.
+          </p>
+        </section>
+
+        <!-- Bagian 2: Riwayat Karier / Pengalaman Kerja (Agar Menonjol Bagi Perusahaan) -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-[#00193F] flex items-center gap-2.5">
+                <i class="fa-solid fa-briefcase text-[#16B3A3]"></i> Riwayat Karier &amp; Pengalaman
+              </h2>
+              <p class="text-xs text-slate-400 mt-0.5">Pengalaman profesional untuk menarik perhatian tim recruiter
+                perusahaan mitra</p>
+            </div>
+            <button type="button" onclick="alert('Formulir penambahan pengalaman karier baru siap ditambahkan!');"
+              class="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs shadow-sm transition-colors shrink-0">
+              + Tambah Karier
+            </button>
+          </div>
+
+          <!-- Timeline Pengalaman -->
+          <div class="space-y-6">
+
+            <!-- Pengalaman 1 -->
+            <div class="flex items-start gap-4">
+              <img src="assets/company-google.png" alt="Google"
+                class="w-12 h-12 rounded-2xl object-contain p-2 bg-slate-50 border border-slate-200 shrink-0">
+              <div class="flex-grow">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <h3 class="text-sm font-bold text-[#00193F]">Lead Frontend Engineer</h3>
+                  <span
+                    class="text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full w-fit">2024
+                    - Sekarang (Saat Ini)</span>
+                </div>
+                <p class="text-xs font-semibold text-slate-700 mt-0.5">PT Google Cloud Indonesia • Jakarta (Hybrid)</p>
+                <ul class="mt-2.5 space-y-1.5 text-xs text-slate-600 list-disc list-inside leading-relaxed">
+                  <li>Memimpin tim frontend yang terdiri dari 5 insinyur dalam membangun dashboard analitik cloud
+                    berskala regional.</li>
+                  <li>Meningkatkan skor performa Lighthouse dari 72 ke 98 dengan menerapkan teknik *code splitting* dan
+                    *lazy loading*.</li>
+                  <li>Bekerja sama secara aktif dengan tim Backend dan UI/UX Designer dalam merilis 14 fitur baru tepat
+                    waktu.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Pengalaman 2 -->
+            <div class="flex items-start gap-4 pt-4 border-t border-slate-100">
+              <img src="assets/company-adobe.png" alt="Adobe"
+                class="w-12 h-12 rounded-2xl object-contain p-2 bg-slate-50 border border-slate-200 shrink-0">
+              <div class="flex-grow">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <h3 class="text-sm font-bold text-[#00193F]">Frontend UI/UX Specialist</h3>
+                  <span
+                    class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full w-fit">2022 -
+                    2024 (2 Tahun)</span>
+                </div>
+                <p class="text-xs font-semibold text-slate-700 mt-0.5">PT Adobe Systems Indonesia • BSD City Tangerang
+                </p>
+                <ul class="mt-2.5 space-y-1.5 text-xs text-slate-600 list-disc list-inside leading-relaxed">
+                  <li>Membangun komponen *design system* modular yang digunakan oleh lebih dari 20 repository internal
+                    perusahaan.</li>
+                  <li>Mengintegrasikan REST API arsitektur microservices dan mengoptimalkan state management aplikasi
+                    menggunakan Redux Toolkit.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Bagian 3: Riwayat Pendidikan -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+            <h2 class="text-base sm:text-lg font-bold text-[#00193F] flex items-center gap-2.5">
+              <i class="fa-solid fa-graduation-cap text-[#16B3A3]"></i> Riwayat Pendidikan
+            </h2>
+            <button type="button" onclick="alert('Formulir penambahan riwayat pendidikan siap digunakan.');"
+              class="text-xs font-bold text-[#16B3A3] hover:underline">
+              + Tambah Pendidikan
+            </button>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-2xl bg-[#CCFBF1] text-[#16B3A3] flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <div class="flex-grow">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <h3 class="text-sm font-bold text-[#00193F]">Universitas Indonesia (UI)</h3>
+                  <span
+                    class="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full w-fit">2018 -
+                    2022</span>
+                </div>
+                <p class="text-xs font-semibold text-slate-700 mt-0.5">Sarjana Komputer (S.Kom) - Ilmu Komputer / Teknik
+                  Informatika</p>
+                <p class="text-xs text-slate-500 mt-1">IPK: <strong>3.84 / 4.00</strong> (Predikat CumLaude)</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bagian 4: Lisensi & Sertifikasi Profesional -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+            <h2 class="text-base sm:text-lg font-bold text-[#00193F] flex items-center gap-2.5">
+              <i class="fa-solid fa-award text-[#16B3A3]"></i> Lisensi &amp; Sertifikasi
+            </h2>
+            <button type="button" onclick="alert('Formulir penambahan sertifikasi profesional siap digunakan.');"
+              class="text-xs font-bold text-[#16B3A3] hover:underline">
+              + Tambah Sertifikasi
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/50 flex items-start gap-3">
+              <div
+                class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-base shrink-0 mt-0.5">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-[#00193F]">Meta Certified Frontend Developer</h4>
+                <p class="text-[11px] text-slate-500 mt-0.5">Meta / Coursera • Diterbitkan 2023</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/50 flex items-start gap-3">
+              <div
+                class="w-9 h-9 rounded-xl bg-[#CCFBF1] text-[#16B3A3] flex items-center justify-center text-base shrink-0 mt-0.5">
+                <i class="fa-solid fa-cloud"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-[#00193F]">AWS Certified Cloud Practitioner</h4>
+                <p class="text-[11px] text-slate-500 mt-0.5">Amazon Web Services • Diterbitkan 2024</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Bagian 5: Keahlian & Keterampilan Teknis (Skills) -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+            <h2 class="text-base sm:text-lg font-bold text-[#00193F] flex items-center gap-2.5">
+              <i class="fa-solid fa-code text-[#16B3A3]"></i> Keahlian &amp; Keterampilan Teknis
+            </h2>
+            <button type="button" onclick="alert('Formulir penambahan keahlian baru siap digunakan.');"
+              class="text-xs font-bold text-[#16B3A3] hover:underline">
+              + Tambah Skill
+            </button>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">React.js</span>
+            <span
+              class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">Tailwind
+              CSS</span>
+            <span
+              class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">TypeScript</span>
+            <span
+              class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">Next.js</span>
+            <span
+              class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">RESTful
+              API</span>
+            <span
+              class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">State
+              Management (Redux/Zustand)</span>
+            <span
+              class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">UI/UX
+              Prototyping (Figma)</span>
+            <span
+              class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">Git
+              &amp; GitHub Version Control</span>
+            <span
+              class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">Responsive
+              Web Design</span>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= MODAL EDIT NAMA & IDENTITAS PRIBADI ================= -->
+  <div id="editNameModal"
+    class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
+        <h3 class="text-lg font-bold text-[#00193F]">Edit Informasi Pribadi</h3>
+        <button type="button" onclick="toggleEditNameModal()" class="text-slate-400 hover:text-slate-600">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleSaveName(event)" class="space-y-4 text-xs sm:text-sm">
+        <div>
+          <label for="inputName" class="block font-bold text-slate-700 mb-1">Nama Lengkap *</label>
+          <input type="text" id="inputName" required value="Luthfi Ramadhan"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3]">
+        </div>
+
+        <div>
+          <label for="inputHeadline" class="block font-bold text-slate-700 mb-1">Headline / Posisi Bidang *</label>
+          <input type="text" id="inputHeadline" required value="Senior Frontend Engineer & React Specialist"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3]">
+        </div>
+
+        <div>
+          <label for="inputEmail" class="block font-bold text-slate-700 mb-1">Email Pelamar *</label>
+          <input type="email" id="inputEmail" required value="luthfi.ramadhan@ayokerja.id"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3]">
+        </div>
+
+        <div class="flex justify-end gap-3 pt-3">
+          <button type="button" onclick="toggleEditNameModal()"
+            class="px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50">
+            Batal
+          </button>
+          <button type="submit"
+            class="px-6 py-2 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold shadow-md transition-all">
+            Simpan Perubahan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= MODAL EDIT RINGKASAN PRIBADI ================= -->
+  <div id="editSummaryModal"
+    class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
+        <h3 class="text-lg font-bold text-[#00193F]">Edit Ringkasan Pribadi</h3>
+        <button type="button" onclick="toggleEditSummaryModal()" class="text-slate-400 hover:text-slate-600">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleSaveSummary(event)" class="space-y-4 text-xs sm:text-sm">
+        <div>
+          <label for="inputSummary" class="block font-bold text-slate-700 mb-1">Ringkasan Pribadi (Tentang Saya)
+            *</label>
+          <textarea id="inputSummary" rows="6" required
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] leading-relaxed">Seorang Software & Frontend Engineer yang berfokus pada pengembangan antarmuka web modern, responsif, dan berkinerja tinggi menggunakan React.js, Tailwind CSS, dan ekosistem TypeScript. Berpengalaman lebih dari 3 tahun dalam merancang dan mengimplementasikan arsitektur frontend berskala enterprise, integrasi RESTful API, serta standardisasi sistem desain (Design System). Memiliki komitmen tinggi pada kebersihan kode (clean code), optimasi SEO, dan pengalaman pengguna (UX) yang intuitif.</textarea>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-3">
+          <button type="button" onclick="toggleEditSummaryModal()"
+            class="px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50">
+            Batal
+          </button>
+          <button type="submit"
+            class="px-6 py-2 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold shadow-md transition-all">
+            Simpan Ringkasan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER (PERSIS BAB 3) ================= -->
+  <footer class="bg-[#00193F] text-slate-400 pt-14 pb-8 border-t border-white/10 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+
+        <!-- Kolom 1: Brand Info -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2.5 mb-3">
+            <img src="assets/logo.png" alt="AYOKERJA! Logo" class="h-8 w-auto object-contain">
+            <span class="text-xl font-black text-white tracking-wide">AYOKERJA!</span>
+          </a>
+          <p class="text-xs text-[#CBD5E1] leading-relaxed">
+            Platform rekrutmen &amp; penyaluran kerja terpercaya. Menghubungkan talenta berkualitas dengan perusahaan
+            impian di seluruh Indonesia.
+          </p>
+        </div>
+
+        <!-- Kolom 2: Navigasi Utama -->
+        <div>
+          <h4 class="text-white text-sm font-bold mb-3">Navigasi Utama</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Beranda</a></li>
+            <li><a href="jobs.html" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Lowongan Kerja</a>
+            </li>
+            <li><a href="daftar-perusahaan.html" class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Daftar
+                Perusahaan</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Untuk Perusahaan -->
+        <div>
+          <h4 class="text-white text-sm font-bold mb-3">Untuk Perusahaan</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+                class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Pasang
+                Lowongan</a></li>
+            <li><a href="login-perusahaan.html" onclick="event.preventDefault(); return false;"
+                class="text-[#CBD5E1] hover:text-[#5EEAD4] transition-colors">Pendaftaran Recruiter</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 4: Kontak & Bantuan -->
+        <div>
+          <h4 class="text-white text-sm font-bold mb-3">Kontak &amp; Bantuan</h4>
+          <address class="not-italic text-xs text-[#CBD5E1] space-y-2 leading-relaxed">
+            <p>Email: <a href="mailto:support@ayokerja.id"
+                class="hover:text-[#5EEAD4] transition-colors">support@ayokerja.id</a></p>
+            <p>Telepon: (021) 555-1234</p>
+            <p>Jakarta &amp; Surabaya, Indonesia</p>
+          </address>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-white/10 text-center text-xs text-slate-500">
+        &copy; 2026 AYOKERJA!. Seluruh hak cipta dilindungi undang-undang. Diimplementasikan dengan Tailwind CSS.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interaktivitas Profil Script -->
+  <script>
+    // Toggle Modal Edit Nama
+    function toggleEditNameModal() {
+      const modal = document.getElementById('editNameModal');
+      modal.classList.toggle('hidden');
+    }
+
+    // Toggle Modal Edit Ringkasan
+    function toggleEditSummaryModal() {
+      const modal = document.getElementById('editSummaryModal');
+      modal.classList.toggle('hidden');
+    }
+
+    // Handle Simpan Nama & Headline
+    function handleSaveName(e) {
+      e.preventDefault();
+      const newName = document.getElementById('inputName').value;
+      const newHeadline = document.getElementById('inputHeadline').value;
+      const newEmail = document.getElementById('inputEmail').value;
+
+      document.getElementById('profileNameDisplay').textContent = newName;
+      const navUserEl = document.getElementById('navUserName');
+      if (navUserEl) navUserEl.textContent = newName;
+      document.getElementById('profileHeadlineDisplay').textContent = newHeadline;
+      document.getElementById('profileEmailDisplay').textContent = newEmail;
+
+      if (window.ayokerjaAuth) {
+        const user = window.ayokerjaAuth.getUser() || {};
+        user.name = newName;
+        user.email = newEmail;
+        user.headline = newHeadline;
+        window.ayokerjaAuth.setUser(user);
+      }
+
+      toggleEditNameModal();
+      showToast('Nama dan identitas profil berhasil diperbarui!');
+    }
+
+    // Handle Simpan Ringkasan
+    function handleSaveSummary(e) {
+      e.preventDefault();
+      const newSummary = document.getElementById('inputSummary').value;
+      document.getElementById('summaryTextDisplay').textContent = newSummary;
+
+      toggleEditSummaryModal();
+      showToast('Ringkasan pribadi berhasil diperbarui!');
+    }
+
+    // Handle Upload Foto Profil
+    function handlePhotoUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const container = document.getElementById('avatarContainer');
+          container.innerHTML = `<img src="${event.target.result}" alt="Foto Profil" class="w-full h-full object-cover">`;
+          showToast('Foto profil berhasil diunggah!');
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Handle Upload Resume
+    function handleResumeUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        document.getElementById('resumeFileName').textContent = file.name;
+        showToast(`Resume "${file.name}" berhasil diunggah ke profil Anda!`);
+      }
+    }
+
+    // Tampilkan Toast Notifikasi
+    function showToast(msg) {
+      const alertBox = document.getElementById('profileAlert');
+      if (alertBox) {
+        document.getElementById('alertMessage').textContent = msg;
+        alertBox.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          alertBox.classList.add('hidden');
+        }, 4000);
+      }
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          if (menuIcon) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-xmark');
+          }
+        } else {
+          mobileMenu.classList.add('hidden');
+          if (menuIcon) {
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+          }
+        }
+      });
+    }
+
+    // Inisialisasi Data Pengguna yang Sedang Login
+    function initUserProfileFromSession() {
+      try {
+        const session = localStorage.getItem('ayokerja_pelamar_user');
+        if (!session || session === 'logged_out') return;
+        const user = JSON.parse(session);
+        if (user && user.isLoggedIn) {
+          if (user.name) {
+            const nameEl = document.getElementById('profileNameDisplay');
+            if (nameEl) nameEl.textContent = user.name;
+            const inputName = document.getElementById('inputName');
+            if (inputName) inputName.value = user.name;
+          }
+          if (user.email) {
+            const emailEl = document.getElementById('profileEmailDisplay');
+            if (emailEl) emailEl.textContent = user.email;
+            const inputEmail = document.getElementById('inputEmail');
+            if (inputEmail) inputEmail.value = user.email;
+          }
+          if (user.headline) {
+            const headlineEl = document.getElementById('profileHeadlineDisplay');
+            if (headlineEl) headlineEl.textContent = user.headline;
+            const inputHeadline = document.getElementById('inputHeadline');
+            if (inputHeadline) inputHeadline.value = user.headline;
+          }
+        }
+      } catch (err) {
+        console.error('Gagal memuat sesi profil:', err);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initUserProfileFromSession);
+    initUserProfileFromSession();
+  </script>
+
+  <!-- Script Manajemen Sesi & Dropdown Pelamar -->
+  <script src="assets/pelamar-auth.js"></script>
+
+</body>
+
+</html>

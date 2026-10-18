@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Mitra Perusahaan - Masuk &amp; Daftar AYOKERJA!</title>
+  <meta name="description" content="Portal autentikasi khusus mitra perusahaan dan recruiter resmi AYOKERJA! untuk publikasi lowongan dan rekrutmen.">
+
+  <!-- Google Fonts: Inter & Segoe UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#00193F',
+              'navy-light': '#0A2558',
+              'navy-dark': '#00122E',
+              teal: '#16B3A3',
+              'teal-hover': '#109485',
+              'teal-pale': '#CCFBF1',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- Header Ringkas -->
+  <header class="w-full bg-gradient-to-r from-[#00193F] to-[#16B3A3] py-4 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="assets/logo.png" alt="AYOKERJA! Logo" class="h-8 w-auto object-contain">
+        <span class="text-xl font-extrabold text-white tracking-wide">AYOKERJA!</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-white/20 text-white font-semibold">Portal Perusahaan</span>
+      </a>
+      <a href="index.html" class="text-xs font-semibold text-white/90 hover:text-white flex items-center gap-1.5 transition-colors">
+        <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Container Auth Perusahaan -->
+  <main class="flex-grow flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-lg bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xl">
+      
+      <!-- Logo Badge & Judul -->
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 rounded-2xl bg-[#00193F] text-[#16B3A3] flex items-center justify-center text-2xl mx-auto mb-3 shadow-inner">
+          <i class="fa-solid fa-building-circle-check"></i>
+        </div>
+        <h1 class="text-2xl font-extrabold text-[#00193F]">Portal Khusus Perusahaan</h1>
+        <p class="text-xs text-slate-500 mt-1">Daftar atau masuk untuk mempublikasikan lowongan &amp; seleksi pelamar</p>
+      </div>
+
+      <!-- Tab Buttons: Masuk vs Daftar -->
+      <div class="flex p-1 bg-slate-100 rounded-2xl mb-6">
+        <button id="tabLoginBtn" type="button" onclick="switchTab('login')" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-[#00193F] shadow-sm transition-all">
+          Masuk Perusahaan
+        </button>
+        <button id="tabRegisterBtn" type="button" onclick="switchTab('register')" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-800 transition-all">
+          Daftar Perusahaan Baru
+        </button>
+      </div>
+
+      <!-- TAB 1: FORM LOGIN PERUSAHAAN -->
+      <form id="formLoginPerusahaan" onsubmit="event.preventDefault(); alert('Login Perusahaan Berhasil! Mengarahkan ke Dashboard Khusus Perusahaan...'); window.location.href='dashboard-perusahaan.html';" class="space-y-4">
+        
+        <!-- Email Resmi Perusahaan -->
+        <div>
+          <label for="companyEmail" class="block text-xs font-bold text-slate-700 mb-1.5">Email Resmi Perusahaan / HR</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-regular fa-envelope text-xs"></i>
+            </div>
+            <input type="email" id="companyEmail" required placeholder="hr@perusahaan.co.id" 
+              class="w-full pl-9 pr-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all placeholder:text-slate-400">
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="companyPassword" class="block text-xs font-bold text-slate-700">Kata Sandi Akun Perusahaan</label>
+            <a href="#" class="text-[11px] font-semibold text-[#16B3A3] hover:underline">Bantuan Sandi?</a>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-solid fa-lock text-xs"></i>
+            </div>
+            <input type="password" id="companyPassword" required placeholder="••••••••" 
+              class="w-full pl-9 pr-10 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-xs pt-1">
+          <label class="flex items-center gap-2 cursor-pointer text-slate-600">
+            <input type="checkbox" checked class="w-4 h-4 rounded text-[#16B3A3] focus:ring-[#16B3A3] border-slate-300">
+            <span>Ingat kredensial recruiter ini</span>
+          </label>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md mt-2">
+          Masuk ke Dashboard Perusahaan &rarr;
+        </button>
+
+      </form>
+
+      <!-- TAB 2: FORM REGISTRASI PERUSAHAAN BARU (HIDDEN BY DEFAULT) -->
+      <form id="formRegisterPerusahaan" onsubmit="event.preventDefault(); alert('Pendaftaran Perusahaan Berhasil Terverifikasi! Mengarahkan ke Dashboard Khusus Perusahaan...'); window.location.href='dashboard-perusahaan.html';" class="hidden space-y-4">
+        
+        <div>
+          <label for="regCompanyName" class="block text-xs font-bold text-slate-700 mb-1.5">Nama Resmi Perusahaan / PT <span class="text-red-500">*</span></label>
+          <input type="text" id="regCompanyName" required placeholder="Contoh: PT Teknologi Bangsa Indonesia" 
+            class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="regIndustry" class="block text-xs font-bold text-slate-700 mb-1.5">Bidang Industri <span class="text-red-500">*</span></label>
+            <select id="regIndustry" required class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all bg-white text-slate-700">
+              <option value="Teknologi">Teknologi &amp; Software</option>
+              <option value="Cloud">Cloud &amp; Infra</option>
+              <option value="Desain">Desain &amp; Kreatif</option>
+              <option value="F&B">F&B / Kuliner</option>
+              <option value="Telekomunikasi">Telekomunikasi</option>
+            </select>
+          </div>
+          <div>
+            <label for="regPhone" class="block text-xs font-bold text-slate-700 mb-1.5">No. Telepon Kantor <span class="text-red-500">*</span></label>
+            <input type="tel" id="regPhone" required placeholder="(021) 555-xxxx" 
+              class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+          </div>
+        </div>
+
+        <div>
+          <label for="regEmail" class="block text-xs font-bold text-slate-700 mb-1.5">Email PIC / HR Recruiter <span class="text-red-500">*</span></label>
+          <input type="email" id="regEmail" required placeholder="recruiter@perusahaan.co.id" 
+            class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+        </div>
+
+        <div>
+          <label for="regPassword" class="block text-xs font-bold text-slate-700 mb-1.5">Buat Kata Sandi Akun <span class="text-red-500">*</span></label>
+          <input type="password" id="regPassword" required placeholder="Minimal 8 karakter aman" 
+            class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#16B3A3]/20 focus:border-[#16B3A3] transition-all">
+        </div>
+
+        <div class="flex items-start gap-2 pt-1">
+          <input type="checkbox" id="regTerms" required class="w-4 h-4 rounded text-[#16B3A3] focus:ring-[#16B3A3] border-slate-300 mt-0.5">
+          <label for="regTerms" class="text-[11px] text-slate-500 leading-snug">
+            Saya menyetujui Ketentuan Kemitraan Recruiter &amp; Kebijakan Privasi Rekrutmen Terverifikasi AYOKERJA!.
+          </label>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-full bg-[#00193F] hover:bg-[#0A2558] text-white font-bold text-xs sm:text-sm transition-all shadow-md mt-2">
+          Daftarkan Perusahaan Sekarang &rarr;
+        </button>
+
+      </form>
+
+      <!-- Switch ke Login Pelamar -->
+      <div class="mt-6 pt-5 border-t border-slate-100 text-center">
+        <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100">
+          <p class="text-[11px] text-slate-600">
+            Anda seorang pencari kerja / pelamar?
+          </p>
+          <a href="login-pelamar.html" class="inline-flex items-center gap-1 text-xs font-bold text-[#16B3A3] hover:underline mt-1 transition-colors">
+            Masuk di Portal Pelamar <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Ringkas -->
+  <footer class="bg-[#00193F] text-slate-400 py-4 text-center text-xs border-t border-white/10">
+    &copy; 2026 AYOKERJA!. Portal Karir & Rekrutmen Terpadu Indonesia.
+  </footer>
+
+  <script>
+    function switchTab(type) {
+      const loginForm = document.getElementById('formLoginPerusahaan');
+      const registerForm = document.getElementById('formRegisterPerusahaan');
+      const loginBtn = document.getElementById('tabLoginBtn');
+      const registerBtn = document.getElementById('tabRegisterBtn');
+
+      if (type === 'login') {
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        loginBtn.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-[#00193F] shadow-sm transition-all";
+        registerBtn.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-800 transition-all";
+      } else {
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden');
+        registerBtn.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-[#00193F] shadow-sm transition-all";
+        loginBtn.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-800 transition-all";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,25 +1,13 @@
 # Dokumentasi Tugas Pemrograman Web
 ## BAB REACT DASAR — Frontend Skeleton (Tailwind CSS)
 
-**Nama Mahasiswa / Repositori:** tugasWEBPRO  
 **Studi Kasus Proyek Fullstack:** **AYOKERJA!** (Portal Rekrutmen & Penyaluran Kerja Terpadu Indonesia)  
 **Tautan Repositori GitHub:** [https://github.com/hydenn11/tugasWEBPRO](https://github.com/hydenn11/tugasWEBPRO)  
 **CSS Framework Terpilih:** **Tailwind CSS**
 
 ---
 
-## 1. Deskripsi & Arsitektur Peran Pengguna
-Pada revisi tahap ini, antarmuka portal **AYOKERJA!** dibangun dengan membedakan secara tegas antara dua sisi entitas pengguna:
-1. **Sisi Pelamar / Pencari Kerja (*Job Seeker*)**:
-   - Menjelajahi katalog lowongan kerja, menggunakan filter pencarian multi-kategori, dan masuk melalui portal **Masuk Pelamar** (`login-pelamar.html`).
-2. **Sisi Mitra Perusahaan (*Employer / Recruiter*)**:
-   - Memiliki alur registrasi dan otentikasi mandiri di **Masuk Perusahaan** (`login-perusahaan.html`), yang kemudian memberikan akses ke halaman khusus **Dashboard & Pasang Lowongan Perusahaan** (`dashboard-perusahaan.html`).
-3. **Katalog & Pencarian Mitra Perusahaan (`daftar-perusahaan.html`)**:
-   - Menggantikan halaman tambah lowongan publik menjadi pusat eksplorasi profil perusahaan mitra terverifikasi lengkap dengan **fitur pencarian instan (*search input*)** dan filter industri.
-
----
-
-## 2. Alasan Pemilihan Tailwind CSS
+## 1. Alasan Pemilihan Tailwind CSS
 1. **Konsistensi Desain Tanpa Kompromi (*Utility-First*)**:
    Tailwind CSS memungkinkan penerapan palet warna khusus (`brand.navy`, `brand.teal`), gradien navbar, dan komponen bentuk kapsul (*pill*) secara presisi sesuai prototipe Bab 3 tanpa terikat batasan komponen bawaan framework seperti Bootstrap.
 2. **Kesiapan Menuju Ekosistem React Component**:
@@ -29,7 +17,7 @@ Pada revisi tahap ini, antarmuka portal **AYOKERJA!** dibangun dengan membedakan
 
 ---
 
-## 3. Fitur & Halaman yang Dibangun
+## 2. Fitur & Halaman yang Dibangun
 
 | No | Halaman | Berkas | Peran & Fitur Antarmuka |
 | :---: | :--- | :--- | :--- |
@@ -42,33 +30,7 @@ Pada revisi tahap ini, antarmuka portal **AYOKERJA!** dibangun dengan membedakan
 
 ---
 
-## 4. Struktur Direktori Proyek
-
-```text
-Tugas_React_dasar/
-├── assets/                               # Aset logo, icon mitra, & script autentikasi
-│   ├── company-adobe.png
-│   ├── company-amazon.png
-│   ├── company-burgerking.png
-│   ├── company-google.png
-│   ├── company-spacex.png
-│   ├── logo.png
-│   └── pelamar-auth.js                   # Manajemen sesi login & dropdown profil pelamar
-├── docs/
-│   └── screenshots/                      # Tangkapan layar bukti responsive
-├── index.html                            # Beranda Utama (Pelamar & Umum)
-├── jobs.html                             # Tabel & Daftar Lowongan Kerja
-├── daftar-perusahaan.html                # Katalog & Search Mitra Perusahaan
-├── profile-pelamar.html                  # Halaman Profil Lengkap Pelamar
-├── login-pelamar.html                    # Form Login & Registrasi Pelamar
-├── login-perusahaan.html                 # Form Login & Daftar Mitra Perusahaan
-├── dashboard-perusahaan.html             # Halaman Khusus Perusahaan (Pasang Lowongan)
-└── README.md                             # Dokumentasi Tugas
-```
-
----
-
-## 5. Tangkapan Layar Halaman (Screenshots)
+## 3. Tangkapan Layar Halaman (Screenshots)
 
 ### A. Tampilan Desktop
 

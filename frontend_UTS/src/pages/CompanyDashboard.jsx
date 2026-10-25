@@ -323,50 +323,6 @@ export default function CompanyDashboard() {
     localStorage.setItem('ayokerja_company_applicants', JSON.stringify(applicants));
   }, [applicants]);
 
-  // Feed aktivitas
-  const [activities] = useState([
-    {
-      id: 1,
-      type: 'applicant',
-      icon: 'fa-user-plus text-emerald-500 bg-emerald-50',
-      title: 'Pelamar Baru Masuk',
-      desc: 'Andi Pratama melamar untuk posisi Senior Cloud & DevOps Engineer',
-      time: '15 menit yang lalu',
-    },
-    {
-      id: 2,
-      type: 'interview',
-      icon: 'fa-calendar-check text-blue-500 bg-blue-50',
-      title: 'Jadwal Interview Terkonfirmasi',
-      desc: 'Siti Rahmawati (UI/UX) dijadwalkan wawancara teknis besok, 10:00 WIB',
-      time: '1 jam yang lalu',
-    },
-    {
-      id: 3,
-      type: 'stage',
-      icon: 'fa-arrows-rotate text-purple-500 bg-purple-50',
-      title: 'Perubahan Tahap Seleksi',
-      desc: 'Dimas Aditya Saputra dipindahkan ke tahap Screening & Review',
-      time: '3 jam yang lalu',
-    },
-    {
-      id: 4,
-      type: 'job',
-      icon: 'fa-briefcase text-teal-500 bg-teal-50',
-      title: 'Lowongan Ditutup',
-      desc: 'Lowongan Associate Product Growth Specialist telah ditutup',
-      time: 'Kemarin, 16:30 WIB',
-    },
-    {
-      id: 5,
-      type: 'hired',
-      icon: 'fa-circle-check text-emerald-600 bg-emerald-100',
-      title: 'Kandidat Menerima Tawaran',
-      desc: 'Jessica Wong menerima Offering Letter posisi Senior Cloud & DevOps Engineer',
-      time: '2 hari yang lalu',
-    },
-  ]);
-
   // Form buat lowongan
   const [createStep, setCreateStep] = useState(1);
   const [newJobTitle, setNewJobTitle] = useState('');
@@ -555,10 +511,6 @@ export default function CompanyDashboard() {
       showToast('Foto logo berhasil dipilih! Pratinjau langsung diperbarui.');
     };
     reader.readAsDataURL(file);
-  };
-
-  const handleBannerPreset = (url) => {
-    setProfileForm({ ...profileForm, banner: url });
   };
 
   const handleLogout = () => {

@@ -5,7 +5,7 @@ import AuthRequiredModal from '../components/AuthRequiredModal';
 import JobDetailModal from '../components/JobDetailModal';
 import JobApplyModal from '../components/JobApplyModal';
 import ViewApplicationModal from '../components/ViewApplicationModal';
-import { ALL_JOBS, getJobDetail } from '../data/jobsList';
+import { ALL_JOBS } from '../data/jobsList';
 
 export default function Jobs() {
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ export default function Jobs() {
     }
   }, [searchParams]);
 
-  const { savedJobIds, toggleSaveJob, applyJob, withdrawApplication, appliedJobs, user, isPelamar } = useAuth();
+  const { savedJobIds, toggleSaveJob, applyJob, withdrawApplication, appliedJobs, user } = useAuth();
 
   const [authModal, setAuthModal] = useState({
     isOpen: false,

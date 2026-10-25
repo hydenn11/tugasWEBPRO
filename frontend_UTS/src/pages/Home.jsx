@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import AuthRequiredModal from '../components/AuthRequiredModal';
 
 export default function Home() {
   const navigate = useNavigate();
-  const { user, applyJob, appliedJobs, savedJobIds, toggleSaveJob } = useAuth();
+  const { user, appliedJobs, savedJobIds, toggleSaveJob } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [activeCategoryPill, setActiveCategoryPill] = useState('Semua');

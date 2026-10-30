@@ -52,7 +52,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="flex items-center gap-2.5 bg-white/20 hover:bg-white/30 text-white pl-2 pr-3 py-1.5 rounded-full border border-white/30 transition-all cursor-pointer focus:outline-none"
+                  className="flex items-center gap-2.5 bg-white/15 hover:bg-white/25 text-white pl-2 pr-3 py-1.5 rounded-xl border border-white/25 transition-colors cursor-pointer focus:outline-none"
                   title="Menu Profil"
                 >
                   <div className="w-7 h-7 rounded-full bg-[#16B3A3] text-white flex items-center justify-center font-bold text-xs ring-2 ring-white overflow-hidden">
@@ -127,13 +127,13 @@ export default function Navbar() {
               <>
                 <Link
                   to="/login-pelamar"
-                  className="px-5 py-2 rounded-full text-xs font-medium text-white bg-white/20 border border-white/40 hover:bg-white/30 transition-all"
+                  className="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-white/15 border border-white/30 hover:bg-white/25 transition-colors"
                 >
                   Masuk Pelamar
                 </Link>
                 <Link
                   to="/login-perusahaan"
-                  className="px-5 py-2 rounded-full text-xs font-bold text-[#00193F] bg-white hover:bg-slate-100 shadow-sm transition-all hover:-translate-y-0.5"
+                  className="px-4 py-2 rounded-lg text-xs font-bold text-[#00193F] bg-white hover:bg-slate-100 shadow-sm transition-colors"
                 >
                   Masuk Perusahaan
                 </Link>
@@ -191,7 +191,7 @@ export default function Navbar() {
                     <Link
                       to="/profile"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block w-full py-2 text-center text-xs text-white bg-[#16B3A3] rounded-full font-bold"
+                      className="block w-full py-2.5 text-center text-xs text-white bg-[#16B3A3] hover:bg-[#109485] rounded-xl font-bold transition-colors"
                     >
                       Profil Saya
                     </Link>
@@ -199,7 +199,7 @@ export default function Navbar() {
                       <Link
                         to="/jobs?filter=saved"
                         onClick={() => setMobileMenuOpen(false)}
-                        className="py-2 px-3 text-center text-xs text-amber-300 bg-amber-500/20 border border-amber-400/30 rounded-xl font-bold flex items-center justify-center gap-1.5"
+                        className="py-2.5 px-3 text-center text-xs text-amber-300 bg-amber-500/20 border border-amber-400/30 rounded-xl font-bold flex items-center justify-center gap-1.5"
                       >
                         <i className="fa-solid fa-bookmark text-[10px]"></i>
                         <span>Tersimpan ({savedJobIds.length})</span>
@@ -207,7 +207,7 @@ export default function Navbar() {
                       <Link
                         to="/jobs?filter=applied"
                         onClick={() => setMobileMenuOpen(false)}
-                        className="py-2 px-3 text-center text-xs text-teal-200 bg-teal-500/20 border border-teal-400/30 rounded-xl font-bold flex items-center justify-center gap-1.5"
+                        className="py-2.5 px-3 text-center text-xs text-teal-200 bg-teal-500/20 border border-teal-400/30 rounded-xl font-bold flex items-center justify-center gap-1.5"
                       >
                         <i className="fa-solid fa-clipboard-check text-[10px]"></i>
                         <span>Lamaran ({appliedJobs.length})</span>
@@ -218,7 +218,7 @@ export default function Navbar() {
                   <Link
                     to="/company-dashboard"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full py-2 text-center text-xs text-white bg-[#16B3A3] rounded-full font-bold"
+                    className="block w-full py-2.5 text-center text-xs text-white bg-[#16B3A3] hover:bg-[#109485] rounded-xl font-bold transition-colors"
                   >
                     Dashboard Perusahaan
                   </Link>
@@ -229,24 +229,24 @@ export default function Navbar() {
                     handleLogout();
                     setMobileMenuOpen(false);
                   }}
-                  className="block w-full py-2 text-center text-xs text-rose-300 bg-rose-500/20 rounded-full font-bold"
+                  className="block w-full py-2.5 text-center text-xs text-rose-300 bg-rose-500/20 hover:bg-rose-500/30 rounded-xl font-bold transition-colors"
                 >
                   Keluar
                 </button>
               </>
             ) : (
-              <div className="flex gap-2">
+              <div className="flex gap-2.5 pt-1">
                 <Link
                   to="/login-pelamar"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 py-2 text-center text-xs text-white bg-white/20 rounded-full font-medium"
+                  className="flex-1 py-2.5 text-center text-xs text-white bg-white/15 border border-white/25 hover:bg-white/20 rounded-xl font-semibold transition-colors"
                 >
                   Masuk Pelamar
                 </Link>
                 <Link
                   to="/login-perusahaan"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 py-2 text-center text-xs text-[#00193F] bg-white rounded-full font-bold"
+                  className="flex-1 py-2.5 text-center text-xs text-[#00193F] bg-white hover:bg-slate-100 rounded-xl font-bold shadow-sm transition-colors"
                 >
                   Masuk Perusahaan
                 </Link>

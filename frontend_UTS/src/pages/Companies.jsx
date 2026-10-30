@@ -108,8 +108,8 @@ export default function Companies() {
             merekrut talenta terbaik.
           </p>
 
-          <div className="bg-white p-2 rounded-full shadow-2xl flex flex-col sm:flex-row items-center gap-2 max-w-3xl mx-auto border border-white/30">
-            <div className="flex-1 flex items-center gap-3 pl-4 w-full">
+          <div className="bg-white p-2 sm:p-2.5 rounded-2xl sm:rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-3 max-w-3xl mx-auto border border-slate-200/80">
+            <div className="flex-1 flex items-center gap-3 px-3 py-1.5 sm:py-0 w-full">
               <i className="fa-solid fa-magnifying-glass text-slate-400 text-sm"></i>
               <input
                 type="text"
@@ -120,12 +120,12 @@ export default function Companies() {
               />
             </div>
 
-            <div className="hidden sm:flex items-center gap-2 px-3 border-l border-slate-200 text-slate-600 text-xs sm:text-sm">
+            <div className="flex items-center gap-2 px-3 py-2 sm:py-0 w-full sm:w-auto border-t sm:border-t-0 sm:border-l border-slate-200 text-slate-600 text-xs sm:text-sm">
               <i className="fa-solid fa-industry text-slate-400 text-xs"></i>
               <select
                 value={selectedIndustry}
                 onChange={(e) => setSelectedIndustry(e.target.value)}
-                className="bg-transparent focus:outline-none cursor-pointer text-slate-700 text-xs sm:text-sm pr-2"
+                className="bg-transparent focus:outline-none cursor-pointer text-slate-700 text-xs sm:text-sm pr-2 w-full sm:w-auto"
               >
                 <option value="">Semua Industri</option>
                 <option value="Teknologi">Teknologi &amp; Software</option>
@@ -138,7 +138,7 @@ export default function Companies() {
 
             <button
               type="button"
-              className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md"
+              className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm"
             >
               Cari Perusahaan
             </button>
@@ -154,7 +154,7 @@ export default function Companies() {
             <p className="text-xs text-slate-500 mt-0.5">Menampilkan mitra aktif yang sedang membuka lowongan karir</p>
           </div>
           <div className="flex items-center gap-3">
-            <span className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#CCFBF1] text-[#16B3A3]">
+            <span className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#CCFBF1] text-[#16B3A3]">
               {filteredCompanies.length} Perusahaan Terdaftar
             </span>
           </div>
@@ -176,7 +176,7 @@ export default function Companies() {
                     />
                     <div>
                       <h3 className="text-base font-bold text-[#00193F] leading-snug">{comp.name}</h3>
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full mt-1">
+                      <span className="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md mt-1 border border-emerald-200/60">
                         <i className="fa-solid fa-shield-check text-xs"></i> Terverifikasi Resmi
                       </span>
                     </div>
@@ -210,9 +210,9 @@ export default function Companies() {
                 <span className="text-[11px] text-slate-400">{comp.since}</span>
                 <Link
                   to={`/jobs?q=${encodeURIComponent(comp.name)}`}
-                  className="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white text-xs font-semibold transition-colors"
+                  className="h-9 px-4 rounded-lg bg-[#16B3A3] hover:bg-[#109485] text-white text-xs font-medium transition-colors shadow-sm flex items-center justify-center"
                 >
-                  Lihat Lowongan &rarr;
+                  Lihat Lowongan
                 </Link>
               </div>
             </article>

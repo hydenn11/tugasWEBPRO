@@ -454,7 +454,7 @@ export default function Jobs() {
                 <button
                   type="button"
                   onClick={() => handleTabChange('all')}
-                  className="px-5 py-2.5 rounded-full bg-[#16B3A3] text-white font-bold text-xs hover:bg-[#109485] transition-all shadow-md inline-flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-lg bg-[#16B3A3] text-white font-semibold text-xs hover:bg-[#109485] transition-all shadow-sm inline-flex items-center gap-2"
                 >
                   <i className="fa-solid fa-compass"></i> Jelajahi Semua Lowongan
                 </button>
@@ -537,7 +537,7 @@ export default function Jobs() {
                             </div>
                           </td>
                           <td className="py-4 px-4 text-center whitespace-nowrap">
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                               <span>{app.status || 'Terkirim'}</span>
                             </span>
@@ -547,7 +547,7 @@ export default function Jobs() {
                               <button
                                 type="button"
                                 onClick={() => setViewApplicationModal(app)}
-                                className="px-3 py-1.5 rounded-xl border border-slate-200 hover:border-[#16B3A3] text-slate-700 hover:text-[#16B3A3] bg-white hover:bg-teal-50/50 font-bold text-xs transition-colors shadow-sm flex items-center gap-1.5"
+                                className="h-9 px-3.5 rounded-lg border border-slate-200 hover:border-[#16B3A3] text-slate-700 hover:text-[#16B3A3] bg-white hover:bg-teal-50/50 font-semibold text-xs transition-colors shadow-sm flex items-center gap-1.5"
                                 title="Lihat salinan formulir berkas yang dikirim"
                               >
                                 <i className="fa-solid fa-eye text-xs"></i>
@@ -556,8 +556,9 @@ export default function Jobs() {
                               <button
                                 type="button"
                                 onClick={() => handleWithdrawApplication(app.id, app.title)}
-                                className="p-1.5 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                                className="w-9 h-9 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:text-rose-600 hover:bg-rose-50 hover:border-rose-200 transition-colors"
                                 title="Tarik / Batalkan Lamaran"
+                                aria-label="Tarik / Batalkan Lamaran"
                               >
                                 <i className="fa-solid fa-trash-can text-xs"></i>
                               </button>
@@ -591,7 +592,7 @@ export default function Jobs() {
                   <button
                     type="button"
                     onClick={() => handleTabChange('all')}
-                    className="px-4 py-2 rounded-full bg-[#16B3A3] text-white font-bold text-xs hover:bg-[#109485] transition-colors"
+                    className="px-4 py-2 rounded-lg bg-[#16B3A3] text-white font-semibold text-xs hover:bg-[#109485] transition-colors"
                   >
                     Lihat Semua Lowongan
                   </button>
@@ -645,7 +646,7 @@ export default function Jobs() {
                           <td className="py-4 px-4">
                             <div className="flex flex-col gap-1 items-start">
                               <span className="font-semibold text-slate-700">{job.categoryLabel}</span>
-                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8]">
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#EFF6FF] text-[#1D4ED8]">
                                 {job.type}
                               </span>
                             </div>
@@ -664,29 +665,30 @@ export default function Jobs() {
                               <button
                                 type="button"
                                 onClick={() => handleSave(job)}
-                                className={`p-2 rounded-lg transition-colors ${isSaved
-                                    ? 'text-amber-500 bg-amber-50'
-                                    : 'text-slate-400 hover:text-amber-500 hover:bg-slate-100'
+                                className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors border ${isSaved
+                                    ? 'text-amber-500 bg-amber-50 border-amber-200'
+                                    : 'text-slate-400 hover:text-amber-500 hover:bg-slate-50 border-slate-200'
                                   }`}
                                 title={isSaved ? 'Tersimpan di Favorit' : 'Simpan ke Favorit'}
+                                aria-label={isSaved ? 'Tersimpan di Favorit' : 'Simpan ke Favorit'}
                               >
-                                <i className={`fa-bookmark ${isSaved ? 'fa-solid text-amber-500' : 'fa-regular'}`}></i>
+                                <i className={`fa-bookmark ${isSaved ? 'fa-solid text-amber-500' : 'fa-regular'} text-sm`}></i>
                               </button>
                               {job.isClosed ? (
-                                <span className="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-400 font-semibold text-xs whitespace-nowrap cursor-not-allowed">
+                                <span className="px-3.5 py-1.5 rounded-lg bg-slate-100 text-slate-400 font-semibold text-xs whitespace-nowrap cursor-not-allowed">
                                   Sudah Ditutup
                                 </span>
                               ) : isApplied ? (
-                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-bold text-xs whitespace-nowrap border border-emerald-200">
+                                <span className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg bg-emerald-50 text-emerald-700 font-semibold text-xs whitespace-nowrap border border-emerald-200">
                                   <i className="fa-solid fa-circle-check text-emerald-500 text-[11px]"></i> Sudah Dilamar
                                 </span>
                               ) : (
                                 <button
                                   type="button"
                                   onClick={() => handleApplyClick(job)}
-                                  className="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs transition-colors whitespace-nowrap shadow-sm"
+                                  className="h-9 px-4 rounded-lg bg-[#16B3A3] hover:bg-[#109485] text-white font-medium text-xs transition-colors whitespace-nowrap shadow-sm"
                                 >
-                                  Lamar Sekarang &rarr;
+                                  Lamar Sekarang
                                 </button>
                               )}
                             </div>

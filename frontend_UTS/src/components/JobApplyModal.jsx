@@ -37,14 +37,15 @@ export default function JobApplyModal({
           <i className="fa-solid fa-xmark text-sm"></i>
         </button>
 
-        <div>
-          <span className="text-[11px] font-bold tracking-wider uppercase text-[#16B3A3] bg-teal-50 px-3 py-1 rounded-full">
-            Formulir Lamaran Resmi
-          </span>
-          <h2 className="text-xl font-black text-[#00193F] mt-2">
+        <div className="border-b border-slate-100 pb-4">
+          <div className="flex items-center gap-1.5 text-xs font-semibold text-[#16B3A3] mb-1">
+            <i className="fa-solid fa-file-signature text-[11px]"></i>
+            <span>Formulir Pengajuan Lamaran</span>
+          </div>
+          <h2 className="text-xl font-extrabold text-[#00193F]">
             Lengkapi Berkas Lamaran
           </h2>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-slate-500 mt-1 leading-relaxed">
             Kirimkan berkas CV dan surat pengantar untuk posisi <span className="font-bold text-[#00193F]">{job.title}</span> di <span className="font-semibold text-slate-700">{job.company}</span>.
           </p>
         </div>

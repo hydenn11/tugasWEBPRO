@@ -20,10 +20,11 @@ export default function ViewApplicationModal({ application, onClose }) {
             <i className="fa-solid fa-file-circle-check"></i>
           </div>
           <div>
-            <span className="text-[10px] font-bold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200 uppercase tracking-wider">
-              Salinan Berkas Lamaran
-            </span>
-            <h3 className="text-base sm:text-lg font-bold text-[#00193F] leading-snug mt-0.5">
+            <div className="text-[11px] font-semibold text-[#16B3A3] flex items-center gap-1.5 mb-0.5">
+              <i className="fa-solid fa-file-circle-check text-[10px]"></i>
+              <span>Salinan Berkas Lamaran</span>
+            </div>
+            <h3 className="text-base sm:text-lg font-bold text-[#00193F] leading-snug">
               {application.title}
             </h3>
             <p className="text-xs font-semibold text-slate-500">{application.company}</p>

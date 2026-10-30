@@ -97,7 +97,7 @@ export default function LoginPerusahaan() {
           <Link to="/" className="flex items-center gap-2.5">
             <img src="/assets/logo.png" alt="AYOKERJA! Logo" className="h-8 w-auto object-contain" />
             <span className="text-xl font-extrabold text-white tracking-wide">AYOKERJA!</span>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-white/20 text-white font-semibold">Portal Perusahaan</span>
+            <span className="text-xs px-2.5 py-0.5 rounded-md bg-white/15 text-white font-medium">Portal Perusahaan</span>
           </Link>
           <Link to="/" className="text-xs font-semibold text-white/90 hover:text-white flex items-center gap-1.5 transition-colors">
             <i className="fa-solid fa-arrow-left"></i> Kembali ke Beranda
@@ -173,9 +173,9 @@ export default function LoginPerusahaan() {
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md mt-2"
+                className="w-full py-3 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-colors shadow-sm mt-2"
               >
-                Masuk ke Dashboard Perusahaan &rarr;
+                Masuk ke Dashboard Perusahaan
               </button>
             </form>
           )}
@@ -256,9 +256,9 @@ export default function LoginPerusahaan() {
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-full bg-[#00193F] hover:bg-[#0A2558] text-white font-bold text-xs sm:text-sm transition-all shadow-md mt-2"
+                className="w-full py-3 rounded-xl bg-[#00193F] hover:bg-[#0A2558] text-white font-bold text-xs sm:text-sm transition-colors shadow-sm mt-2"
               >
-                Daftarkan Perusahaan Sekarang &rarr;
+                Daftarkan Perusahaan Sekarang
               </button>
             </form>
           )}

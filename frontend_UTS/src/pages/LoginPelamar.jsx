@@ -165,7 +165,7 @@ export default function LoginPelamar() {
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md mt-2"
+                className="w-full py-3 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-colors shadow-sm mt-2"
               >
                 Masuk Sekarang Sebagai Pelamar
               </button>
@@ -228,7 +228,7 @@ export default function LoginPelamar() {
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md mt-2"
+                className="w-full py-3 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-colors shadow-sm mt-2"
               >
                 Daftar Akun Pelamar Sekarang
               </button>

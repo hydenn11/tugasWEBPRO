@@ -9,7 +9,7 @@ export default function CompanyCandidateModal({ isOpen, candidate, onClose }) {
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition-colors"
+          className="absolute top-5 right-5 w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition-colors"
         >
           <i className="fa-solid fa-xmark text-sm"></i>
         </button>
@@ -49,7 +49,7 @@ export default function CompanyCandidateModal({ isOpen, candidate, onClose }) {
             <h4 className="font-bold text-[#00193F] mb-1.5">Keahlian &amp; Kualifikasi Teknis</h4>
             <div className="flex flex-wrap gap-1.5">
               {candidate.skills.map((s, idx) => (
-                <span key={idx} className="px-3 py-1 rounded-full text-xs font-semibold bg-[#CCFBF1] text-[#16B3A3] border border-[#99F6E4]">
+                <span key={idx} className="px-2.5 py-1 rounded-md text-xs font-medium bg-[#CCFBF1] text-[#16B3A3] border border-[#99F6E4]/70">
                   {s}
                 </span>
               ))}

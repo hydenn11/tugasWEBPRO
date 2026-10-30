@@ -612,9 +612,9 @@ export default function CompanyDashboard() {
 
             <div className="flex items-center gap-2.5 sm:gap-3">
               <div
-                className="flex items-center gap-2.5 bg-white/15 text-white pl-2 pr-3.5 py-1.5 rounded-full border border-white/25 shadow-sm select-none"
+                className="flex items-center gap-2.5 bg-white/15 text-white pl-2 pr-3.5 py-1.5 rounded-xl border border-white/25 shadow-sm select-none"
               >
-                <div className="w-7 h-7 rounded-full bg-white p-0.5 flex items-center justify-center font-bold text-xs ring-2 ring-white/80 overflow-hidden shrink-0 shadow-sm">
+                <div className="w-7 h-7 rounded-lg bg-white p-0.5 flex items-center justify-center font-bold text-xs ring-2 ring-white/80 overflow-hidden shrink-0 shadow-sm">
                   <img
                     src={companyProfile.logo || '/assets/company-google.png'}
                     alt="Logo Perusahaan"
@@ -631,7 +631,7 @@ export default function CompanyDashboard() {
               <button
                 type="button"
                 onClick={handleLogout}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-rose-600/90 text-white border border-white/20 hover:border-rose-400 text-xs font-semibold transition-all shadow-sm cursor-pointer group"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-rose-600/90 text-white border border-white/20 hover:border-rose-400 text-xs font-semibold transition-colors shadow-sm cursor-pointer group"
                 title="Keluar dari Portal Perusahaan"
               >
                 <i className="fa-solid fa-arrow-right-from-bracket text-xs text-white/80 group-hover:text-white transition-colors"></i>
@@ -777,9 +777,9 @@ export default function CompanyDashboard() {
                   <button
                     type="button"
                     onClick={() => setActiveTab('applicants')}
-                    className="text-xs font-semibold text-[#16B3A3] hover:text-[#109485] px-3 py-1 rounded-full hover:bg-teal-50 transition-colors"
+                    className="text-xs font-semibold text-[#16B3A3] hover:text-[#109485] px-3 py-1.5 rounded-lg hover:bg-teal-50 transition-colors"
                   >
-                    Buka di ATS Kanban &rarr;
+                    Buka ATS Kanban
                   </button>
                 </div>
               </div>
@@ -1091,9 +1091,9 @@ export default function CompanyDashboard() {
                       type="button"
                       disabled={!newJobTitle.trim()}
                       onClick={() => setCreateStep(2)}
-                      className="px-6 py-2.5 rounded-full bg-[#16B3A3] disabled:opacity-50 hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2"
+                      className="px-6 py-2.5 rounded-xl bg-[#16B3A3] disabled:opacity-50 hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-sm transition-colors flex items-center gap-2"
                     >
-                      Lanjut ke Kompensasi &rarr;
+                      Lanjut ke Kompensasi
                     </button>
                   </div>
                 </div>
@@ -1179,16 +1179,16 @@ export default function CompanyDashboard() {
                     <button
                       type="button"
                       onClick={() => setCreateStep(1)}
-                      className="px-5 py-2.5 rounded-full text-slate-600 hover:bg-slate-100 font-semibold text-xs transition-colors"
+                      className="px-5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold text-xs transition-colors flex items-center gap-1.5"
                     >
-                      &larr; Kembali
+                      <i className="fa-solid fa-arrow-left text-[10px]"></i> Kembali
                     </button>
                     <button
                       type="button"
                       onClick={() => setCreateStep(3)}
-                      className="px-6 py-2.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2"
+                      className="px-6 py-2.5 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-sm transition-colors flex items-center gap-2"
                     >
-                      Lanjut ke Kualifikasi &rarr;
+                      Lanjut ke Kualifikasi
                     </button>
                   </div>
                 </div>
@@ -1273,16 +1273,16 @@ export default function CompanyDashboard() {
                     <button
                       type="button"
                       onClick={() => setCreateStep(2)}
-                      className="px-5 py-2.5 rounded-full text-slate-600 hover:bg-slate-100 font-semibold text-xs transition-colors"
+                      className="px-5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold text-xs transition-colors flex items-center gap-1.5"
                     >
-                      &larr; Kembali
+                      <i className="fa-solid fa-arrow-left text-[10px]"></i> Kembali
                     </button>
                     <button
                       type="button"
                       onClick={() => setCreateStep(4)}
-                      className="px-6 py-2.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2"
+                      className="px-6 py-2.5 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-sm transition-colors flex items-center gap-2"
                     >
-                      Lihat Pratinjau (Preview) &rarr;
+                      Lihat Pratinjau
                     </button>
                   </div>
                 </div>
@@ -1303,7 +1303,7 @@ export default function CompanyDashboard() {
                         className="w-12 h-12 rounded-xl object-contain bg-white p-1.5 border border-slate-200"
                       />
                       <div>
-                        <div className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] mb-1">
+                        <div className="inline-block px-2.5 py-0.5 rounded-md text-[10px] font-semibold bg-[#EFF6FF] text-[#1D4ED8] mb-1">
                           {newJobPolicy} • {newJobType}
                         </div>
                         <h4 className="text-lg font-extrabold text-[#00193F]">{newJobTitle || 'Judul Posisi Lowongan'}</h4>
@@ -1313,7 +1313,7 @@ export default function CompanyDashboard() {
 
                     <div className="flex flex-wrap gap-1.5 mb-4">
                       {newJobSkills.map((sk, idx) => (
-                        <span key={idx} className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white border border-slate-200 text-slate-700">
+                        <span key={idx} className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-white border border-slate-200 text-slate-700">
                           {sk}
                         </span>
                       ))}
@@ -1335,16 +1335,16 @@ export default function CompanyDashboard() {
                     <button
                       type="button"
                       onClick={() => setCreateStep(3)}
-                      className="px-5 py-2.5 rounded-full text-slate-600 hover:bg-slate-100 font-semibold text-xs transition-colors"
+                      className="px-5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold text-xs transition-colors flex items-center gap-1.5"
                     >
-                      &larr; Ubah Kualifikasi
+                      <i className="fa-solid fa-arrow-left text-[10px]"></i> Ubah Kualifikasi
                     </button>
 
                     <button
                       type="submit"
-                      className="px-8 py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-xl hover:shadow-2xl transition-all flex items-center gap-2 hover:-translate-y-0.5"
+                      className="px-8 py-3 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-sm transition-colors flex items-center gap-2"
                     >
-                      <i className="fa-solid fa-paper-plane"></i> Publikasikan Lowongan Sekarang
+                      <i className="fa-solid fa-paper-plane text-xs"></i> Publikasikan Lowongan Sekarang
                     </button>
                   </div>
                 </div>
@@ -1547,7 +1547,7 @@ export default function CompanyDashboard() {
                             <button
                               type="button"
                               onClick={() => openCandidateDetail(cand)}
-                              className="px-3 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs transition-colors shadow-xs"
+                              className="px-3.5 py-1.5 rounded-lg bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs transition-colors shadow-xs"
                             >
                               Detail &amp; Resume
                             </button>
@@ -1746,9 +1746,9 @@ export default function CompanyDashboard() {
               <div className="flex justify-end pt-2">
                 <button
                   type="submit"
-                  className="px-8 py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2"
+                  className="px-8 py-3 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm shadow-sm transition-colors flex items-center gap-2"
                 >
-                  <i className="fa-solid fa-floppy-disk"></i> Simpan Perubahan Profil Perusahaan
+                  <i className="fa-solid fa-floppy-disk text-xs"></i> Simpan Perubahan Profil Perusahaan
                 </button>
               </div>
             </form>

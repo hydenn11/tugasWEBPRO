@@ -85,21 +85,21 @@ export default function ProfilePelamar() {
           <div className="space-y-3">
             <Link
               to="/login-pelamar"
-              className="w-full py-3 px-5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md inline-flex items-center justify-center gap-2"
+              className="w-full py-3 px-5 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-colors shadow-sm inline-flex items-center justify-center gap-2"
             >
-              <i className="fa-solid fa-right-to-bracket"></i> Masuk Akun Pelamar
+              <i className="fa-solid fa-right-to-bracket text-xs"></i> Masuk Akun Pelamar
             </Link>
             <Link
               to="/login-pelamar?tab=register"
-              className="w-full py-2.5 px-5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm transition-colors inline-flex items-center justify-center gap-2"
+              className="w-full py-2.5 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm transition-colors inline-flex items-center justify-center gap-2"
             >
-              <i className="fa-solid fa-user-plus"></i> Buat Akun Baru
+              <i className="fa-solid fa-user-plus text-xs"></i> Buat Akun Baru
             </Link>
             <Link
               to="/"
-              className="inline-block text-xs font-semibold text-slate-400 hover:text-slate-600 pt-2"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-slate-600 pt-2"
             >
-              &larr; Kembali ke Beranda
+              <i className="fa-solid fa-arrow-left text-[10px]"></i> Kembali ke Beranda
             </Link>
           </div>
         </div>
@@ -230,7 +230,7 @@ export default function ProfilePelamar() {
               <button
                 type="button"
                 onClick={() => setEditNameModalOpen(true)}
-                className="w-full mt-6 py-2.5 rounded-full border border-[#16B3A3] text-[#16B3A3] hover:bg-[#CCFBF1]/30 font-bold text-xs transition-colors"
+                className="w-full mt-6 py-2.5 rounded-xl border border-[#16B3A3] text-[#16B3A3] hover:bg-[#CCFBF1]/30 font-bold text-xs transition-colors"
               >
                 <i className="fa-solid fa-user-pen mr-1.5"></i> Edit Informasi Pribadi
               </button>
@@ -241,7 +241,7 @@ export default function ProfilePelamar() {
                 <h3 className="text-sm font-bold text-[#00193F] flex items-center gap-2">
                   <i className="fa-solid fa-file-pdf text-red-500"></i> Berkas Resume / CV
                 </h3>
-                <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Tersimpan</span>
+                <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200/60">Tersimpan</span>
               </div>
 
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3">
@@ -270,7 +270,7 @@ export default function ProfilePelamar() {
 
               <label
                 htmlFor="uploadResumeInput"
-                className="mt-4 w-full py-2.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-all"
+                className="mt-4 w-full py-2.5 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-colors"
               >
                 <i className="fa-solid fa-cloud-arrow-up"></i> Unggah / Ganti Resume
                 <input
@@ -304,14 +304,14 @@ export default function ProfilePelamar() {
                     <p className="font-bold text-slate-800">Bahasa Indonesia</p>
                     <span className="text-[11px] text-slate-400">Penutur Asli / Fasih (Native)</span>
                   </div>
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#CCFBF1] text-[#16B3A3]">Aktif</span>
+                  <span className="px-2.5 py-0.5 rounded-md text-[10px] font-semibold bg-[#CCFBF1] text-[#16B3A3]">Aktif</span>
                 </div>
 
                 <div className="flex items-center justify-between pt-2 border-t border-slate-50">
                   <div>
                     <p className="font-bold text-slate-800">Bahasa Inggris (English)</p>
                   </div>
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">TOEFL 585</span>
+                  <span className="px-2.5 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 text-slate-700">TOEFL 585</span>
                 </div>
               </div>
             </div>
@@ -352,7 +352,7 @@ export default function ProfilePelamar() {
                 <button
                   type="button"
                   onClick={() => alert('Formulir penambahan pengalaman karier baru siap ditambahkan!')}
-                  className="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs shadow-sm transition-colors shrink-0"
+                  className="px-4 py-1.5 rounded-lg bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs shadow-sm transition-colors shrink-0"
                 >
                   + Tambah Karier
                 </button>
@@ -368,7 +368,7 @@ export default function ProfilePelamar() {
                   <div className="flex-grow">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                       <h3 className="text-sm font-bold text-[#00193F]">Lead Frontend Engineer</h3>
-                      <span className="text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full w-fit">
+                      <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200/60 w-fit">
                         2024 - Sekarang (Saat Ini)
                       </span>
                     </div>
@@ -390,7 +390,7 @@ export default function ProfilePelamar() {
                   <div className="flex-grow">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                       <h3 className="text-sm font-bold text-[#00193F]">Frontend UI/UX Specialist</h3>
-                      <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full w-fit">
+                      <span className="text-[11px] font-medium text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200/60 w-fit">
                         2022 - 2024 (2 Tahun)
                       </span>
                     </div>
@@ -426,7 +426,7 @@ export default function ProfilePelamar() {
                   <div className="flex-grow">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                       <h3 className="text-sm font-bold text-[#00193F]">Universitas Indonesia (UI)</h3>
-                      <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full w-fit">
+                      <span className="text-[11px] font-medium text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200/60 w-fit">
                         2018 - 2022
                       </span>
                     </div>
@@ -498,7 +498,7 @@ export default function ProfilePelamar() {
                 ].map((skill) => (
                   <span
                     key={skill}
-                    className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200"
+                    className="px-3 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200"
                   >
                     {skill}
                   </span>
@@ -599,13 +599,13 @@ export default function ProfilePelamar() {
                 <button
                   type="button"
                   onClick={() => setEditNameModalOpen(false)}
-                  className="px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50"
+                  className="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors"
                 >
                   Batal
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold shadow-md transition-all"
+                  className="px-6 py-2.5 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold shadow-sm transition-colors"
                 >
                   Simpan Perubahan
                 </button>
@@ -647,13 +647,13 @@ export default function ProfilePelamar() {
                 <button
                   type="button"
                   onClick={() => setEditSummaryModalOpen(false)}
-                  className="px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50"
+                  className="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors"
                 >
                   Batal
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold shadow-md transition-all"
+                  className="px-6 py-2.5 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold shadow-sm transition-colors"
                 >
                   Simpan Ringkasan
                 </button>

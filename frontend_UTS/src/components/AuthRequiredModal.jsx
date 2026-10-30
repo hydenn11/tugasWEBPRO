@@ -24,7 +24,7 @@ export default function AuthRequiredModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-400 hover:text-slate-600 flex items-center justify-center transition-colors"
+          className="absolute top-4 right-4 w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-400 hover:text-slate-600 flex items-center justify-center transition-colors"
           aria-label="Tutup"
         >
           <i className="fa-solid fa-xmark text-sm"></i>
@@ -61,9 +61,9 @@ export default function AuthRequiredModal({
               onClose();
               navigate('/login-pelamar');
             }}
-            className="w-full py-3 px-4 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+            className="w-full py-3 px-4 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-colors shadow-sm flex items-center justify-center gap-2"
           >
-            <i className="fa-solid fa-right-to-bracket"></i>
+            <i className="fa-solid fa-right-to-bracket text-xs"></i>
             Masuk Akun Pelamar Sekarang
           </button>
 
@@ -73,9 +73,9 @@ export default function AuthRequiredModal({
               onClose();
               navigate('/login-pelamar?tab=register');
             }}
-            className="w-full py-2.5 px-4 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm transition-colors flex items-center justify-center gap-2"
+            className="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm transition-colors flex items-center justify-center gap-2"
           >
-            <i className="fa-solid fa-user-plus"></i>
+            <i className="fa-solid fa-user-plus text-xs"></i>
             Belum Punya Akun? Daftar Baru
           </button>
 

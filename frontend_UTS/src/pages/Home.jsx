@@ -241,9 +241,9 @@ export default function Home() {
 
           <form
             onSubmit={handleSearchSubmit}
-            className="bg-white p-2 rounded-full shadow-2xl flex flex-col sm:flex-row items-center gap-2 max-w-3xl mx-auto border border-white/30"
+            className="bg-white p-2 sm:p-2.5 rounded-2xl sm:rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-3 max-w-3xl mx-auto border border-slate-200/80"
           >
-            <div className="flex-1 flex items-center gap-3 pl-4 w-full">
+            <div className="flex-1 flex items-center gap-3 px-3 py-1.5 sm:py-0 w-full">
               <i className="fa-solid fa-magnifying-glass text-slate-400 text-sm"></i>
               <input
                 type="text"
@@ -255,13 +255,13 @@ export default function Home() {
               />
             </div>
 
-            <div className="hidden sm:flex items-center gap-2 px-3 border-l border-slate-200 text-slate-600 text-xs sm:text-sm">
+            <div className="flex items-center gap-2 px-3 py-2 sm:py-0 w-full sm:w-auto border-t sm:border-t-0 sm:border-l border-slate-200 text-slate-600 text-xs sm:text-sm">
               <i className="fa-solid fa-location-dot text-slate-400 text-xs"></i>
               <select
                 name="lokasi"
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className="bg-transparent focus:outline-none cursor-pointer text-slate-700 text-xs sm:text-sm pr-2"
+                className="bg-transparent focus:outline-none cursor-pointer text-slate-700 text-xs sm:text-sm pr-2 w-full sm:w-auto"
               >
                 <option value="">Semua Provinsi</option>
                 <option value="Jakarta">DKI Jakarta</option>
@@ -276,7 +276,7 @@ export default function Home() {
 
             <button
               type="submit"
-              className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs sm:text-sm transition-all shadow-md"
+              className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm"
             >
               Cari Lowongan
             </button>
@@ -343,8 +343,8 @@ export default function Home() {
                 <span
                   key={pill}
                   onClick={() => setActiveCategoryPill(pill)}
-                  className={`px-3.5 py-1.5 rounded-full font-bold shrink-0 cursor-pointer transition-colors ${activeCategoryPill === pill
-                    ? 'bg-[#16B3A3] text-white'
+                  className={`px-3.5 py-1.5 rounded-lg font-semibold shrink-0 cursor-pointer transition-colors ${activeCategoryPill === pill
+                    ? 'bg-[#16B3A3] text-white shadow-sm'
                     : 'bg-white border border-slate-200 text-slate-600 hover:border-[#16B3A3] hover:text-[#16B3A3]'
                     }`}
                 >
@@ -405,7 +405,7 @@ export default function Home() {
                   setSelectedLocation('');
                   setActiveCategoryPill('Semua');
                 }}
-                className="px-5 py-2.5 rounded-full bg-[#16B3A3] text-white font-bold text-xs hover:bg-[#109485] transition-all shadow-sm"
+                className="px-5 py-2.5 rounded-lg bg-[#16B3A3] text-white font-semibold text-xs hover:bg-[#109485] transition-all shadow-sm"
               >
                 Tampilkan Semua Lowongan
               </button>
@@ -439,7 +439,7 @@ export default function Home() {
                       {job.tags.map((t, idx) => (
                         <span
                           key={idx}
-                          className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${t.bg} ${t.text}`}
+                          className={`px-2.5 py-1 rounded-md text-[11px] font-medium ${t.bg} ${t.text}`}
                         >
                           {t.label}
                         </span>
@@ -459,25 +459,26 @@ export default function Home() {
                       <button
                         type="button"
                         onClick={() => handleSave(job)}
-                        className={`p-1.5 rounded-lg transition-colors ${savedJobIds.includes(job.id)
-                            ? 'text-amber-500 bg-amber-50'
-                            : 'text-slate-400 hover:text-amber-500 hover:bg-slate-100'
+                        className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors border ${savedJobIds.includes(job.id)
+                          ? 'text-amber-500 bg-amber-50 border-amber-200'
+                          : 'text-slate-400 hover:text-amber-500 hover:bg-slate-50 border-slate-200'
                           }`}
                         title={savedJobIds.includes(job.id) ? 'Tersimpan di Favorit' : 'Simpan ke Favorit'}
+                        aria-label={savedJobIds.includes(job.id) ? 'Tersimpan di Favorit' : 'Simpan ke Favorit'}
                       >
                         <i className={`fa-bookmark ${savedJobIds.includes(job.id) ? 'fa-solid text-amber-500' : 'fa-regular'} text-sm`}></i>
                       </button>
                       {appliedJobs.some((a) => a.id === job.id) ? (
-                        <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-bold text-xs border border-emerald-200">
+                        <span className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg bg-emerald-50 text-emerald-700 font-semibold text-xs border border-emerald-200">
                           <i className="fa-solid fa-circle-check text-emerald-500 text-[11px]"></i> Dilamar
                         </span>
                       ) : (
                         <button
                           type="button"
                           onClick={() => handleApply(job)}
-                          className="px-4 py-1.5 rounded-full bg-[#16B3A3] hover:bg-[#109485] text-white font-semibold transition-colors shadow-sm"
+                          className="h-9 px-4 rounded-lg bg-[#16B3A3] hover:bg-[#109485] text-white font-medium text-xs transition-colors shadow-sm"
                         >
-                          Lamar &rarr;
+                          Lamar Lowongan
                         </button>
                       )}
                     </div>

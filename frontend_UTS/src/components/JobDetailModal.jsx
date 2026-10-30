@@ -35,13 +35,13 @@ export default function JobDetailModal({ isOpen, job, onClose, onApply, onSave, 
               </span>
             </p>
             <div className="flex flex-wrap items-center gap-2 mt-2.5">
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-[#EFF6FF] text-[#1D4ED8]">
+              <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-[#EFF6FF] text-[#1D4ED8]">
                 {detail.workPolicy || detail.type}
               </span>
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">
+              <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-50 text-emerald-700">
                 {detail.salary}
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-600">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-600">
                 <i className="fa-solid fa-location-dot text-slate-400 text-[10px]"></i>
                 {detail.location}
               </span>
@@ -93,13 +93,13 @@ export default function JobDetailModal({ isOpen, job, onClose, onApply, onSave, 
 
         <div className="space-y-2">
           <h3 className="text-sm font-bold text-[#00193F] flex items-center gap-2">
-            <i className="fa-solid fa-wand-magic-sparkles text-[#16B3A3]"></i> Keahlian / Skill yang Dicari
+            <i className="fa-solid fa-layer-group text-[#16B3A3]"></i> Keahlian &amp; Kompetensi
           </h3>
           <div className="flex flex-wrap gap-1.5">
             {detail.skills.map((sk, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200/80"
+                className="px-3 py-1 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200/80"
               >
                 {sk}
               </span>
@@ -157,7 +157,7 @@ export default function JobDetailModal({ isOpen, job, onClose, onApply, onSave, 
                 onClick={() => onApply(detail)}
                 className="px-6 py-2.5 rounded-xl bg-[#16B3A3] hover:bg-[#109485] text-white font-bold text-xs shadow-md transition-all hover:shadow-lg"
               >
-                Lamar Posisi Ini &rarr;
+                Lamar Posisi Ini
               </button>
             )}
           </div>
